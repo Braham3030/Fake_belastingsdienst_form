@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>FAKE Belastingsdienst</h1>
+    </header>
+    <main>
+        <h2>Aangifte Erfbelasting</h2>
+
+        <fieldset>
+            <span>Gegevens van de overledene</span>
+            <form action="">
+                <input type="text" name="voornaam" id="voornaam" placeholder="">
+                <label for="voornaam">Voornaam</label>
+            </form>
+            <form action="">
+                <input type="text" name="tussenvoegsel" id="tussenvoegsel" placeholder="">
+                <label for="tussenvoegsel">Tussenvoegsel(s)</label>
+            </form>
+            <form action="">
+                <input type="text" name="achternaam" id="achternaam" placeholder="">
+                <label for="achternaam">Achternaam</label>
+            </form>
+            <form action="">
+                <input type="number" name="BSNnumber" id="BSNnumber" placeholder="" pattern="[0-9]{9}">
+                <label for="BSNnumber">BSN overleden</label>
+            </form>
+        </fieldset>
+    </main>
+    
+    <script src="script.js"></script>
+</body>
+</html>

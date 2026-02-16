@@ -1,0 +1,127 @@
+
+*,*::before, *::after {
+        box-sizing: border-box;
+        transition: all 0.3s ease;
+    }
+
+:root {
+    --NS-Yellow: #FDD44F;
+}
+
+
+fieldset {
+    position: relative;
+    z-index: 10;
+    border-radius: 8px;
+    padding: 1px 8px;
+    margin-top: 10px;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: none;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    
+}
+
+span {
+    position: absolute;
+    left: 15px;
+    top: -23%;
+    font-size: 18px;
+    color: black;
+    background-color: rgba(255, 255, 255, 0.3);
+    z-index: 111;
+    padding: 2px;
+    border-radius: 16px;
+
+    box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.5);
+    animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+    0% {
+        z-index: 0;
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        z-index: 111;
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+
+form {
+    position: relative;
+    z-index: 10;
+    border-radius: 8px;
+    color: white;
+    padding: 1px 8px;
+    margin: 2em 0 0 0;
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: flex-start;
+}
+
+input {
+    width: 8em;
+    height: 1.8em;
+    padding: 8px;
+    border-radius: 4px;
+    background: transparent;
+}
+
+form:nth-of-type(2) input {
+    width: 10em;
+}
+
+#BSNnumber {
+    width: 12em;
+}
+
+fieldset label {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease-in-out;
+}
+
+fieldset input:focus + label,
+fieldset input:not(:placeholder-shown) + label {
+    left: 20px;
+    top: 0;
+    font-size: 12px;
+    color: black;
+    background-color: white;
+    z-index: 111;
+    padding: 0px;
+    border-radius: 16px;
+}
+
+fieldset input:focus-visible {
+    border-radius: 16px;
+    border: 1px solid var(--NS-Yellow);
+    outline: 1px solid var(--NS-Yellow);
+    width: 100%;
+    animation: glowing 1.5s infinite;
+}
+
+@keyframes glowing {
+    0% {
+        box-shadow: 0 0 5px var(--NS-Yellow);
+    }
+    50% {
+        box-shadow: 0 0 10px var(--NS-Yellow);
+    }
+    100% {
+        box-shadow: 0 0 5px var(--NS-Yellow);
+    }
+}
