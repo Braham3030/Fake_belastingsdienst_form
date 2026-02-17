@@ -322,7 +322,7 @@ form input:focus-visible {
     flex-direction: row-reverse;
     justify-content: space-between;
     align-items: center;
-    height: 4em;
+    height: 3em;
 }
 
 .ja {
@@ -330,7 +330,7 @@ form input:focus-visible {
     flex-direction: row-reverse;
     justify-content: space-between;
     align-items: center;
-    height: 4em;
+    height: 3em;
 }
 
 
@@ -342,8 +342,8 @@ form input:focus-visible {
     appearance: none;
     border: 1px solid rgb(0, 51, 127);
     border-radius: 50%;
-    width: 4em;
-    height: 4em;
+    width: 3em;
+    height: 3em;
 }
 
 .radioBox label {
@@ -401,7 +401,7 @@ form input:focus-visible {
 
 .radioBox input:hover,
 .radioBox input:not(:checked):hover {
-    transform: scale(1.9);
+    transform: scale(1.1);
 }
 
 
