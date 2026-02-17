@@ -245,6 +245,7 @@ form input:focus-visible {
     flex-direction: column;
     gap: 1em;
     padding: 0;
+    border: none;
 }
 
 
@@ -380,7 +381,9 @@ form input:focus-visible {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(0);
+    z-index: -1;
 }
+
 
 .radioBox input:checked:after {
     filter: blur(2px);
@@ -397,7 +400,12 @@ form input:focus-visible {
 legend {
     z-index: 100;
     color: black;
-    background: red;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 -3px 5px rgba(253, 212, 79, 0.5);
+    border-radius: 16px;
+    padding: 4px 8px;
+    width: 100%;
+    margin: 0 auto;
 
     margin-bottom: 2em;
 }
