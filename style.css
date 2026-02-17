@@ -172,9 +172,9 @@ form {
     z-index: 10;
     border-radius: 8px;
     padding: 1px 8px;
-    margin: 2em 0 0 0;
+    margin: 2em 0 2.5em 0;
     width: 100%;
-    height: auto;
+    height: 15em;
     display: flex;
     justify-content: center;
     /* align-items: flex-start;
@@ -265,16 +265,132 @@ form input:focus-visible {
     box-shadow: 0 2px 15px rgba(253, 212, 79, 0.5), 2px 0 30px rgba(0, 51, 127, 0.5);
 }
 
-.field1B > fieldset input {
+/* .field1B > fieldset input {
     display: flex;
     height: 2em;
 }
 
 .field1B > fieldset label {
+    margin-left: 20px;
+    font-size: 20px;
+    width: 40%;
     transform: translateY(-130%);
 }
 
+.field1B > fieldset > input:checked {
+    accent-color: rgb(253, 212, 79);
+    animation: glowing2 1.5s infinite;
+}
 
+@keyframes glowing2 {
+    0% {
+        box-shadow: 0 0 5px rgb(253, 212, 79);
+    }
+    50% {
+        box-shadow: 0 0 10px rgb(253, 212, 79);
+    }
+    100% {
+        box-shadow: 0 0 5px rgb(253, 212, 79);
+    }
+}
+
+.field1B fieldset input:hover {
+    transform: scale(1.1);
+} */
+
+
+.radioBox {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.nee  {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    height: 4em;
+}
+
+.ja {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    height: 4em;
+}
+
+
+.radioBox input {
+    width: fit-content;
+    padding: 0;
+    margin: 0;
+
+    appearance: none;
+    border: 1px solid rgb(0, 51, 127);
+    border-radius: 50%;
+    width: 4em;
+    height: 4em;
+}
+
+.radioBox label {
+    font-size: 18px;
+    width: fit-content;
+}
+
+
+.radioBox input:checked {
+    accent-color: rgb(253, 212, 79);
+    border-top: 2px solid rgb(253, 212, 79);
+    border-bottom: 2px solid rgb(253, 212, 79);
+    border-left: 2px solid rgb(0, 51, 127);
+    border-right: 2px solid rgb(0, 51, 127);
+    animation: circleRotate 2.5s forwards;
+}
+
+
+@keyframes circleRotate {
+    0% {
+        box-shadow: 0 0 5px rgb(253, 212, 79);
+        transform: rotate(0deg);
+    }
+    100% {
+        box-shadow: 0 0 20px rgb(253, 212, 79);
+        transform: rotate(360deg);
+    }
+}
+
+.radioBox input:checked + label {
+    font-size: 22px;
+    font-weight: 900;
+}
+
+.radioBox input:after {
+    content: '';
+    position: absolute;
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+    background: rgb(253, 212, 79);
+    box-shadow: 0 0 5px rgb(253, 212, 79);
+    
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+}
+
+.radioBox input:checked:after {
+    filter: blur(2px);
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.radioBox input:hover,
+.radioBox input:not(:checked):hover {
+    transform: scale(1.9);
+}
 
 
 
@@ -283,5 +399,5 @@ legend {
     color: black;
     background: red;
 
-    margin-bottom: 5em;
+    margin-bottom: 2em;
 }
