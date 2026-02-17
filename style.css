@@ -156,7 +156,7 @@ header img {
 form {
     z-index: 10;
     border-radius: 8px;
-    padding: 1px 8px;
+    padding: 4px 8px;
     margin: 0 auto;
     width: 95vw;
     height: auto;
@@ -168,25 +168,27 @@ form {
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
 }
 
-fieldset {
+.field1A {
     z-index: 10;
     border-radius: 8px;
-    color: white;
     padding: 1px 8px;
     margin: 2em 0 0 0;
     width: 100%;
     height: auto;
     display: flex;
-    align-items: flex-start;
+    justify-content: center;
+    /* align-items: flex-start;
     justify-content: center;
     flex-direction: column;
-    flex-wrap: wrap;
+    flex-wrap: wrap; */
+
+    flex-direction: column;
     border: none;
 
     box-shadow: 0 2px 15px rgba(253, 212, 79, 0.5), 2px 0 30px rgba(0, 51, 127, 0.5);
 }
 
-input {
+.field1A > input {
     width: 20em;
     height: 2em;
     padding: 8px;
@@ -194,20 +196,18 @@ input {
     background: transparent;
 }
 
-form label {
-    position: relative;
-    width: auto;
-    left: 10px;
-    top: 50%;
+form .field1A label {
+    /* position: relative; */
+    width: fit-content;
+    margin-left: 15px;
     transform: translateY(-120%);
     color: rgba(0, 0, 0, 0.5);
     transition: all 0.3s ease-in-out;
 }
 
-form input:focus + label,
-form input:not(:placeholder-shown) + label {
-    left: 5px;
-    top: 50%;
+form .field1A input:focus + label,
+form .field1A input:not(:placeholder-shown) + label {
+    margin-left: 10px;
     transform: translateY(-250%);
     font-size: 12px;
     color: black;
@@ -220,25 +220,68 @@ form input:not(:placeholder-shown) + label {
 
 form input:focus-visible {
     border-radius: 16px;
-    border: 1px solid var(--NS-Yellow);
-    outline: 1px solid var(--NS-Yellow);
+    /* border: 1px solid var(--NS-Yellow);
+    outline: 1px solid var(--NS-Yellow); */
+    border: 1px solid rgb(253, 212, 79);
+    outline: 1px solid rgb(253, 212, 79);
     
     animation: glowing 1.5s infinite;
 }
 
 @keyframes glowing {
     0% {
-        box-shadow: 0 0 5px var(--NS-Yellow);
+        box-shadow: 0 0 5px rgb(0, 51, 127);
     }
     50% {
-        box-shadow: 0 0 10px var(--NS-Yellow);
+        box-shadow: 0 0 10px rgb(0, 51, 127);
     }
     100% {
-        box-shadow: 0 0 5px var(--NS-Yellow);
+        box-shadow: 0 0 5px rgb(0, 51, 127);
     }
 }
+
+.field1B {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding: 0;
+}
+
+
+.field1B > fieldset {
+    z-index: 10;
+    border-radius: 8px;
+    width: 100%;
+    height: auto;
+    display: flex;
+    /* align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap; */
+
+    flex-direction: column;
+    border: none;
+
+    box-shadow: 0 2px 15px rgba(253, 212, 79, 0.5), 2px 0 30px rgba(0, 51, 127, 0.5);
+}
+
+.field1B > fieldset input {
+    display: flex;
+    height: 2em;
+}
+
+.field1B > fieldset label {
+    transform: translateY(-130%);
+}
+
+
+
+
 
 legend {
     z-index: 100;
     color: black;
+    background: red;
+
+    margin-bottom: 5em;
 }
