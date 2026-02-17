@@ -189,6 +189,10 @@ form {
     box-shadow: 0 2px 15px rgba(253, 212, 79, 0.5), 2px 0 30px rgba(0, 51, 127, 0.5);
 }
 
+.field1A:hover {
+    transform: scale(1.02);
+}
+
 .field1A > input {
     width: 20em;
     height: 2em;
@@ -247,6 +251,10 @@ form input:focus-visible {
     gap: 1em;
     padding: 0;
     border: none;
+}
+
+.field1B > fieldset:hover {
+    transform: scale(1.02);
 }
 
 
