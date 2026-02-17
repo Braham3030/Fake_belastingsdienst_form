@@ -5,10 +5,11 @@
     }
 
 :root {
-    --NS-Yellow: #FDD44F;
+    --NS-Yellow: #FDD44F/ rgb(253, 212, 79);
+    --NS-Blue: #003399/ rgb(0, 51, 127);
 }
 
-
+/* 
 fieldset {
     position: relative;
     z-index: 10;
@@ -124,4 +125,120 @@ fieldset input:focus-visible {
     100% {
         box-shadow: 0 0 5px var(--NS-Yellow);
     }
+} */
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2em;
+}
+
+header img {
+    width: 100px;
+    animation: slideInFadeIn .5s ease-out;
+}
+
+@keyframes slideInFadeIn {
+    0% {
+        scale: .5;
+        opacity: 0;
+        transform: translateX(-200px);
+    }
+    100% {
+        scale: 1;
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+form {
+    z-index: 10;
+    border-radius: 8px;
+    padding: 1px 8px;
+    margin: 0 auto;
+    width: 95vw;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    border: none;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+fieldset {
+    z-index: 10;
+    border-radius: 8px;
+    color: white;
+    padding: 1px 8px;
+    margin: 2em 0 0 0;
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    border: none;
+
+    box-shadow: 0 2px 15px rgba(253, 212, 79, 0.5), 2px 0 30px rgba(0, 51, 127, 0.5);
+}
+
+input {
+    width: 20em;
+    height: 2em;
+    padding: 8px;
+    border-radius: 4px;
+    background: transparent;
+}
+
+form label {
+    position: relative;
+    width: auto;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-120%);
+    color: rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease-in-out;
+}
+
+form input:focus + label,
+form input:not(:placeholder-shown) + label {
+    left: 5px;
+    top: 50%;
+    transform: translateY(-250%);
+    font-size: 12px;
+    color: black;
+    background-color: white;
+    z-index: 111;
+    padding: 0px;
+    border-radius: 16px;
+}
+
+
+form input:focus-visible {
+    border-radius: 16px;
+    border: 1px solid var(--NS-Yellow);
+    outline: 1px solid var(--NS-Yellow);
+    
+    animation: glowing 1.5s infinite;
+}
+
+@keyframes glowing {
+    0% {
+        box-shadow: 0 0 5px var(--NS-Yellow);
+    }
+    50% {
+        box-shadow: 0 0 10px var(--NS-Yellow);
+    }
+    100% {
+        box-shadow: 0 0 5px var(--NS-Yellow);
+    }
+}
+
+legend {
+    z-index: 100;
+    color: black;
 }
