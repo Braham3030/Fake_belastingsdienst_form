@@ -19,19 +19,19 @@
         <form>
             <span>Gegevens van de overledene</span>
             <fieldset class="field1A">
-                <input type="text" name="voornaam" id="voornaam" placeholder="">
+                <input type="text" name="voornaam" id="voornaam" placeholder="" required>
                 <label for="voornaam">Voornaam</label>
             
                 <input type="text" name="tussenvoegsel" id="tussenvoegsel" placeholder="">
                 <label for="tussenvoegsel">Tussenvoegsel(s)</label>
             
-                <input type="text" name="achternaam" id="achternaam" placeholder="">
+                <input type="text" name="achternaam" id="achternaam" placeholder="" required>
                 <label for="achternaam">Achternaam</label>
             
-                <input type="number" name="BSNnumber" id="BSNnumber" placeholder="" pattern="[0-9]{9}">
+                <input type="text" name="BSNnumber" id="BSNnumber" placeholder="" minlength="8" maxlength="9" pattern="1*2*3*4*5*6*7*8*9*0" required class="BSNnumberInput">
                 <label for="BSNnumber">BSN overleden</label>
 
-                <input type="number" name="overlijdensdatum" id="overlijdensdatum" placeholder="" pattern="[0-9]{8}">
+                <input type="date" name="overlijdensdatum" id="overlijdensdatum" placeholder="" pattern="[0-9]{8}" required>
                 <label for="overlijdensdatum">Overlijdensdatum (ddmmjjjj)</label>
             </fieldset>
             <fieldset class="field1B">
@@ -128,7 +128,9 @@
                 <input type="number" name="BSNnummerOverledene" id="BSNnummerOverledene" pattern="[0-9]{9}">
                 <label for="BSNnummerOverledene">BSN</label>
             </fieldset>
+            <button type="submit">Submit</button>
         </form>
+        <!-- <button type="button">Submitting</button> -->
     </main>
     
     <script src="script.js"></script>
