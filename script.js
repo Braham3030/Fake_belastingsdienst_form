@@ -40,11 +40,16 @@ BSNnumberInput.addEventListener("input", () => {
 
 let field = document.querySelector("#overlijdensdatum");
 
+let field2 = document.querySelector("#datumHuwelijkseVoorwaarden");
+
 let date = new Date();
 
 field.value = date.getFullYear().toString() + "-" + (date.getMonth() + 1).toString().padStart(2, 0) + '-' + date.getDate().toString().padStart(2, 0);
 
 field.max = date.getFullYear().toString() + "-" + (date.getMonth() + 1).toString().padStart(2, 0) + '-' + date.getDate().toString().padStart(2, 0);
 
+field2.max = date.getFullYear().toString() + "-" + (date.getMonth() + 1).toString().padStart(2, 0) + '-' + date.getDate().toString().padStart(2, 0);
+
+field2.value = date.getFullYear().toString() + "-" + (date.getMonth() + 1).toString().padStart(2, 0) + '-' + date.getDate().toString().padStart(2, 0);
 
 console.log(field.value);
