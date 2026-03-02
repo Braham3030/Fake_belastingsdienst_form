@@ -245,20 +245,21 @@ form input:focus-visible {
     }
 }
 
-.field1B {
+.field1B, .field1C, .field1D {
     display: flex;
     flex-direction: column;
     gap: 1em;
     padding: 0;
+    width: 100%;
     border: none;
 }
 
-.field1B > fieldset:hover {
+.field1B > fieldset:hover, .field1C > fieldset:hover, .field1D > fieldset:hover {
     transform: scale(1.02);
 }
 
 
-.field1B > fieldset {
+.field1B > fieldset, .field1C > fieldset, .field1D > fieldset {
     z-index: 10;
     border-radius: 8px;
     width: 100%;
@@ -275,39 +276,9 @@ form input:focus-visible {
     box-shadow: 0 2px 15px rgba(253, 212, 79, 0.5), 2px 0 30px rgba(0, 51, 127, 0.5);
 }
 
-/* .field1B > fieldset input {
-    display: flex;
-    height: 2em;
+.field1C, .field1D {
+    margin-top: 2.5em;
 }
-
-.field1B > fieldset label {
-    margin-left: 20px;
-    font-size: 20px;
-    width: 40%;
-    transform: translateY(-130%);
-}
-
-.field1B > fieldset > input:checked {
-    accent-color: rgb(253, 212, 79);
-    animation: glowing2 1.5s infinite;
-}
-
-@keyframes glowing2 {
-    0% {
-        box-shadow: 0 0 5px rgb(253, 212, 79);
-    }
-    50% {
-        box-shadow: 0 0 10px rgb(253, 212, 79);
-    }
-    100% {
-        box-shadow: 0 0 5px rgb(253, 212, 79);
-    }
-}
-
-.field1B fieldset input:hover {
-    transform: scale(1.1);
-} */
-
 
 .radioBox {
     display: flex;

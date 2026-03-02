@@ -31,7 +31,7 @@
                 <input type="text" name="BSNnumber" id="BSNnumber" placeholder="" minlength="8" maxlength="9" pattern="1*2*3*4*5*6*7*8*9*0" required class="BSNnumberInput">
                 <label for="BSNnumber">BSN overleden</label>
 
-                <input type="date" name="overlijdensdatum" id="overlijdensdatum" placeholder="" pattern="[0-9]{8}" required>
+                <input type="date" name="overlijdensdatum" id="overlijdensdatum" placeholder="" min="2025-10-01" max="" required>
                 <label for="overlijdensdatum">Overlijdensdatum (ddmmjjjj)</label>
             </fieldset>
             <fieldset class="field1B">
@@ -40,13 +40,13 @@
                 <div class="radioBox">
 
                     <div class="nee">
-                <input type="radio" name="getrouwd" id="getrouwdNee" value="Nee">
-                <label for="getrouwdNee">Nee</label>
+                        <input type="radio" name="getrouwd" id="getrouwdNee" value="Nee">
+                        <label for="getrouwdNee">Nee</label>
                     </div>
 
                     <div class="ja">
-                <input type="radio" name="getrouwd" id="getrouwdJa" value="Ja">
-                <label for="getrouwdJa">Ja</label>
+                        <input type="radio" name="getrouwd" id="getrouwdJa" value="Ja">
+                        <label for="getrouwdJa">Ja</label>
                     </div>
 
                 </div>
@@ -75,6 +75,7 @@
                         <input type="radio" name="finaal" id="finaalJa" value="Ja">
                         <label for="finaalJa">Ja</label>
                     </div>
+                </div>
             </fieldset>
             <fieldset>
                 <legend>Datum huwelijkse of partnerschapsvoorwaarden</legend>
@@ -82,35 +83,61 @@
                 <label for="datumHuwelijkseVoorwaarden">Datum huwelijkse of partnerschaps</label>
             </fieldset>
             </fieldset>
-            <fieldset>
+            <fieldset class="field1C">
                 <fieldset>
                     <legend>Had de overledene kinderen?</legend>
-                    <input type="radio" name="kinderen" id="kinderenNee" value="Nee">
-                    <label for="kinderenNee">Nee</label>
-                    <input type="radio" name="kinderen" id="kinderenJa" value="Ja">
-                    <label for="kinderenJa">Ja</label>
+                    <div class="radioBox">
+                        <div class="nee">
+                            <input type="radio" name="kinderen" id="kinderenNee" value="Nee">
+                            <label for="kinderenNee">Nee</label>
+                        </div>
+                        <div class="ja">
+                            <input type="radio" name="kinderen" id="kinderenJa" value="Ja">
+                            <label for="kinderenJa">Ja</label>
+                        </div>
+                    </div>
                 </fieldset>
                 <fieldset>
                     <legend>Is 1 van deze kinderen eerder overleden dan de overledene voor wie u nu aangifte doet?</legend>
-                    <input type="radio" name="kinderenOverledenNee" id="kinderenOverledenNee" value="Nee">
-                    <label for="kinderenOverledenNee">Nee</label>
-                    <input type="radio" name="kinderenOverledenJa" id="kinderenOverledenJa" value="Ja">
-                    <label for="kinderenOverledenJa">Ja</label>
+                    <div class="radioBox">
+                        <div class="nee">
+                            <input type="radio" name="kinderenOverledenNee" id="kinderenOverledenNee" value="Nee">
+                            <label for="kinderenOverledenNee">Nee</label>
+                        </div>
+                        <div class="ja">
+                            <input type="radio" name="kinderenOverledenJa" id="kinderenOverledenJa" value="Ja">
+                            <label for="kinderenOverledenJa">Ja</label>
+                        </div>
+                    </div>
                 </fieldset>
                 <fieldset>
                     <legend>Had dit overleden kind zelf kinderen?</legend>
-                    <input type="radio" name="kleinkinderenNee" id="kleinkinderenNee" value="Nee">
-                    <label for="kleinkinderenNee">Nee</label>
-                    <input type="radio" name="kleinkinderenJa" id="kleinkinderenJa" value="Ja">
-                    <label for="kleinkinderenJa">Ja</label>
+                    <div class="radioBox">
+                        <div class="nee">
+                            <input type="radio" name="kleinkinderenNee" id="kleinkinderenNee" value="Nee">
+                            <label for="kleinkinderenNee">Nee</label>
+                        </div>
+                        <div class="ja">
+                            <input type="radio" name="kleinkinderenJa" id="kleinkinderenJa" value="Ja">
+                            <label for="kleinkinderenJa">Ja</label>
+                        </div>
+                    </div>
                 </fieldset>
             </fieldset>
-            <fieldset>
-                <legend>Had de overledene een testament?</legend>
-                <input type="radio" name="testamentNee" id="testamentNee" value="Nee">
-                <label for="testamentNee">Nee</label>
-                <input type="radio" name="testamentJa" id="testamentJa" value="Ja">
-                <label for="testamentJa">Ja</label>
+            <fieldset class="field1D">
+                <fieldset>
+                    <legend>Had de overledene een testament?</legend>
+                    <div class="radioBox">
+                        <div class="nee">
+                            <input type="radio" name="testamentNee" id="testamentNee" value="Nee">
+                            <label for="testamentNee">Nee</label>
+                        </div>
+                        <div class="ja">
+                            <input type="radio" name="testamentJa" id="testamentJa" value="Ja">
+                            <label for="testamentJa">Ja</label>
+                        </div>
+                    </div>
+                </fieldset>
             </fieldset>
             <fieldset>
                 <input type="text" name="protocolnummerNotaris" id="protocolnummerNotaris">

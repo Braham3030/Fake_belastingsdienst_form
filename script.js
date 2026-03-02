@@ -34,3 +34,17 @@ BSNnumberInput.addEventListener("input", () => {
 
     }
 })
+
+
+// Dynamic date input today 
+
+let field = document.querySelector("#overlijdensdatum");
+
+let date = new Date();
+
+field.value = date.getFullYear().toString() + "-" + (date.getMonth() + 1).toString().padStart(2, 0) + '-' + date.getDate().toString().padStart(2, 0);
+
+field.max = date.getFullYear().toString() + "-" + (date.getMonth() + 1).toString().padStart(2, 0) + '-' + date.getDate().toString().padStart(2, 0);
+
+
+console.log(field.value);
