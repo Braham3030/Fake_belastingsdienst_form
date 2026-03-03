@@ -453,6 +453,56 @@ legend {
     margin-bottom: 2em;
 }
 
+
+.BSNnumberInput.valid {
+    position: relative;
+    outline: 2px solid green;
+    animation: validGlow 1.5s ease-in-out;
+}
+
+@keyframes validGlow {
+    0% {
+        box-shadow: 0 0 5px green;
+    }
+    50% {
+        box-shadow: 0 0 15px green;
+    }
+    100% {
+        box-shadow: 0 0 5px green;
+    }
+}
+
+.BSNnumberInput.invalid {
+    position: relative;
+    outline: 2px solid red;
+    animation: invalidGlow 1.5s ease-in-out;
+}
+
+@keyframes invalidGlow {
+    0% {
+        box-shadow: 0 0 5px red;
+    }
+    50% {
+        box-shadow: 0 0 15px red;
+    }
+    100% {
+        box-shadow: 0 0 5px red;
+    }
+}
+
+/* :has(.BSNnumberInput.invalid)::after {
+    content: "eeee";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1.5em;
+    height: 1.5em;
+    background: yellow;
+} */
+
+
+
+
 button {
     display: flex;
     align-items: center;

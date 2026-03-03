@@ -16,19 +16,22 @@ const BSNnumberInput = document.querySelector(".BSNnumberInput");
 BSNnumberInput.addEventListener("input", () => {
     const BSNnumber = BSNnumberInput.value;
 
+    BSNnumberInput.classList.remove("valid", "invalid");
+
     if (BSNnumber.length === 9) {
-        BSNnumber.split("")
-        let sum = BSNnumber[0] * 9 + BSNnumber[1] * 8 + BSNnumber[2] * 7 + BSNnumber[3] * 6 + BSNnumber[4] * 5 + BSNnumber[5] * 4 + BSNnumber[6] * 3 + BSNnumber[7] * 2 - BSNnumber[8] * -1;
+        let sum = BSNnumber[0] * 9 + BSNnumber[1] * 8 + BSNnumber[2] * 7 + BSNnumber[3] * 6 + BSNnumber[4] * 5 + BSNnumber[5] * 4 + BSNnumber[6] * 3 + BSNnumber[7] * 2 - BSNnumber[8];
         
-        total = sum / 11;
+        let total = sum / 11;
         console.log(BSNnumber[0]);
         console.log(sum);
 
         console.log(total);
         
         if (total % 1 === 0) {
+            BSNnumberInput.classList.add("valid");
             console.log("Valid BSN number");
         } else {
+            BSNnumberInput.classList.add("invalid");
             console.log("Invalid BSN number");
         }
 
