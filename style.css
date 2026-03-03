@@ -377,6 +377,8 @@ form input:focus-visible {
     border-radius: 50%;
     width: 3em;
     height: 3em;
+
+    transition: border 0.5s ease-in-out, box-shadow 0.2s ease-in-out, transform 0.5s ease-in-out;
 }
 
 .radioBox label {
@@ -386,7 +388,6 @@ form input:focus-visible {
 
 
 .radioBox input:checked {
-    accent-color: rgb(253, 212, 79);
     border-top: 2px solid rgb(253, 212, 79);
     border-bottom: 2px solid rgb(253, 212, 79);
     border-left: 2px solid rgb(0, 51, 127);
@@ -397,11 +398,23 @@ form input:focus-visible {
 
 @keyframes circleRotate {
     0% {
-        box-shadow: 0 0 5px rgb(253, 212, 79);
+        box-shadow: 5px 0 10px rgb(253, 212, 79);
         transform: rotate(0deg);
     }
+    25% {
+        box-shadow: 0 5px 10px rgb(253, 212, 79);
+        transform: rotate(90deg);
+    }
+    50% {
+        box-shadow: 0px 5px 10px rgb(253, 212, 79);
+        transform: rotate(180deg);
+    }
+    75% {
+        box-shadow: 0px 5px 10px rgb(253, 212, 79);
+        transform: rotate(270deg);
+    }
     100% {
-        box-shadow: 0 0 20px rgb(253, 212, 79);
+        box-shadow: 0 0px 20px rgb(253, 212, 79);
         transform: rotate(360deg);
     }
 }
@@ -424,6 +437,8 @@ form input:focus-visible {
     left: 50%;
     transform: translate(-50%, -50%) scale(0);
     z-index: -1;
+
+    transition: transform 0.2s ease-in-out;
 }
 
 
