@@ -367,6 +367,7 @@ form input:focus-visible {
 
 
 .radioBox input {
+    position: relative;
     width: fit-content;
     padding: 0;
     margin: 0;
