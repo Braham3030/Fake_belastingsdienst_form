@@ -502,7 +502,23 @@ legend {
 } */
 
 
+/* #overlijdensdatum::-webkit-calendar-picker-indicator {
+    opacity: 0;
+}
 
+#overlijdensdatum {
+    position: relative;
+}
+
+#overlijdensdatum:after {
+    content: "📅";
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    pointer-events: none;
+} */
 
 button {
     display: flex;
