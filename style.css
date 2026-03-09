@@ -17,6 +17,7 @@ header {
     width: 95vw;
     margin: 0 auto;
     padding: 4px 8px;
+    background: red;
 }
 
 header img {
@@ -61,7 +62,7 @@ form {
     /* box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); */
 }
 
-.field1A, .field1Dd {
+.field1A, .field1D > fieldset:last-of-type {
     z-index: 10;
     border-radius: 8px;
     padding: 10px 8px;
@@ -76,45 +77,56 @@ form {
     flex-wrap: wrap; */
 
     flex-direction: column;
+    gap: 20px;
     border: none;
 
     box-shadow: 0 2px 15px rgba(253, 212, 79, 0.5), 2px 0 30px rgba(0, 51, 127, 0.5);
 }
 
-.field1A > input, .field1Dd > input {
+.field1Aa > label > span {
+    color: red;
+}
+
+.field1Aa, .field1D > fieldset:last-of-type > .field1Dd {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-direction: row-reverse;
+    position: relative;
+}
+
+.field1Aa > input, .field1D > fieldset:last-of-type > .field1Dd > input {
     margin-left: 1em;
-    width: 20em;
+    width: 10em;
     height: 2em;
     padding: 8px;
     border-radius: 4px;
     background: transparent;
 }
 
-form .field1A label, form .field1Dd label {
+form .field1Aa label, form .field1D > fieldset:last-of-type > .field1Dd label {
     /* position: relative; */
-    width: fit-content;
     margin-left: 20px;
-    transform: translateY(-120%);
-    color: rgba(0, 0, 0, 0.5);
-    transition: all 0.3s ease-in-out;
+    width: 13em;
+    font-size: 14px;
+    font-weight: 500;
+    /* transform: translateY(-120%); */
+    color: rgba(0, 0, 0, 1);
+    transition: font-size 0.4s ease, width 0.3s ease;
 }
 
 form .field1A input:focus + label,
-form .field1A input:not(:placeholder-shown) + label,
-form .field1Dd input:focus + label,
-form .field1Dd input:not(:placeholder-shown) + label {
-    margin-left: 20px;
-    transform: translateY(-250%);
-    font-size: 12px;
-    color: black;
-    background-color: white;
+form .field1D > fieldset:last-of-type input:focus + label {
+    font-size: 15px;
+    width: 12em;
+    color: rgb(0, 51, 127);
     z-index: 111;
     padding: 0px;
     border-radius: 16px;
 }
 
 
-form input:focus-visible {
+.field1Aa > input:focus-visible, .field1D > fieldset:last-of-type > .field1Dd > input:focus-visible {
     border-radius: 16px;
     /* border: 1px solid var(--NS-Yellow);
     outline: 1px solid var(--NS-Yellow); */
@@ -348,42 +360,6 @@ legend {
 }
 
 
-.BSNnumberInput.valid {
-    position: relative;
-    outline: 2px solid green;
-    animation: validGlow 1.5s ease-in-out;
-}
-
-@keyframes validGlow {
-    0% {
-        box-shadow: 0 0 5px green;
-    }
-    50% {
-        box-shadow: 0 0 15px green;
-    }
-    100% {
-        box-shadow: 0 0 5px green;
-    }
-}
-
-.BSNnumberInput.invalid {
-    position: relative;
-    outline: 2px solid red;
-    animation: invalidGlow 1.5s ease-in-out;
-}
-
-@keyframes invalidGlow {
-    0% {
-        box-shadow: 0 0 5px red;
-    }
-    50% {
-        box-shadow: 0 0 15px red;
-    }
-    100% {
-        box-shadow: 0 0 5px red;
-    }
-}
-
 /* :has(.BSNnumberInput.invalid)::after {
     content: "eeee";
     position: absolute;
@@ -469,4 +445,94 @@ button:hover p {
 button:hover:before, button:hover:after {
     transform: translateX(0em);
     background: rgba(253, 212, 79, 1);
+}
+
+
+/* Error message handler */
+
+.field1Aa > span, .field1D > fieldset:last-of-type > .field1Dd > span {
+    opacity: 0;
+    font-size: 8px;
+    padding: 2px 4px;
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    right: 0;
+    transform: translate(-100%, -50%);
+    pointer-events: none;
+}
+
+.field1Aa > input:user-invalid, .field1D > fieldset:last-of-type > .field1Dd > input:user-invalid {
+    border-radius: 16px;
+    border: 1px solid red;
+    outline: 1px solid red;
+    animation: invalidGlow 1.5s ease-in-out;
+}
+
+.field1Aa > input:user-invalid ~ span:first-of-type, .field1D > fieldset:last-of-type > .field1Dd > input:user-invalid ~ span:first-of-type {
+    opacity: 1;
+    font-size: 12px;
+    padding: 2px 4px;
+    position: absolute;
+    z-index: 100;
+    top: -40%;
+    right: 0%;
+    transform: translate(-50%, -50%);
+
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(50px);
+    border-radius: 16px;
+}
+
+/* BSN number validation error message */
+
+.BSNnumberInput.valid {
+    position: relative;
+    outline: 2px solid green;
+    animation: validGlow 1.5s ease-in-out;
+}
+
+@keyframes validGlow {
+    0% {
+        box-shadow: 0 0 5px green;
+    }
+    50% {
+        box-shadow: 0 0 15px green;
+    }
+    100% {
+        box-shadow: 0 0 5px green;
+    }
+}
+
+.BSNnumberInput.invalid {
+    border: 1px solid red;
+    outline: 2px solid red;
+    animation: invalidGlow 1.5s ease-in-out;
+}
+
+@keyframes invalidGlow {
+    0% {
+        box-shadow: 0 0 5px red;
+    }
+    50% {
+        box-shadow: 0 0 15px red;
+    }
+    100% {
+        box-shadow: 0 0 5px red;
+    }
+}
+
+.BSNnumberInput.invalid ~ span:last-of-type {
+    opacity: 1;
+    font-size: 12px;
+    padding: 2px 4px;
+    position: absolute;
+    z-index: 100;
+    top: -40%;
+    right: 0%;
+    transform: translate(-100%, -50%);
+
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(50px);
+    border-radius: 16px;
 }

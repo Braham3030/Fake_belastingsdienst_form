@@ -19,20 +19,34 @@
         <form>
             <span>Gegevens van de overledene</span>
             <fieldset class="field1A">
-                <input type="text" name="voornaam" id="voornaam" placeholder="" required>
-                <label for="voornaam">Voornaam</label>
+                <div class="field1Aa">
+                    <input type="text" name="voornaam" id="voornaam" placeholder="" required>
+                    <label for="voornaam">Voornaam<span>*</span></label>
+                    <span>Dit veld is verplict!</span>
+                </div>
             
-                <input type="text" name="tussenvoegsel" id="tussenvoegsel" placeholder="">
-                <label for="tussenvoegsel">Tussenvoegsel(s)</label>
+                <div class="field1Aa">
+                    <input type="text" name="tussenvoegsel" id="tussenvoegsel" placeholder="">
+                    <label for="tussenvoegsel">Tussenvoegsel(s)</label>
+                </div>
             
-                <input type="text" name="achternaam" id="achternaam" placeholder="" required>
-                <label for="achternaam">Achternaam</label>
-            
-                <input type="text" name="BSNnumber" id="BSNnumber" placeholder="" minlength="8" maxlength="9" pattern="1*2*3*4*5*6*7*8*9*0" required class="BSNnumberInput">
-                <label for="BSNnumber">BSN overleden</label>
+                <div class="field1Aa">
+                    <input type="text" name="achternaam" id="achternaam" placeholder="" required>
+                    <label for="achternaam">Achternaam<span>*</span></label>
+                    <span>Dit veld is verplict!</span>
+                </div>
 
-                <input type="date" name="overlijdensdatum" id="overlijdensdatum" placeholder="" min="2025-10-01" max="" required>
-                <label for="overlijdensdatum">Overlijdensdatum (ddmmjjjj)</label>
+                <div class="field1Aa">
+                    <input type="text" name="BSNnumber" id="BSNnumber" placeholder="" minlength="9" maxlength="9" required class="BSNnumberInput">
+                    <label for="BSNnumber">BSN overleden<span>*</span></label>
+                    <span>Dit veld is verplict!</span>
+                    <span>BSN incorrect</span>
+                </div>
+
+                <div class="field1Aa">
+                    <input type="date" name="overlijdensdatum" id="overlijdensdatum" placeholder="" min="2025-10-01" max="" required>
+                    <label for="overlijdensdatum">Overlijdensdatum (ddmmjjjj)</label>
+                </div>
             </fieldset>
             <fieldset class="field1B">
             <fieldset>
@@ -138,21 +152,37 @@
                         </div>
                     </div>
                 </fieldset>
-            <fieldset class="field1Dd">
-                <input type="text" name="protocolnummerNotaris" id="protocolnummerNotaris" placeholder="">
-                <label for="protocolnummerNotaris">Protocolnummer Notaris</label>
+            <fieldset>
+                <div class="field1Dd">
+                    <input type="text" name="protocolnummerNotaris" id="protocolnummerNotaris" placeholder="">
+                    <label for="protocolnummerNotaris">Protocolnummer Notaris</label>
+                    <span>Dit veld is verplict!</span>
+                </div>
 
-                <input type="text" name="voorletters" id="voorletters" placeholder="" required>
-                <label for="voorletters">Voorletter(s)</label>
+                <div class="field1Dd">
+                    <input type="text" name="voorletters" id="voorletters" placeholder="" required>
+                    <label for="voorletters">Voorletter(s)</label>
+                    <span>Dit veld is verplict!</span>
+                </div>
 
-                <input type="text" name="tussenvoegsel" id="tussenvoegsel" placeholder="">
-                <label for="tussenvoegsel">Tussenvoegsel(s)</label>
+                <div class="field1Dd">
+                    <input type="text" name="tussenvoegsel" id="tussenvoegsel" placeholder="">
+                    <label for="tussenvoegsel">Tussenvoegsel(s)</label>
+                </div>
 
-                <input type="text" name="achternaam" id="achternaam" placeholder="" required>
-                <label for="achternaam">Achternaam</label>
+                <div class="field1Dd">
+                    <input type="text" name="achternaam" id="achternaam" placeholder="" required>
+                    <label for="achternaam">Achternaam</label>
+                    <span>Dit veld is verplict!</span>
+                </div>
 
-                <input type="text" name="BSNnummerOverledene" id="BSNnummerOverledene" minlength="8" maxlength="9" pattern="1*2*3*4*5*6*7*8*9*0" placeholder="" required class="BSNnumberInput">
-                <label for="BSNnummerOverledene">BSN</label>
+                <div class="field1Dd">
+                    <input type="text" name="BSNnummerOverledene" id="BSNnummerOverledene" minlength="8" maxlength="9" placeholder="" required class="BSNnumberInput">
+                    <label for="BSNnummerOverledene">BSN</label>
+                    <span>Dit veld is verplict!</span>
+                    <span>BSN incorrect</span>
+                </div>
+
             </fieldset>
             </fieldset>
             <button type="submit"><p>Submit</p></button>
