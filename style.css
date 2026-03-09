@@ -268,12 +268,24 @@ form .field1D > fieldset:last-of-type input:focus + label {
     width: 3em;
     height: 3em;
 
-    transition: border 0.5s ease-in-out, box-shadow 0.2s ease-in-out, transform 0.5s ease-in-out;
+    transition: border 0.5s ease-in-out, box-shadow 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.5s ease-in-out, border 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .radioBox label {
     font-size: 18px;
     width: fit-content;
+}
+
+.radioBox input:checked:after {
+    filter: blur(2px);
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.radioBox input:hover,
+.radioBox input:not(:checked):hover {
+    transform: scale(1.1);
+    border: 3px solid rgb(0, 51, 127);
+    box-shadow: 0 0 20px rgb(253, 212, 79);
 }
 
 
@@ -288,19 +300,21 @@ form .field1D > fieldset:last-of-type input:focus + label {
 
 @keyframes circleRotate {
     0% {
-        box-shadow: 5px 0 10px rgb(253, 212, 79);
+        box-shadow: 50px 0 10px rgb(253, 212, 79);
+        box-shadow: 0 50px 10px rgb(253, 212, 79);
         transform: rotate(0deg);
     }
     25% {
-        box-shadow: 0 5px 10px rgb(253, 212, 79);
+        box-shadow: 0 50px 10px rgb(253, 212, 79);
+        box-shadow: 50px 0 10px rgb(253, 212, 79);
         transform: rotate(90deg);
     }
     50% {
-        box-shadow: 0px 5px 10px rgb(253, 212, 79);
+        box-shadow: 0px 50px 10px rgb(253, 212, 79);
         transform: rotate(180deg);
     }
     75% {
-        box-shadow: 0px 5px 10px rgb(253, 212, 79);
+        box-shadow: 0px 50px 10px rgb(253, 212, 79);
         transform: rotate(270deg);
     }
     100% {
@@ -332,17 +346,7 @@ form .field1D > fieldset:last-of-type input:focus + label {
 }
 
 
-.radioBox input:checked:after {
-    filter: blur(2px);
-    transform: translate(-50%, -50%) scale(1);
-}
 
-.radioBox input:hover,
-.radioBox input:not(:checked):hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 20px rgb(253, 212, 79);
-    border: none;
-}
 
 
 
@@ -350,7 +354,8 @@ legend {
     z-index: 100;
     color: black;
     background: rgba(255, 255, 255, 0.9);
-    box-shadow: 0 -3px 5px rgba(253, 212, 79, 0.5);
+    background: rgb(253, 212, 79);
+    box-shadow: 0 -3px 10px rgba(253, 212, 79, 0.5);
     border-radius: 16px;
     padding: 4px 8px;
     width: 100%;
@@ -434,15 +439,15 @@ button:after {
     filter: blur(10px);
 }
 
-button:hover {
+button:active {
     transform: scale(1.05);
 }
 
-button:hover p {
+button:active p {
     font-size: 22px;
 }
 
-button:hover:before, button:hover:after {
+button:active:before, button:active:after {
     transform: translateX(0em);
     background: rgba(253, 212, 79, 1);
 }
@@ -484,6 +489,47 @@ button:hover:before, button:hover:after {
     border-radius: 16px;
 }
 
+/* Checkmark validation */
+
+.field1Aa > input + label::after, .field1D > fieldset:last-of-type > .field1Dd > input + label::after {
+    content: "✓";
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translate(50%, -50%) scale(0.8);
+}
+
+
+.field1Aa > input:user-valid + label::after, .field1D > fieldset:last-of-type > .field1Dd > input:user-valid + label::after {
+    content: "✓";
+    opacity: 1;
+    position: absolute;
+    top: 50%;
+    left: -1%;
+    transform: translate(50%, -50%) scale(1);
+    font-size: 18px;
+    color: green;
+    animation: checkMarkGrow 0.5s ease-out 1s;
+}
+
+@keyframes checkMarkGrow {
+    0% {
+        font-size: 18px;
+
+    }
+    50% {
+        font-size: 20px;
+
+    }
+    100% {
+        font-size: 18px;
+
+    }
+}
+
+
+
 /* BSN number validation error message */
 
 .BSNnumberInput.valid {
@@ -522,7 +568,7 @@ button:hover:before, button:hover:after {
     }
 }
 
-.BSNnumberInput.invalid ~ span:last-of-type {
+.field1Aa > .BSNnumberInput.invalid ~ span:last-of-type, .field1D > fieldset:last-of-type > .field1Dd > .BSNnumberInput.invalid ~ span:last-of-type {
     opacity: 1;
     font-size: 12px;
     padding: 2px 4px;
@@ -535,4 +581,22 @@ button:hover:before, button:hover:after {
     background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(50px);
     border-radius: 16px;
+}
+
+
+.field1Aa > .BSNnumberInput + label::after, .field1D > fieldset:last-of-type > .field1Dd > .BSNnumberInput + label::after {
+    content: "";
+}
+
+.field1Aa > .BSNnumberInput.invalid + label::after, .field1D > fieldset:last-of-type > .field1Dd > .BSNnumberInput.invalid + label::after {
+    content: "✗";
+    opacity: 1;
+    position: absolute;
+    top: 50%;
+    left: -1%;
+    transform: translate(50%, -50%) scale(1);
+    font-size: 18px;
+    color: red;
+
+    animation: crossMarkGrow 0.5s ease-out 1s;
 }
