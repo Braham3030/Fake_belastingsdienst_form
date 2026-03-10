@@ -41,32 +41,6 @@ BSNnumberInput.forEach(input => {
 });
 
 
-// BSNnumberInput.addEventListener("input", () => {
-//     const BSNnumber = BSNnumberInput.value;
-
-//     BSNnumberInput.classList.remove("valid", "invalid");
-
-//     if (BSNnumber.length === 9) {
-//         let sum = BSNnumber[0] * 9 + BSNnumber[1] * 8 + BSNnumber[2] * 7 + BSNnumber[3] * 6 + BSNnumber[4] * 5 + BSNnumber[5] * 4 + BSNnumber[6] * 3 + BSNnumber[7] * 2 - BSNnumber[8];
-        
-//         let total = sum / 11;
-//         console.log(BSNnumber[0]);
-//         console.log(sum);
-
-//         console.log(total);
-        
-//         if (total % 1 === 0) {
-//             BSNnumberInput.classList.add("valid");
-//             console.log("Valid BSN number");
-//         } else {
-//             BSNnumberInput.classList.add("invalid");
-//             console.log("Invalid BSN number");
-//         }
-
-//     }
-// })
-
-
 // Dynamic date input today 
 
 let field = document.querySelector("#overlijdensdatum");
@@ -84,3 +58,14 @@ field2.max = date.getFullYear().toString() + "-" + (date.getMonth() + 1).toStrin
 field2.value = date.getFullYear().toString() + "-" + (date.getMonth() + 1).toString().padStart(2, 0) + '-' + date.getDate().toString().padStart(2, 0);
 
 console.log(field.value);
+
+
+// Blur event dynamic date input
+
+const dateInput = document.getElementById("datumHuwelijkseVoorwaarden");
+const fieldsetContainer = dateInput.closest(".field1B");
+
+dateInput.addEventListener("blur", () => {
+    fieldsetContainer.classList.add("unfocussed");
+    
+})

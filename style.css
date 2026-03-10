@@ -5,8 +5,8 @@
     }
 
 :root {
-    --NS-Yellow: #FDD44F/ rgb(253, 212, 79);
-    --NS-Blue: #003399/ rgb(0, 51, 127);
+    --NS-Yellow: rgb(253, 212, 79);
+    --NS-Blue: rgb(0, 51, 127);
 }
 
 header {
@@ -17,7 +17,7 @@ header {
     width: 95vw;
     margin: 0 auto;
     padding: 4px 8px;
-    background: red;
+    background: var(--NS-Yellow);
 }
 
 header img {
@@ -119,7 +119,7 @@ form .field1A input:focus + label,
 form .field1D > fieldset:last-of-type input:focus + label {
     font-size: 15px;
     width: 12em;
-    color: rgb(0, 51, 127);
+    color: var(--NS-Blue);
     z-index: 111;
     padding: 0px;
     border-radius: 16px;
@@ -130,21 +130,21 @@ form .field1D > fieldset:last-of-type input:focus + label {
     border-radius: 16px;
     /* border: 1px solid var(--NS-Yellow);
     outline: 1px solid var(--NS-Yellow); */
-    border: 1px solid rgb(253, 212, 79);
-    outline: 1px solid rgb(253, 212, 79);
+    border: 1px solid var(--NS-Yellow);
+    outline: 1px solid var(--NS-Yellow);
     
     animation: glowing 1.5s infinite;
 }
 
 @keyframes glowing {
     0% {
-        box-shadow: 0 0 5px rgb(0, 51, 127);
+        box-shadow: 0 0 5px var(--NS-Blue);
     }
     50% {
-        box-shadow: 0 0 10px rgb(0, 51, 127);
+        box-shadow: 0 0 10px var(--NS-Blue);
     }
     100% {
-        box-shadow: 0 0 5px rgb(0, 51, 127);
+        box-shadow: 0 0 5px var(--NS-Blue);
     }
 }
 
@@ -156,9 +156,6 @@ form .field1D > fieldset:last-of-type input:focus + label {
     background: red;
 } */
 
-.field1B {
-    z-index: 10;
-}
 
 .field1B, .field1C, .field1D {
     display: flex;
@@ -186,6 +183,9 @@ form .field1D > fieldset:last-of-type input:focus + label {
     flex-direction: column;
     flex-wrap: wrap; */
 
+    padding: 10px;
+    margin: 0;
+
     flex-direction: column;
     border: none;
 
@@ -204,12 +204,64 @@ form .field1D > fieldset:last-of-type input:focus + label {
     margin: 0 auto;
 }
 
-.field1C {
+/* ------ Progressive disclosure ------ */
+
+.field1B {
+    z-index: 10;
+}
+
+
+.field1B fieldset:nth-of-type(2), .field1B fieldset:nth-of-type(3), .field1B fieldset:nth-of-type(4) {
+    opacity: 0.5;
+    pointer-events: none;
+    transition: all 0.3s ease;
+
     height: 0;
     padding: 0;
     margin: 0;
     opacity: 0;
     z-index: 1;
+    transform: translateY(-100px);
+    transition: transform 0.4s ease-in-out, opacity 0.8s ease-in-out;
+}
+
+.field1B:has(fieldset:first-of-type input[value="Ja"]:checked) fieldset:nth-of-type(2), .field1B:has(fieldset:nth-of-type(2) input[value="Ja"]:checked) fieldset:nth-of-type(3), .field1B:has(fieldset:nth-of-type(3) input[value="Ja"]:checked) fieldset:nth-of-type(4) {
+    opacity: 1;
+    pointer-events: all;
+
+    display: flex;
+    transform: translateY(0px);
+    opacity: 1;
+    padding: 10px;
+    /* margin-top: 2.5em; */
+    height: auto;
+    z-index: 1;
+
+    transition: transform 0.4s ease-in-out, opacity 0.8s ease-in-out;
+}
+
+
+
+
+.field1B.unfocussed ~ .field1C {
+    display: flex;
+    transform: translateY(0px);
+    opacity: 1;
+    margin-top: 2.5em;
+    height: auto;
+    z-index: 1;
+
+    transition: transform 0.4s ease-in-out, opacity 0.8s ease-in-out;
+}
+
+
+
+.field1C {
+    height: 0;
+    padding: 0;
+    margin: 0;
+    opacity: 0;
+    z-index: -1;
     transform: translateY(-100px);
     transition: transform 0.4s ease-in-out, opacity 0.8s ease-in-out;
 }
@@ -224,6 +276,20 @@ form .field1D > fieldset:last-of-type input:focus + label {
 
     transition: transform 0.4s ease-in-out, opacity 0.8s ease-in-out;
 }
+
+
+/* Fieldset done */
+
+/* .field1B:has(fieldset input[value="Ja"]:checked) .field1B {
+    border: 2px solid green;
+} */
+
+
+
+
+
+
+
 
 /* Show field1C whatever the user chose for the last option in field1B */
 
@@ -294,41 +360,41 @@ form .field1D > fieldset:last-of-type input:focus + label {
 .radioBox input:hover,
 .radioBox input:not(:checked):hover {
     transform: scale(1.1);
-    border: 3px solid rgb(0, 51, 127);
-    box-shadow: 0 0 20px rgb(253, 212, 79);
+    border: 3px solid var(--NS-Blue);
+    box-shadow: 0 0 20px var(--NS-Yellow);
 }
 
 
 .radioBox input:checked {
-    border-top: 2px solid rgb(253, 212, 79);
-    border-bottom: 2px solid rgb(253, 212, 79);
-    border-left: 2px solid rgb(0, 51, 127);
-    border-right: 2px solid rgb(0, 51, 127);
+    border-top: 2px solid var(--NS-Yellow);
+    border-bottom: 2px solid var(--NS-Yellow);
+    border-left: 2px solid var(--NS-Blue);
+    border-right: 2px solid var(--NS-Blue);
 
-    box-shadow: 0 0px 5px rgb(253, 212, 79), 0 0px 5px rgb(253, 212, 79), 0px 0 5px rgb(0, 51, 127), 0px 0 5px rgb(0, 51, 127);
+    box-shadow: 0 0px 5px var(--NS-Yellow), 0 0px 5px var(--NS-Yellow), 0px 0 5px var(--NS-Blue), 0px 0 5px var(--NS-Blue);
     animation: circleRotate 2.5s cubic-bezier(0.215, 0.610, 0.355, 1);
 }
 
 
 @keyframes circleRotate {
     0% {
-        box-shadow: -5px 0 10px rgb(253, 212, 79), 5px 0 10px rgb(253, 212, 79), 0 5px 10px rgb(0, 51, 127), 0 -5px 10px rgb(0, 51, 127);
+        box-shadow: -5px 0 10px var(--NS-Yellow), 5px 0 10px var(--NS-Yellow), 0 5px 10px var(--NS-Blue), 0 -5px 10px var(--NS-Blue);
         transform: rotate(0deg);
     }
     25% {
-        box-shadow: 0 -5px 10px rgb(253, 212, 79), 0 5px 10px rgb(253, 212, 79), 5px 0 10px rgb(0, 51, 127), -5px 0 10px rgb(0, 51, 127);
+        box-shadow: 0 -5px 10px var(--NS-Yellow), 0 5px 10px var(--NS-Yellow), 5px 0 10px var(--NS-Blue), -5px 0 10px var(--NS-Blue);
         transform: rotate(90deg);
     }
     50% {
-        box-shadow: 0px -5px 10px rgb(253, 212, 79), 0px 5px 10px rgb(253, 212, 79), 5px 0 10px rgb(0, 51, 127), -5px 0 10px rgb(0, 51, 127);
+        box-shadow: 0px -5px 10px var(--NS-Yellow), 0px 5px 10px var(--NS-Yellow), 5px 0 10px var(--NS-Blue), -5px 0 10px var(--NS-Blue);
         transform: rotate(180deg);
     }
     75% {
-        box-shadow: 0px -5px 10px rgb(253, 212, 79), 0px 5px 10px rgb(253, 212, 79), 5px 0 10px rgb(0, 51, 127), -5px 0 10px rgb(0, 51, 127);
+        box-shadow: 0px -5px 10px var(--NS-Yellow), 0px 5px 10px var(--NS-Yellow), 5px 0 10px var(--NS-Blue), -5px 0 10px var(--NS-Blue);
         transform: rotate(270deg);
     }
     100% {
-        box-shadow: 0 0px 5px rgb(253, 212, 79), 0 0px 5px rgb(253, 212, 79), 0px 0 5px rgb(0, 51, 127), 0px 0 5px rgb(0, 51, 127);
+        box-shadow: 0 0px 5px var(--NS-Yellow), 0 0px 5px var(--NS-Yellow), 0px 0 5px var(--NS-Blue), 0px 0 5px var(--NS-Blue);
         transform: rotate(360deg);
     }
 }
@@ -344,8 +410,8 @@ form .field1D > fieldset:last-of-type input:focus + label {
     width: 1.5em;
     height: 1.5em;
     border-radius: 50%;
-    background: rgb(253, 212, 79);
-    box-shadow: 0 0 20px rgb(253, 212, 79);
+    background: var(--NS-Yellow);
+    box-shadow: 0 0 20px var(--NS-Yellow);
     
     top: 50%;
     left: 50%;
@@ -364,7 +430,7 @@ legend {
     z-index: 100;
     color: black;
     background: rgba(255, 255, 255, 0.9);
-    background: rgb(253, 212, 79);
+    background: var(--NS-Yellow);
     box-shadow: 0 -3px 10px rgba(253, 212, 79, 0.5);
     border-radius: 16px;
     padding: 4px 8px;
@@ -413,7 +479,7 @@ button {
     border-radius: 16px;
     border: none;
     background: transparent;
-    box-shadow: 0 0 20px rgb(253, 212, 79);
+    box-shadow: 0 0 20px var(--NS-Yellow);
     margin: 0 auto;
     overflow: hidden;
 }
@@ -459,7 +525,7 @@ button:active p {
 
 button:active:before, button:active:after {
     transform: translateX(0em);
-    background: rgba(253, 212, 79, 1);
+    background: var(--NS-Yellow);
 }
 
 
