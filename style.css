@@ -20,7 +20,7 @@ header {
     background: var(--NS-Yellow);
 }
 
-header img {
+header svg {
     width: 100px;
     animation: slideInFadeIn .5s ease-out;
 }
@@ -111,8 +111,8 @@ form {
 form .field1Aa label, form .field1D > fieldset:last-of-type > .field1Dd label {
     /* position: relative; */
     margin-left: 20px;
-    width: 13em;
-    font-size: 14px;
+    width: 10em;
+    font-size: 18px;
     font-weight: 500;
     /* transform: translateY(-120%); */
     color: rgba(0, 0, 0, 1);
@@ -121,8 +121,9 @@ form .field1Aa label, form .field1D > fieldset:last-of-type > .field1Dd label {
 
 form .field1A input:focus + label,
 form .field1D > fieldset:last-of-type input:focus + label {
-    font-size: 15px;
-    width: 12em;
+    font-size: 22px;
+    font-weight: 700;
+    width: 8.2em;
     color: var(--NS-Blue);
     z-index: 111;
     padding: 0px;
@@ -294,7 +295,7 @@ form .field1D > fieldset:last-of-type input:focus + label {
 }
 
 .field1A.fieldsetValid {
-    height: 10em;
+    height: 5em;
 }
 
 .field1A.fieldsetValid .field1Aa {
@@ -341,22 +342,38 @@ form .field1D > fieldset:last-of-type input:focus + label {
 }
 
 .savedUserContent > h3 {
+    font-size: 22px;
     margin-left: 20px;
 }
 
-.savedUserContent > ul {
-    display: flex;
-    flex-direction: column;
-    padding: 0;
-    margin: 0;
-    margin-left: 20px;
-
+.field1A.fieldsetValid .savedUserContent > h3 {
+    animation: slideInFromLeft 0.5s ease-out;
 }
 
-.savedUserContent > ul > li {
-    list-style-type: none;
+
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-10%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }
 
+.savedUserContent > h3 > span {
+    font-size: 22px;
+    transform: scale(1);
+    color: grey;
+    margin-right: 10px;
+    transition: color 0.5s ease-in-out 1s, font-size 0.5s ease-in-out 1s;
+}
+
+.field1A.fieldsetValid .savedUserContent > h3 > span {
+    color: green;
+    font-size: 24px;
+}
 
 
 
@@ -415,17 +432,23 @@ form .field1D > fieldset:last-of-type input:focus + label {
 }
 
 .radioBox input:checked:after {
-    filter: blur(2px);
-    transform: translate(-50%, -50%) scale(1);
-    animation: scalingRadio 1s cubic-bezier(.34,.74,.36,1.1);
+    filter: blur(0px);
+    transform: translate(-50%, -50%) scale(1.5);
+    animation: scalingRadio 2.5s cubic-bezier(.34,.74,.36,1.1);
 }
 
 @keyframes scalingRadio {
     0% {
+        filter: blur(2px);
         transform: translate(-50%, -50%) scale(0);
     }
-    100% {
+    8% {
+        filter: blur(2px);
         transform: translate(-50%, -50%) scale(1);
+    }
+    98%, 100% {
+        filter: blur(0px);
+        transform: translate(-50%, -50%) scale(1.5);
     }
 }
 
@@ -433,7 +456,7 @@ form .field1D > fieldset:last-of-type input:focus + label {
 .radioBox input:not(:checked):hover {
     transform: scale(1.1);
     border: 3px solid var(--NS-Blue);
-    box-shadow: 0 0 20px var(--NS-Yellow);
+    box-shadow: 0 0 20px var(--NS-Yellow), inset 0 0 5px var(--NS-Yellow);
 }
 
 
@@ -442,32 +465,57 @@ form .field1D > fieldset:last-of-type input:focus + label {
     border-bottom: 2px solid var(--NS-Yellow);
     border-left: 2px solid var(--NS-Blue);
     border-right: 2px solid var(--NS-Blue);
+    transform: rotate(90deg);
 
-    box-shadow: 0 0px 5px var(--NS-Yellow), 0 0px 5px var(--NS-Yellow), 0px 0 5px var(--NS-Blue), 0px 0 5px var(--NS-Blue);
-    animation: circleRotate 2.5s cubic-bezier(0.215, 0.610, 0.355, 1);
+    box-shadow: 
+    0 0px 5px var(--NS-Yellow), 
+    0 0px 5px var(--NS-Yellow), 
+    0px 0 5px var(--NS-Blue), 
+    0px 0 5px var(--NS-Blue);
+    animation: circleRotate 0.8s cubic-bezier(0.97, 0.39, 0.72, 0.43);
 }
 
 
 @keyframes circleRotate {
     0% {
-        box-shadow: -5px 0 10px var(--NS-Yellow), 5px 0 10px var(--NS-Yellow), 0 5px 10px var(--NS-Blue), 0 -5px 10px var(--NS-Blue);
-        transform: rotate(0deg);
+        box-shadow: 
+        -5px 0 10px var(--NS-Blue), 
+        5px 0 10px var(--NS-Blue), 
+        0 5px 10px var(--NS-Yellow), 
+        0 -5px 10px var(--NS-Yellow);
+        transform: rotate(-10deg);
     }
-    25% {
-        box-shadow: 0 -5px 10px var(--NS-Yellow), 0 5px 10px var(--NS-Yellow), 5px 0 10px var(--NS-Blue), -5px 0 10px var(--NS-Blue);
+    /* 25% {
+        box-shadow: 
+        0 -5px 10px var(--NS-Yellow), 
+        0 5px 10px var(--NS-Yellow), 
+        5px 0 10px var(--NS-Blue), 
+        -5px 0 10px var(--NS-Blue);
         transform: rotate(90deg);
     }
     50% {
-        box-shadow: 0px -5px 10px var(--NS-Yellow), 0px 5px 10px var(--NS-Yellow), 5px 0 10px var(--NS-Blue), -5px 0 10px var(--NS-Blue);
+        box-shadow: 
+        0px -5px 10px var(--NS-Yellow), 
+        0px 5px 10px var(--NS-Yellow), 
+        5px 0 10px var(--NS-Blue), 
+        -5px 0 10px var(--NS-Blue);
         transform: rotate(180deg);
     }
     75% {
-        box-shadow: 0px -5px 10px var(--NS-Yellow), 0px 5px 10px var(--NS-Yellow), 5px 0 10px var(--NS-Blue), -5px 0 10px var(--NS-Blue);
+        box-shadow: 
+        0px -5px 10px var(--NS-Yellow), 
+        0px 5px 10px var(--NS-Yellow), 
+        5px 0 10px var(--NS-Blue), 
+        -5px 0 10px var(--NS-Blue);
         transform: rotate(270deg);
-    }
+    } */
     100% {
-        box-shadow: 0 0px 5px var(--NS-Yellow), 0 0px 5px var(--NS-Yellow), 0px 0 5px var(--NS-Blue), 0px 0 5px var(--NS-Blue);
-        transform: rotate(360deg);
+        box-shadow: 
+        0 0px 5px var(--NS-Blue), 
+        0 0px 5px var(--NS-Blue), 
+        0px 0 5px var(--NS-Yellow), 
+        0px 0 5px var(--NS-Yellow);
+        transform: rotate(90deg);
     }
 }
 
@@ -555,18 +603,19 @@ button[type="submit"] {
     margin: 0 auto;
     overflow: hidden;
 }
-button[type="submit"] span {
+button[type="submit"] > span {
     z-index: 10000;
     position: absolute;
     padding: 0;
+    font-size: 16px;
 }
 
 button[type="submit"]:before {
     content: "";
     position: absolute;
-    left: 0;
-    bottom: 0;
-    transform: translateX(-10em);
+    left: 50%;
+    bottom: 50%;
+    transform: translate(50%, -50%);
     width: 15em;
     height: 15em;
     background: rgba(253, 212, 79, 0.8);
@@ -577,9 +626,9 @@ button[type="submit"]:before {
 button[type="submit"]:after {
     content: "";
     position: absolute;
-    right: 0;
-    top: 0;
-    transform: translateX(5em);
+    right: 50%;
+    top: 50%;
+    transform: translate(-50%, 50%);
     width: 10em;
     height: 5em;
     background: rgba(253, 212, 79, 0.8);
@@ -587,18 +636,67 @@ button[type="submit"]:after {
     filter: blur(10px);
 }
 
-button[type="submit"]:active {
+button[type="submit"]:active, button[type="submit"]:hover {
     transform: scale(1.05);
 }
 
-button[type="submit"]:active span {
+button[type="submit"]:active > span, button[type="submit"]:hover > span {
     font-size: 22px;
 }
 
-button[type="submit"]:active:before, button[type="submit"]:active:after {
-    transform: translateX(0em);
+button[type="submit"]:active:after, button[type="submit"]:hover:after {
+    right: 50%;
+    top: 50%;
+    transform: translate(50%, -50%);
     background: var(--NS-Yellow);
+
+
+    background-image: linear-gradient(
+    115deg,
+    transparent 35%,
+    rgba(255, 255, 255, 0.3) 45%,
+    rgba(200, 245, 255, 0.4) 50%,
+    rgba(200, 200, 245, 0.4) 55%,
+    transparent 70%
+);
+
+background-size: 300% 100%;
+background-position: 0% 0%;
+
+animation: NSshineBackground 2s linear infinite;
 }
+
+button[type="submit"]:active:before, button[type="submit"]:hover:before {
+    left: 50%;
+    bottom: 50%;
+    transform: translate(-50%, 50%);
+    background: var(--NS-Yellow);
+
+    background-image: linear-gradient(
+    115deg,
+    transparent 35%,
+    rgba(0, 51, 127, 1) 45%,
+    rgba(0, 51, 127, 1) 50%,
+    rgba(0, 51, 127, 1) 55%,
+    transparent 70%
+);
+
+background-size: 300% 100%;
+background-position: 0% 0%;
+
+animation: NSshineBackground 2s linear;
+}
+
+
+@keyframes NSshineBackground {
+    0% {
+        background-position: 100% 0%;
+    }
+    100% {
+        background-position: -100% 0%;
+    }
+}
+
 
 
 /* Error message handler */
