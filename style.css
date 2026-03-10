@@ -752,7 +752,7 @@ animation: NSshineBackground 2s linear;
     opacity: 1;
     position: absolute;
     top: 50%;
-    left: -1%;
+    left: 0;
     transform: translate(50%, -50%) scale(1);
     font-size: 18px;
     color: green;
@@ -780,6 +780,7 @@ animation: NSshineBackground 2s linear;
 
 .BSNnumberInput.valid {
     position: relative;
+    border: 1px solid green;
     outline: 2px solid green;
     animation: validGlow 1.5s ease-in-out;
 }
