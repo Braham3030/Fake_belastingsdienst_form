@@ -69,3 +69,34 @@ dateInput.addEventListener("blur", () => {
     fieldsetContainer.classList.add("unfocussed");
     
 })
+
+
+// full fieldset validation check
+
+const fieldset = document.querySelector(".field1A");
+const inputs = fieldset.querySelectorAll("input");
+const customize = fieldset.querySelector(".customize");
+
+checkValidityStatus = () => {
+    let allValid = true;
+    inputs.forEach(input => {
+        if (!input.checkValidity()) {
+        allValid = false;
+    
+    }
+});
+
+if (allValid) {
+    fieldset.classList.add("fieldsetValid")
+}
+}
+
+inputs.forEach(input => {
+    input.addEventListener("blur", checkValidityStatus);
+})
+
+if (customize) {
+    customize.addEventListener("click", () => {
+        fieldset.classList.remove("fieldsetValid");
+    })
+}
