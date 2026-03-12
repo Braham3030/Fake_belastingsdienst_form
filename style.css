@@ -320,6 +320,7 @@ form .field1D > fieldset:last-of-type input:focus + label {
     transform: translate(-50%, -100%);
     font-size: 32px;
     z-index: 1000;
+    cursor: pointer;
 }
 
 .field1A.fieldsetValid .customize {
