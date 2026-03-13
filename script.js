@@ -21,7 +21,7 @@ BSNnumberInput.forEach(input => {
          input.classList.remove("valid", "invalid");
 
     if (BSNnumber.length === 9) {
-        let sum = BSNnumber[0] * 9 + BSNnumber[1] * 8 + BSNnumber[2] * 7 + BSNnumber[3] * 6 + BSNnumber[4] * 5 + BSNnumber[5] * 4 + BSNnumber[6] * 3 + BSNnumber[7] * 2 - BSNnumber[8];
+        let sum = (BSNnumber[0] * 9) + (BSNnumber[1] * 8) + (BSNnumber[2] * 7) + (BSNnumber[3] * 6) + (BSNnumber[4] * 5) + (BSNnumber[5] * 4) + (BSNnumber[6] * 3) + (BSNnumber[7] * 2) - BSNnumber[8];
         
         let total = sum / 11;
         console.log(BSNnumber[0]);
