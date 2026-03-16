@@ -102,3 +102,98 @@ if (customize) {
         fieldset.classList.remove("fieldsetValid");
     })
 }
+
+
+// MARK: Dynamisch inladen verkrijgers
+
+// checkRemovebtn checks the number of fieldsets and changes the behavior of the remove button
+checkRemovebtn = () => {
+    const removeBtns = document.querySelectorAll(".verkrijgerContainer .remove-btn")
+
+    if (removeBtns.length <= 1) {
+        if (removeBtns[0]) removeBtns[0].classList.remove("remove-btn-visible");
+        // removeBtns.style.display = "none";
+    } else {
+        removeBtns.forEach(btn => btn.classList.add("remove-btn-visible"));
+        // removeBtns.style.display = "block";
+    }
+}
+
+checkRemovebtn();
+
+
+let verkrijgerCount = 1;
+const addBtn = document.querySelector(".field1E .add-btn");
+
+// When clicked on the addBtn, a new form will be added to the html.
+addBtn.addEventListener("click", () => {
+    // "verkrijgerCount" is used to increase the number of the "verkrijger"
+    verkrijgerCount++;
+
+    const newForm = `
+    <fieldset class="verkrijgerContainer">
+                    <div class="legendRemoveStyling">
+                        <legend>Verkrijger ${verkrijgerCount}</legend>
+                        <button type="button" class="remove-btn" onclick="this.parentElement.parentElement.remove(); checkRemovebtn();">
+                            Verwijder ✗
+                        </button>
+                    </div>
+
+                    <div class="field1Ee">
+                        <label for="">Bsn/RSIN</label>
+                        <input type="text" name="BSNnummerVerkrijger${verkrijgerCount}" id="BSNnummerVerkrijger${verkrijgerCount}" minlength="8" maxlength="9" placeholder="" required class="BSNnumberInput">
+                        <span>Dit veld is verplicht!</span>
+                    </div>
+                    <div class="field1Ee">
+                        <label for="">Voorletters</label>
+                        <input type="text" name="voorlettersVerkrijger${verkrijgerCount}" id="voorlettersVerkrijger${verkrijgerCount}" required>
+                        <span>Dit veld is verplicht!</span>
+                    </div>
+
+                    <div class="field1Ee">
+                        <label for="">Tussenvoegsel(s)</label>
+                        <input type="text" name="tussenvoegselVerkrijger${verkrijgerCount}" id="tussenvoegselVerkrijger${verkrijgerCount}">
+                    </div>
+
+                    <div class="field1Ee">
+                        <label for="">Achternaam</label>
+                        <input type="text" name="achternaamVerkrijger${verkrijgerCount}" id="achternaamVerkrijger${verkrijgerCount}" required>
+                        <span>Dit veld is verplicht!</span>
+                    </div>
+                    
+                    <fieldset>
+                        <legend>Krijgt deze verkrijger waarvoor u geen aangifte doet het hele vermogen?</legend>
+                        <div class="radioBox">
+                            <div class="nee">
+                                <input type="radio" name="vermogen${verkrijgerCount}" id="vermogenNee${verkrijgerCount}" value="Nee" required>
+                                <label for="vermogenNee${verkrijgerCount}">Nee</label>
+                            </div>
+                            <div class="ja">
+                                <input type="radio" name="vermogen${verkrijgerCount}" id="vermogenJa${verkrijgerCount}" value="Ja" required>
+                                <label for="vermogenJa${verkrijgerCount}">Ja</label>
+                            </div>
+                        </div>
+                    </fieldset>
+                     <fieldset>
+                        <legend>Doet deze verkrijger een beroep op diens legitieme portie (wettelijke erfdeel)?</legend>
+                        <div class="radioBox">
+                            <div class="nee">
+                                <input type="radio" name="legitieme${verkrijgerCount}" id="legitiemeNee${verkrijgerCount}" value="Nee" required>
+                                <label for="legitiemeNee${verkrijgerCount}">Nee</label>
+                            </div>
+                            <div class="ja">
+                                <input type="radio" name="legitieme${verkrijgerCount}" id="legitiemeJa${verkrijgerCount}" value="Ja" required>
+                                <label for="legitiemeJa${verkrijgerCount}">Ja</label>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                </fieldset>
+    `;
+
+    // The form will be added to the html before the addBtn
+    addBtn.insertAdjacentHTML("beforebegin", newForm);
+
+    checkRemovebtn();
+})
+

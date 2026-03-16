@@ -88,7 +88,7 @@ legend {
     position: relative;
 }
 
-.field1A, .field1D > fieldset:last-of-type {
+.field1A, .field1D > fieldset:last-of-type, .field1E > .verkrijgerContainer {
     z-index: 10;
     border-radius: 8px;
     padding: 10px 8px;
@@ -109,6 +109,10 @@ legend {
     box-shadow: 0 2px 15px rgba(253, 212, 79, 0.5), 2px 0 30px rgba(0, 51, 127, 0.5);
 }
 
+.verkrijgerContainer {
+    margin: 2em 0 0 0 !important;
+}
+
 /* .field1Aa {
     display: flex;
     align-items: center;
@@ -119,7 +123,7 @@ legend {
     color: red;
 }
 
-.field1Aa, .field1D > fieldset:last-of-type > .field1Dd {
+.field1Aa, .field1D > fieldset:last-of-type > .field1Dd, .field1E > .verkrijgerContainer > .field1Ee {
     display: flex;
     align-items: flex-start;
     justify-content: start;
@@ -129,7 +133,7 @@ legend {
     
 }
 
-.field1Aa > input, .field1D > fieldset:last-of-type > .field1Dd > input {
+.field1Aa > input, .field1D > fieldset:last-of-type > .field1Dd > input, .field1E > .verkrijgerContainer > .field1Ee > input {
     width: 25em;
     height: 3em;
     padding: 8px;
@@ -137,7 +141,7 @@ legend {
     background: transparent;
 }
 
-form .field1Aa label, form .field1D > fieldset:last-of-type > .field1Dd label {
+form .field1Aa label, form .field1D > fieldset:last-of-type > .field1Dd label, form .field1E > .verkrijgerContainer > .field1Ee label {
     /* position: relative; */
     margin-left: 10px;
     width: 10em;
@@ -149,7 +153,8 @@ form .field1Aa label, form .field1D > fieldset:last-of-type > .field1Dd label {
 }
 
 form .field1A .field1Aa:focus-within > label,
-form .field1D .field1Dd:focus-within > label {
+form .field1D .field1Dd:focus-within > label,
+form .field1E .field1Ee:focus-within > label {
     font-size: 24px;
     margin-left: 0;
     font-weight: 700;
@@ -161,7 +166,7 @@ form .field1D .field1Dd:focus-within > label {
 }
 
 
-.field1Aa > input:focus-visible, .field1D > fieldset:last-of-type > .field1Dd > input:focus-visible {
+.field1Aa > input:focus-visible, .field1D > fieldset:last-of-type > .field1Dd > input:focus-visible, .field1E > .verkrijgerContainer > .field1Ee > input:focus-visible {
     border-radius: var(--input-text-focus-border-radius);
     /* border: 1px solid var(--NS-Yellow);
     outline: 1px solid var(--NS-Yellow); */
@@ -192,7 +197,7 @@ form .field1D .field1Dd:focus-within > label {
 } */
 
 
-.field1B, .field1C, .field1D {
+.field1B, .field1C, .field1D, .field1E {
     display: flex;
     flex-direction: column;
     gap: 1em;
@@ -201,13 +206,13 @@ form .field1D .field1Dd:focus-within > label {
     border: none;
 }
 
-.field1A:hover, .field1B > fieldset:hover, .field1C > fieldset:hover, .field1D > fieldset:hover {
+.field1A:hover, .field1B > fieldset:hover, .field1C > fieldset:hover, .field1D > fieldset:hover, .field1E > fieldset:hover {
     /* transform: scale(1.02); */
     box-shadow: 0px 0px 10px rgba(253, 212, 79, 0.8);
 }
 
 
-.field1B > fieldset, .field1C > fieldset, .field1D > fieldset {
+.field1B > fieldset, .field1C > fieldset, .field1D > fieldset, .field1E > fieldset {
     z-index: 10;
     border-radius: 8px;
     width: 100%;
@@ -239,7 +244,99 @@ form .field1D .field1Dd:focus-within > label {
     margin: 0 auto;
 }
 
+/* MARK:Add and remove buttons */
 
+.legendRemoveStyling {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    width: 100%;
+}
+
+.legendRemoveStyling > legend {
+    width: 100%;
+    margin: 0;
+}
+
+.legendRemoveStyling:has(.remove-btn-visible) > legend {
+    width: 65%;
+}
+
+.remove-btn {
+    opacity: 0;
+    pointer-events: none;
+    width: 0%;
+    padding: 0;
+    border: none;
+    overflow: hidden;
+}
+
+.remove-btn-visible {
+    opacity: 1;
+    z-index: 100;
+    color: black;
+    background: rgba(255, 255, 255, 0.9);
+    background: var(--NS-Yellow);
+    box-shadow: 0 -3px 10px rgba(253, 212, 79, 0.5);
+    border-radius: 16px;
+    border: none;
+    padding: 4px 8px;
+    font-size: 20px;
+    width: 35%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: all;
+}
+
+.add-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    /* padding: 1em 3em; */
+    padding: 0;
+    width: 100%;
+    height: 3em;
+    border-radius: 16px;
+    border: none;
+    background: transparent;
+    box-shadow: 0 0 20px var(--NS-Yellow);
+    margin: 0 auto;
+    margin-bottom: 2em !important;
+    overflow: hidden;
+    font-size: 22px;
+}
+
+.add-btn:hover > span, .add-btn:active > span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    font-size: 48px;
+    border-radius: inherit;
+    background: var(--NS-Yellow);
+    width: 100%;
+    height: 100%;
+}
+
+
+.add-btn > span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 48px;
+    border-radius: inherit;
+    background: var(--NS-Yellow);
+    opacity: 0;
+    width: 0%;
+    height: 100%;
+}
 
 
 /* ------ MARK: Progressive disclosure ------ */
@@ -393,6 +490,69 @@ form .field1D .field1Dd:focus-within > label {
 }
 
 /* Fieldset1D done */
+
+/* Fieldset1E */
+
+.field1E {
+    opacity: 0.5;
+    pointer-events: none;
+    transition: all 0.3s ease;
+
+    height: 0;
+    padding: 0;
+    margin: 0;
+    opacity: 0;
+    z-index: 1;
+    transform: translateY(-100px);
+    transition: transform 0.4s ease-in-out, opacity 0.8s ease-in-out;
+}
+
+.field1D:has(fieldset:first-of-type input[value="Nee"]:checked) ~ .field1E {
+    opacity: 1;
+    pointer-events: all;
+
+    display: flex;
+    transform: translateY(0px);
+    opacity: 1;
+    padding: 10px;
+    height: auto;
+    z-index: 1;
+
+    transition: transform 0.4s ease-in-out, opacity 0.8s ease-in-out;
+}
+
+
+.field1E fieldset:nth-of-type(2), .field1E .add-btn {
+    opacity: 0.5;
+    pointer-events: none;
+    transition: all 0.3s ease;
+
+    height: 0;
+    padding: 0;
+    margin: 0;
+    opacity: 0;
+    z-index: 1;
+    transform: translateY(-100px);
+    transition: transform 0.4s ease-in-out, opacity 0.8s ease-in-out;
+}
+
+
+.field1E:has(fieldset:first-of-type input[value="Ja"]:checked) fieldset:nth-of-type(2), .field1E:has(fieldset:first-of-type input[value="Ja"]:checked) .add-btn {
+    opacity: 1;
+    pointer-events: all;
+
+    display: flex;
+    transform: translateY(0px);
+    opacity: 1;
+    padding: 10px;
+    /* margin-top: 2.5em; */
+    height: auto;
+    z-index: 1;
+
+    transition: transform 0.4s ease-in-out, opacity 0.8s ease-in-out;
+}
+
+/* Fieldset1E done */
 
 
 
@@ -682,8 +842,6 @@ legend {
     padding: 4px 8px;
     width: 100%;
     margin: 0 auto;
-
-    margin-bottom: 2em;
 }
 
 
@@ -827,7 +985,7 @@ animation: NSshineBackground 2s linear;
 
 /* MARK:Error message handler */
 
-.field1Aa > span, .field1D > fieldset:last-of-type > .field1Dd > span {
+.field1Aa > span, .field1D > fieldset:last-of-type > .field1Dd > span, .field1E > .verkrijgerContainer > .field1Ee > span {
     opacity: 0;
     font-size: 12px;
     padding: 2px 8px;
@@ -843,14 +1001,14 @@ animation: NSshineBackground 2s linear;
     pointer-events: none;
 }
 
-.field1Aa > input:user-invalid, .field1D > fieldset:last-of-type > .field1Dd > input:user-invalid {
+.field1Aa > input:user-invalid, .field1D > fieldset:last-of-type > .field1Dd > input:user-invalid, .field1E > .verkrijgerContainer > .field1Ee > input:user-invalid {
     border-radius: var(--input-text-focus-border-radius);
     border: 1px solid red;
     outline: 1px solid red;
     animation: invalidGlow 1.5s ease-in-out;
 }
 
-.field1Aa > input:user-invalid ~ span:first-of-type, .field1D > fieldset:last-of-type > .field1Dd > input:user-invalid ~ span:first-of-type {
+.field1Aa > input:user-invalid ~ span:first-of-type, .field1D > fieldset:last-of-type > .field1Dd > input:user-invalid ~ span:first-of-type, .field1E > .verkrijgerContainer > .field1Ee > input:user-invalid ~ span:first-of-type {
     opacity: 1;
     font-size: var(--error-message-font-size);
     padding: 2px 8px;
@@ -953,7 +1111,7 @@ animation: NSshineBackground 2s linear;
     }
 }
 
-.field1Aa > .BSNnumberInput.invalid ~ span:last-of-type, .field1D > fieldset:last-of-type > .field1Dd > .BSNnumberInput.invalid ~ span:last-of-type {
+.field1Aa > .BSNnumberInput.invalid ~ span:last-of-type, .field1D > fieldset:last-of-type > .field1Dd > .BSNnumberInput.invalid ~ span:last-of-type, .field1E > .verkrijgerContainer > .field1Ee > .BSNnumberInput.invalid ~ span:last-of-type {
     opacity: 1;
     font-size: var(--error-message-font-size);
     padding: 2px 8px;
@@ -971,11 +1129,11 @@ animation: NSshineBackground 2s linear;
 }
 
 
-.field1Aa > .BSNnumberInput + label::after, .field1D > fieldset:last-of-type > .field1Dd > .BSNnumberInput + label::after {
+.field1Aa > .BSNnumberInput + label::after, .field1D > fieldset:last-of-type > .field1Dd > .BSNnumberInput + label::after, .field1E > .verkrijgerContainer > .field1Ee > .BSNnumberInput + label::after {
     content: "";
 }
 
-.field1Aa > .BSNnumberInput.invalid + label::after, .field1D > fieldset:last-of-type > .field1Dd > .BSNnumberInput.invalid + label::after {
+.field1Aa > .BSNnumberInput.invalid + label::after, .field1D > fieldset:last-of-type > .field1Dd > .BSNnumberInput.invalid + label::after, .field1E > .verkrijgerContainer > .field1Ee > .BSNnumberInput.invalid + label::after {
     content: "✗";
     opacity: 1;
     position: absolute;

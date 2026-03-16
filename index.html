@@ -175,38 +175,115 @@
                         </div>
                     </div>
                 </fieldset>
-            <fieldset>
-                <div class="field1Dd">
-                    <label for="protocolnummerNotaris">Protocolnummer Notaris</label>
-                    <input type="text" name="protocolnummerNotaris" id="protocolnummerNotaris" placeholder="">
-                    <span>Dit veld is verplicht!</span>
-                </div>
+                <fieldset>
+                    <div class="field1Dd">
+                        <label for="protocolnummerNotaris">Protocolnummer Notaris</label>
+                        <input type="text" name="protocolnummerNotaris" id="protocolnummerNotaris" placeholder="">
+                        <span>Dit veld is verplicht!</span>
+                    </div>
 
-                <div class="field1Dd">
-                    <label for="voorletters">Voorletter(s)</label>
-                    <input type="text" name="voorletters" id="voorlettersNotaris" required>
-                    <span>Dit veld is verplicht!</span>
-                </div>
+                    <div class="field1Dd">
+                        <label for="voorletters">Voorletter(s)</label>
+                        <input type="text" name="voorletters" id="voorlettersNotaris" required>
+                        <span>Dit veld is verplicht!</span>
+                    </div>
 
-                <div class="field1Dd">
-                    <label for="tussenvoegsel">Tussenvoegsel(s)</label>
-                    <input type="text" name="tussenvoegsel" id="tussenvoegselNotaris" >
-                </div>
+                    <div class="field1Dd">
+                        <label for="tussenvoegsel">Tussenvoegsel(s)</label>
+                        <input type="text" name="tussenvoegsel" id="tussenvoegselNotaris" >
+                    </div>
 
-                <div class="field1Dd">
-                    <label for="achternaam">Achternaam</label>
-                    <input type="text" name="achternaam" id="achternaamNotaris" required>
-                    <span>Dit veld is verplicht!</span>
-                </div>
+                    <div class="field1Dd">
+                        <label for="achternaam">Achternaam</label>
+                        <input type="text" name="achternaam" id="achternaamNotaris" required>
+                        <span>Dit veld is verplicht!</span>
+                    </div>
 
-                <div class="field1Dd">
-                    <label for="BSNnummerOverledene">BSN</label>
-                    <input type="text" name="BSNnummerOverledene" id="BSNnummerOverledeneNotaris" minlength="8" maxlength="9" placeholder="" required class="BSNnumberInput">
-                    <span>Dit veld is verplicht!</span>
-                    <span>BSN incorrect</span>
-                </div>
+                    <div class="field1Dd">
+                        <label for="BSNnummerOverledene">BSN</label>
+                        <input type="text" name="BSNnummerOverledene" id="BSNnummerOverledeneNotaris" minlength="8" maxlength="9" placeholder="" required class="BSNnumberInput">
+                        <span>Dit veld is verplicht!</span>
+                        <span>BSN incorrect</span>
+                    </div>
 
+                </fieldset>
             </fieldset>
+            <fieldset class="field1E">
+                <fieldset>
+                    <legend>Zijn er verkrijgers voor wie u geen aangifte doet?</legend>
+                    <div class="radioBox">
+                        <div class="nee">
+                            <input type="radio" name="aangifte" id="aangifteNee" value="Nee" required>
+                            <label for="aangifteNee">Nee</label>
+                        </div>
+                        <div class="ja">
+                            <input type="radio" name="aangifte" id="aangifteJa" value="Ja" required>
+                            <label for="aangifteJa">Ja</label>
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset class="verkrijgerContainer">
+                    <div class="legendRemoveStyling">
+                        <legend>Verkrijger 1</legend>
+                        <button type="button" class="remove-btn" onclick="this.parentElement.parentElement.remove()"; checkRemovebtn();>
+                            Verwijder ✗ 
+                        </button>
+                    </div>
+
+                    <div class="field1Ee">
+                        <label for="">Bsn/RSIN</label>
+                        <input type="text" name="BSNnummerVerkrijger1" id="BSNnummerVerkrijger1" minlength="8" maxlength="9" placeholder="" required class="BSNnumberInput">
+                        <span>Dit veld is verplicht!</span>
+                        <span>BSN incorrect</span>
+                    </div>
+                    <div class="field1Ee">
+                        <label for="">Voorletters</label>
+                        <input type="text" name="voorlettersVerkrijger1" id="voorlettersVerkrijger1" required>
+                        <span>Dit veld is verplicht!</span>
+                    </div>
+
+                    <div class="field1Ee">
+                        <label for="">Tussenvoegsel(s)</label>
+                        <input type="text" name="tussenvoegselVerkrijger1" id="tussenvoegselVerkrijger1">
+                    </div>
+
+                    <div class="field1Ee">
+                        <label for="">Achternaam</label>
+                        <input type="text" name="achternaamVerkrijger1" id="achternaamVerkrijger1" required>
+                        <span>Dit veld is verplicht!</span>
+                    </div>
+                    
+                    <fieldset>
+                        <legend>Krijgt deze verkrijger waarvoor u geen aangifte doet het hele vermogen?</legend>
+                        <div class="radioBox">
+                            <div class="nee">
+                                <input type="radio" name="vermogen" id="vermogenNee" value="Nee" required>
+                                <label for="vermogenNee">Nee</label>
+                            </div>
+                            <div class="ja">
+                                <input type="radio" name="vermogen" id="vermogenJa" value="Ja" required>
+                                <label for="vermogenJa">Ja</label>
+                            </div>
+                        </div>
+                    </fieldset>
+                     <fieldset>
+                        <legend>Doet deze verkrijger een beroep op diens legitieme portie (wettelijke erfdeel)?</legend>
+                        <div class="radioBox">
+                            <div class="nee">
+                                <input type="radio" name="legitieme" id="legitiemeNee" value="Nee" required>
+                                <label for="legitiemeNee">Nee</label>
+                            </div>
+                            <div class="ja">
+                                <input type="radio" name="legitieme" id="legitiemeJa" value="Ja" required>
+                                <label for="legitiemeJa">Ja</label>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                </fieldset>
+                <button type="button" class="add-btn">
+                    <span>+</span> Voeg een verkrijger toe
+                </button>
             </fieldset>
             <button type="submit"><span>Submit</span></button>
         </form>
