@@ -112,10 +112,8 @@ checkRemovebtn = () => {
 
     if (removeBtns.length <= 1) {
         if (removeBtns[0]) removeBtns[0].classList.remove("remove-btn-visible");
-        // removeBtns.style.display = "none";
     } else {
         removeBtns.forEach(btn => btn.classList.add("remove-btn-visible"));
-        // removeBtns.style.display = "block";
     }
 }
 
