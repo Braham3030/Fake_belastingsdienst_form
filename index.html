@@ -39,30 +39,30 @@
             <fieldset class="field1A">
                 <legend>Gegevens van de overledene</legend>
                 <div class="savedUserContent">
-                    <h3><span>✓</span>Gegevens opgeslagen</h3>
-                    <button class="customize">🖊️</button>
+                    <h3><span>✓</span>"Gegevens van de overledene" zijn opgeslagen</h3>
+                    <button type="button" class="customize">🖊️</button>
                 </div>
                 <div class="field1Aa">
                     <label for="voornaam">Voornaam<span>*</span></label>
                     <input type="text" name="voornamen" id="voornaam" required>
-                    <span>Dit veld is verplict!</span>
+                    <span>Dit veld is verplicht!</span>
                 </div>
             
                 <div class="field1Aa">
                     <label for="tussenvoegsel">Tussenvoegsel(s)</label>
-                    <input type="text" name="tussenvoegse" id="tussenvoegsel">
+                    <input type="text" name="tussenvoegsel" id="tussenvoegsel">
                 </div>
             
                 <div class="field1Aa">
                     <label for="achternaam">Achternaam<span>*</span></label>
                     <input type="text" name="achternamen" id="achternaam" required>
-                    <span>Dit veld is verplict!</span>
+                    <span>Dit veld is verplicht!</span>
                 </div>
 
                 <div class="field1Aa">
                     <label for="BSNnumber">BSN overleden<span>*</span></label>
                     <input type="text" name="BSNnumbers" id="BSNnumber" minlength="9" maxlength="9" required class="BSNnumberInput">
-                    <span>Dit veld is verplict!</span>
+                    <span>Dit veld is verplicht!</span>
                     <span>BSN incorrect</span>
                 </div>
 
@@ -77,12 +77,12 @@
                 <div class="radioBox">
 
                     <div class="nee">
-                        <input type="radio" name="getrouwd" id="getrouwdNee" value="Nee">
+                        <input type="radio" name="getrouwd" id="getrouwdNee" value="Nee" required>
                         <label for="getrouwdNee">Nee</label>
                     </div>
 
                     <div class="ja">
-                        <input type="radio" name="getrouwd" id="getrouwdJa" value="Ja">
+                        <input type="radio" name="getrouwd" id="getrouwdJa" value="Ja" required>
                         <label for="getrouwdJa">Ja</label>
                     </div>
 
@@ -92,11 +92,11 @@
                 <legend>Hadden de overledene en diens echtgenoot of geregistreerde partner huwelijkse of partner schapsvoorwaarden laten vast leggen in een notariële akte?</legend>
                 <div class="radioBox">
                     <div class="nee">
-                        <input type="radio" name="vastgelegdeVoorwaarden" id="vastgelegdeVoorwaardenNee" value="Nee">
+                        <input type="radio" name="vastgelegdeVoorwaarden" id="vastgelegdeVoorwaardenNee" value="Nee" required>
                         <label for="vastgelegdeVoorwaardenNee">Nee</label>
                     </div>
                     <div class="ja">
-                        <input type="radio" name="vastgelegdeVoorwaarden" id="vastgelegdeVoorwaardenJa" value="Ja">
+                        <input type="radio" name="vastgelegdeVoorwaarden" id="vastgelegdeVoorwaardenJa" value="Ja" required>
                         <label for="vastgelegdeVoorwaardenJa">Ja</label>
                     </div>
                 </div>
@@ -105,11 +105,11 @@
                 <legend>Hadden de overledene en diens partner een finaal verrekenbeding?</legend>
                 <div class="radioBox">
                     <div class="nee">
-                        <input type="radio" name="finaal" id="finaalNee" value="Nee">
+                        <input type="radio" name="finaal" id="finaalNee" value="Nee" required>
                         <label for="finaalNee">Nee</label>
                     </div>
                     <div class="ja">
-                        <input type="radio" name="finaal" id="finaalJa" value="Ja">
+                        <input type="radio" name="finaal" id="finaalJa" value="Ja" required>
                         <label for="finaalJa">Ja</label>
                     </div>
                 </div>
@@ -125,11 +125,11 @@
                     <legend>Had de overledene kinderen?</legend>
                     <div class="radioBox">
                         <div class="nee">
-                            <input type="radio" name="kinderen" id="kinderenNee" value="Nee">
+                            <input type="radio" name="kinderen" id="kinderenNee" value="Nee" required>
                             <label for="kinderenNee">Nee</label>
                         </div>
                         <div class="ja">
-                            <input type="radio" name="kinderen" id="kinderenJa" value="Ja">
+                            <input type="radio" name="kinderen" id="kinderenJa" value="Ja" required>
                             <label for="kinderenJa">Ja</label>
                         </div>
                     </div>
@@ -138,11 +138,11 @@
                     <legend>Is 1 van deze kinderen eerder overleden dan de overledene voor wie u nu aangifte doet?</legend>
                     <div class="radioBox">
                         <div class="nee">
-                            <input type="radio" name="kinderenOverleden" id="kinderenOverledenNee" value="Nee">
+                            <input type="radio" name="kinderenOverleden" id="kinderenOverledenNee" value="Nee" required>
                             <label for="kinderenOverledenNee">Nee</label>
                         </div>
                         <div class="ja">
-                            <input type="radio" name="kinderenOverleden" id="kinderenOverledenJa" value="Ja">
+                            <input type="radio" name="kinderenOverleden" id="kinderenOverledenJa" value="Ja" required>
                             <label for="kinderenOverledenJa">Ja</label>
                         </div>
                     </div>
@@ -151,11 +151,11 @@
                     <legend>Had dit overleden kind zelf kinderen?</legend>
                     <div class="radioBox">
                         <div class="nee">
-                            <input type="radio" name="kleinkinderen" id="kleinkinderenNee" value="Nee">
+                            <input type="radio" name="kleinkinderen" id="kleinkinderenNee" value="Nee" required>
                             <label for="kleinkinderenNee">Nee</label>
                         </div>
                         <div class="ja">
-                            <input type="radio" name="kleinkinderen" id="kleinkinderenJa" value="Ja">
+                            <input type="radio" name="kleinkinderen" id="kleinkinderenJa" value="Ja" required>
                             <label for="kleinkinderenJa">Ja</label>
                         </div>
                     </div>
@@ -166,11 +166,11 @@
                     <legend>Had de overledene een testament?</legend>
                     <div class="radioBox">
                         <div class="nee">
-                            <input type="radio" name="testament" id="testamentNee" value="Nee">
+                            <input type="radio" name="testament" id="testamentNee" value="Nee" required>
                             <label for="testamentNee">Nee</label>
                         </div>
                         <div class="ja">
-                            <input type="radio" name="testament" id="testamentJa" value="Ja">
+                            <input type="radio" name="testament" id="testamentJa" value="Ja" required>
                             <label for="testamentJa">Ja</label>
                         </div>
                     </div>
@@ -179,30 +179,30 @@
                 <div class="field1Dd">
                     <label for="protocolnummerNotaris">Protocolnummer Notaris</label>
                     <input type="text" name="protocolnummerNotaris" id="protocolnummerNotaris" placeholder="">
-                    <span>Dit veld is verplict!</span>
+                    <span>Dit veld is verplicht!</span>
                 </div>
 
                 <div class="field1Dd">
                     <label for="voorletters">Voorletter(s)</label>
-                    <input type="text" name="voorletters" id="voorlettersNotaris" placeholder="" required>
-                    <span>Dit veld is verplict!</span>
+                    <input type="text" name="voorletters" id="voorlettersNotaris" required>
+                    <span>Dit veld is verplicht!</span>
                 </div>
 
                 <div class="field1Dd">
                     <label for="tussenvoegsel">Tussenvoegsel(s)</label>
-                    <input type="text" name="tussenvoegsel" id="tussenvoegselNotaris" placeholder="">
+                    <input type="text" name="tussenvoegsel" id="tussenvoegselNotaris" >
                 </div>
 
                 <div class="field1Dd">
                     <label for="achternaam">Achternaam</label>
-                    <input type="text" name="achternaam" id="achternaamNotaris" placeholder="" required>
-                    <span>Dit veld is verplict!</span>
+                    <input type="text" name="achternaam" id="achternaamNotaris" required>
+                    <span>Dit veld is verplicht!</span>
                 </div>
 
                 <div class="field1Dd">
                     <label for="BSNnummerOverledene">BSN</label>
                     <input type="text" name="BSNnummerOverledene" id="BSNnummerOverledeneNotaris" minlength="8" maxlength="9" placeholder="" required class="BSNnumberInput">
-                    <span>Dit veld is verplict!</span>
+                    <span>Dit veld is verplicht!</span>
                     <span>BSN incorrect</span>
                 </div>
 

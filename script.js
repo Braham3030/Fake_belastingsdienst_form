@@ -2,11 +2,11 @@ console.log("Hello, World! This is a simple JavaScript file.");
 
 const form = document.querySelector("form");
 const input = form.querySelectorAll("input[type='text']");
-const button = document.querySelector("button");
+// const button = document.querySelector("button");
 
-button.addEventListener("click", () => {
+// button.addEventListener("click", () => {
 
-})
+// })
 
 
 // Elfproef
@@ -17,10 +17,12 @@ BSNnumberInput.forEach(input => {
     input.addEventListener("input", () => {
         const BSNnumber = input.value;
 
-
          input.classList.remove("valid", "invalid");
 
-    if (BSNnumber.length === 9) {
+        //  The elfproef only works when 9 digits are entered.
+         const numbersOnly = /^[0-9]{9}$/;
+
+    if (numbersOnly.test(BSNnumber)) {
         let sum = (BSNnumber[0] * 9) + (BSNnumber[1] * 8) + (BSNnumber[2] * 7) + (BSNnumber[3] * 6) + (BSNnumber[4] * 5) + (BSNnumber[5] * 4) + (BSNnumber[6] * 3) + (BSNnumber[7] * 2) - BSNnumber[8];
         
         let total = sum / 11;
