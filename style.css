@@ -40,6 +40,7 @@ header h1 {
 header svg {
     width: 100px;
     animation: slideInFadeIn .5s ease-out;
+    transition: transform 0.8s ease-in-out;
 }
 
 @keyframes slideInFadeIn {
@@ -53,6 +54,10 @@ header svg {
         opacity: 1;
         transform: translateX(0);
     }
+}
+
+header svg:hover {
+    transform: rotate(180deg);
 }
 
 main h2 {
@@ -391,7 +396,7 @@ form .field1E .field1Ee:focus-within > label {
 
 
 .field1B fieldset:nth-of-type(2), .field1B fieldset:nth-of-type(3), .field1B fieldset:nth-of-type(4) {
-    opacity: 0.5;
+    opacity: 0;
     pointer-events: none;
     transition: all 0.3s ease;
 
@@ -466,7 +471,7 @@ form .field1E .field1Ee:focus-within > label {
 /* Fieldset1C */
 
 .field1C fieldset:nth-of-type(2), .field1C fieldset:nth-of-type(3), .field1D {
-    opacity: 0.5;
+    opacity: 0;
     pointer-events: none;
     transition: all 0.3s ease;
 
@@ -551,9 +556,9 @@ form .field1E .field1Ee:focus-within > label {
 
 
 .field1E fieldset:nth-of-type(2), .field1E .add-btn {
-    opacity: 0.5;
+    opacity: 0;
     pointer-events: none;
-    transition: all 0.3s ease;
+    overflow: hidden;
 
     height: 0;
     padding: 0;
