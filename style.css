@@ -200,7 +200,7 @@ form .field1E .field1Ee:focus-within > label {
 } */
 
 
-.field1B, .field1C, .field1D, .field1E, .field1E > .verkrijgerContainer {
+.field1B, .field1C, .field1D, .field1E, .field1E {
     display: flex;
     flex-direction: column;
     gap: 1em;
@@ -220,17 +220,12 @@ form .field1E .field1Ee:focus-within > label {
 }
 
 
-.field1B > fieldset, .field1C > fieldset, .field1D > fieldset, .field1E > fieldset {
+.field1B > fieldset, .field1C > fieldset, .field1D > fieldset, .field1E > fieldset:first-of-type, .field1ERadio {
     z-index: 10;
     border-radius: 8px;
     width: 100%;
     height: auto;
     display: flex;
-    /* align-items: flex-start;
-    justify-content: center;
-    flex-direction: column;
-    flex-wrap: wrap; */
-
     padding: 10px;
     margin: 0;
 
@@ -315,10 +310,10 @@ form .field1E .field1Ee:focus-within > label {
     margin: 0 auto;
     margin-bottom: 2em !important;
     overflow: hidden;
-    font-size: 22px;
+    
 }
 
-.add-btn:hover > span, .add-btn:active > span {
+.add-btn:hover > span:first-of-type, .add-btn:active > span:first-of-type {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -331,20 +326,37 @@ form .field1E .field1Ee:focus-within > label {
 }
 
 
-.add-btn > span {
+.add-btn > span:first-of-type {
     display: flex;
     align-items: center;
     justify-content: center;
     position: absolute;
     left: 0;
     top: 0;
-    font-size: 48px;
+    font-size: 22px;
     border-radius: inherit;
     background: var(--NS-Yellow);
     opacity: 0;
     width: 0%;
     height: 100%;
+    
+    transition: width 0.4s ease-in-out, opacity 0.3s ease;
 }
+
+.add-btn > span:last-of-type {
+    font-size: 22px;
+    transform: translateX(0);
+
+    transition: transform 0.3s ease-in-out, opacity 0.5s ease;
+}
+
+.add-btn:hover > span:last-of-type, .add-btn:active > span:last-of-type {
+    transform: translateX(350%);
+    z-index: -1;
+    opacity: 0;
+}
+
+
 
 
 /* ------ MARK: Progressive disclosure ------ */

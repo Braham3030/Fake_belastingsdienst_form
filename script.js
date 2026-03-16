@@ -159,7 +159,7 @@ addBtn.addEventListener("click", () => {
                         <span>Dit veld is verplicht!</span>
                     </div>
                     
-                    <fieldset>
+                    <fieldset class="field1ERadio">
                         <legend>Krijgt deze verkrijger waarvoor u geen aangifte doet het hele vermogen?</legend>
                         <div class="radioBox">
                             <div class="nee">
@@ -172,7 +172,7 @@ addBtn.addEventListener("click", () => {
                             </div>
                         </div>
                     </fieldset>
-                     <fieldset>
+                     <fieldset class="field1ERadio">
                         <legend>Doet deze verkrijger een beroep op diens legitieme portie (wettelijke erfdeel)?</legend>
                         <div class="radioBox">
                             <div class="nee">
