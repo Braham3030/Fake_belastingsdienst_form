@@ -7,7 +7,7 @@
 :root {
     --NS-Yellow: rgb(253, 212, 79);
     --NS-Blue: rgb(0, 51, 127);
-    --font-family: arial, sans-serif;
+    --font-family: "Roboto", sans-serif;
     --font-size-h1: 34px;
     --font-size-h2: 28px;
     --font-size-legend: 26px;
@@ -16,6 +16,8 @@
     --error-message-font-size: 18px;
     --input-text-border-radius: 4px;
     --input-text-focus-border-radius: 6px;
+    --form-border-radius: 8px;
+    --font-size-submit: 16px;
 }
 
 header {
@@ -24,13 +26,14 @@ header {
     justify-content: center;
     gap: 1em;
     width: 95vw;
+    border-radius: var(--form-border-radius);
     margin: 0 auto;
     padding: 4px 8px;
     background: var(--NS-Yellow);
 }
 
 header h1 {
-    font-size: 34px;
+    font-size: var(--font-size-h1);
     font-family: var(--font-family);
 }
 
@@ -65,7 +68,7 @@ main h2 {
 
 form {
     z-index: 10;
-    border-radius: 8px;
+    border-radius: var(--form-border-radius);
     padding: 4px 8px;
     margin: 0 auto;
     width: 95vw;
@@ -153,12 +156,12 @@ form .field1Aa label, form .field1D > fieldset:last-of-type > .field1Dd label, f
 }
 
 form .field1A .field1Aa:focus-within > label,
-form .field1D .field1Dd:focus-within > label,
+form .field1D > fieldset:last-of-type > .field1Dd:focus-within > label,
 form .field1E .field1Ee:focus-within > label {
     font-size: 24px;
     margin-left: 0;
     font-weight: 700;
-    width: 8.2em;
+    width: 100%;
     color: var(--NS-Blue);
     z-index: 111;
     padding: 0px;
@@ -201,6 +204,11 @@ form .field1E .field1Ee:focus-within > label {
     display: flex;
     flex-direction: column;
     gap: 1em;
+    height: 0;
+    opacity: 0;
+    gap: 0;
+    margin: 0;
+    overflow: hidden;
     padding: 0;
     width: 100%;
     border: none;
@@ -351,6 +359,8 @@ form .field1E .field1Ee:focus-within > label {
     height: auto;
     z-index: 1;
     pointer-events: all;
+    overflow: visible;
+    gap: 1em;
 
     transition: transform 0.4s ease-in-out, opacity 0.8s ease-in-out;
 }
@@ -407,6 +417,8 @@ form .field1E .field1Ee:focus-within > label {
     margin-top: 2.5em;
     height: auto;
     z-index: 1;
+    overflow: visible;
+    gap: 1em;
 
     transition: transform 0.4s ease-in-out, opacity 0.8s ease-in-out;
 }
@@ -430,6 +442,8 @@ form .field1E .field1Ee:focus-within > label {
     margin-top: 2.5em;
     height: auto;
     z-index: 1;
+    overflow: visible;
+    gap: 1em;
 
     transition: transform 0.4s ease-in-out, opacity 0.8s ease-in-out;
 }
@@ -485,6 +499,7 @@ form .field1E .field1Ee:focus-within > label {
     /* margin-top: 2.5em; */
     height: auto;
     z-index: 1;
+    gap: 1em;
 
     transition: transform 0.4s ease-in-out, opacity 0.8s ease-in-out;
 }
@@ -507,7 +522,7 @@ form .field1E .field1Ee:focus-within > label {
     transition: transform 0.4s ease-in-out, opacity 0.8s ease-in-out;
 }
 
-.field1D:has(fieldset:first-of-type input[value="Nee"]:checked) ~ .field1E {
+.field1D:has(fieldset:first-of-type input[value="Nee"]:checked) ~ .field1E, .field1D:has(fieldset:first-of-type input[value="Ja"]:checked) ~ .field1E {
     opacity: 1;
     pointer-events: all;
 
@@ -517,6 +532,8 @@ form .field1E .field1Ee:focus-within > label {
     padding: 10px;
     height: auto;
     z-index: 1;
+    overflow: visible;
+    gap: 1em;
 
     transition: transform 0.4s ease-in-out, opacity 0.8s ease-in-out;
 }
@@ -659,6 +676,10 @@ form .field1E .field1Ee:focus-within > label {
 .field1A.fieldsetValid .savedUserContent > h3 > span {
     color: green;
     font-size: 24px;
+}
+
+input[type="date"] {
+    font-family: var(--font-family);
 }
 
 
@@ -835,6 +856,7 @@ form .field1E .field1Ee:focus-within > label {
 legend {
     z-index: 100;
     color: black;
+    font-size: var(--font-size-legend);
     background: rgba(255, 255, 255, 0.9);
     background: var(--NS-Yellow);
     box-shadow: 0 -3px 10px rgba(253, 212, 79, 0.5);
@@ -891,7 +913,7 @@ button[type="submit"] > span {
     z-index: 10000;
     position: absolute;
     padding: 0;
-    font-size: 16px;
+    font-size: var(--font-size-submit);
 }
 
 button[type="submit"]:before {
