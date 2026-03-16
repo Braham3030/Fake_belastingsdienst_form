@@ -200,7 +200,7 @@ form .field1E .field1Ee:focus-within > label {
 } */
 
 
-.field1B, .field1C, .field1D, .field1E {
+.field1B, .field1C, .field1D, .field1E, .field1E > .verkrijgerContainer {
     display: flex;
     flex-direction: column;
     gap: 1em;
@@ -509,7 +509,6 @@ form .field1E .field1Ee:focus-within > label {
 /* Fieldset1E */
 
 .field1E {
-    opacity: 0.5;
     pointer-events: none;
     transition: all 0.3s ease;
 
@@ -565,6 +564,7 @@ form .field1E .field1Ee:focus-within > label {
     /* margin-top: 2.5em; */
     height: auto;
     z-index: 1;
+    gap: 1em;
 
     transition: transform 0.4s ease-in-out, opacity 0.8s ease-in-out;
 }
