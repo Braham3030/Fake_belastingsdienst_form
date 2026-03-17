@@ -10,6 +10,7 @@
     --font-family: "Roboto", sans-serif;
     --font-size-h1: 34px;
     --font-size-h2: 28px;
+    --font-size-p: 20px;
     --font-size-legend: 26px;
     --font-size-label: 24px;
     --font-size-label-active: 28px;
@@ -24,23 +25,23 @@ header, body {
     font-family: var(--font-family);
 }
 
-header {
+header > div {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 1em;
     width: 95vw;
-    border-radius: var(--form-border-radius);
+    border-radius: 8px 8px 0 0;
     margin: 0 auto;
     padding: 4px 8px;
     background: var(--NS-Yellow);
 }
 
-header h1 {
+header > div > h1 {
     font-size: var(--font-size-h1);
 }
 
-header svg {
+header > div >svg {
     width: 100px;
     animation: slideInFadeIn .5s ease-out;
     transition: transform 0.8s ease-in-out;
@@ -61,6 +62,29 @@ header svg {
 
 header svg:hover {
     transform: rotate(180deg);
+}
+
+header > p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: red;
+    color: white;
+    font-size: var(--font-size-p);
+    width: 95vw;
+    margin: 0 auto;
+    padding: 4px 8px;
+    border-radius: 0 0 8px 8px;
+    animation: zoomIn 0.5s ease-out;
+}
+
+@keyframes zoomIn {
+    0% {
+        font-size: 12px;
+    }
+    100% {
+        font-size: var(--font-size-p);
+    }
 }
 
 main h2 {
@@ -105,11 +129,9 @@ legend {
     height: auto;
     display: flex;
     justify-content: center;
-
     flex-direction: column;
     gap: 20px;
     border: none;
-
     box-shadow: 0 2px 15px rgba(253, 212, 79, 0.5), 2px 0 30px rgba(0, 51, 127, 0.5);
 }
 
@@ -161,7 +183,6 @@ form .field1E .field1Ee:focus-within > label {
     border-radius: 16px;
 }
 
-
 .field1Aa > input:focus-visible, .field1Bb > input:focus-visible, .field1D > fieldset:last-of-type > .field1Dd > input:focus-visible, .field1E > .verkrijgerContainer > .field1Ee > input:focus-visible {
     border-radius: var(--input-text-focus-border-radius);
     border: 1px solid var(--NS-Yellow);
@@ -180,7 +201,6 @@ form .field1E .field1Ee:focus-within > label {
         box-shadow: 0 0 5px var(--NS-Blue);
     }
 }
-
 
 .field1B, .field1C, .field1D, .field1E, .field1E {
     display: flex;
@@ -284,7 +304,6 @@ form .field1E .field1Ee:focus-within > label {
     align-items: center;
     justify-content: center;
     position: relative;
-    /* padding: 1em 3em; */
     padding: 0;
     width: 100%;
     height: 3em;
@@ -308,7 +327,6 @@ form .field1E .field1Ee:focus-within > label {
     width: 100%;
     height: 100%;
 }
-
 
 .add-btn > span:first-of-type {
     display: flex;
@@ -367,7 +385,6 @@ form .field1E .field1Ee:focus-within > label {
     transform: translateY(-100px);
 }
 
-
 .field1B fieldset:nth-of-type(2), .field1B fieldset:nth-of-type(3), .field1B fieldset:nth-of-type(4) {
     opacity: 0;
     pointer-events: none;
@@ -392,9 +409,6 @@ form .field1E .field1Ee:focus-within > label {
     transition: transform 0.4s ease-in-out, opacity 0.8s ease-in-out;
 }
 
-
-
-
 .field1A.unfocussed ~ .field1B {
     display: flex;
     transform: translateY(0px);
@@ -406,8 +420,6 @@ form .field1E .field1Ee:focus-within > label {
     gap: 1em;
     transition: transform 0.4s ease-in-out, opacity 0.8s ease-in-out;
 }
-
-
 
 .field1C {
     height: 0;
@@ -430,7 +442,6 @@ form .field1E .field1Ee:focus-within > label {
     gap: 1em;
     transition: transform 0.4s ease-in-out, opacity 0.8s ease-in-out;
 }
-
 
 /* Fieldset1B done */
 
@@ -469,12 +480,10 @@ form .field1E .field1Ee:focus-within > label {
 .field1C:has(fieldset:first-of-type input[value="Nee"]:checked) ~ .field1D {
     opacity: 1;
     pointer-events: all;
-
     display: flex;
     transform: translateY(0px);
     opacity: 1;
     padding: 10px;
-    /* margin-top: 2.5em; */
     height: auto;
     z-index: 1;
     gap: 1em;
@@ -822,11 +831,6 @@ button[type="submit"]:active:before, button[type="submit"]:hover:before, .saveBt
     background: white;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
     height: 0;
-    /* position: absolute;
-    z-index: -1;
-    top: 50%;
-    right: 0;
-    transform: translate(-100%, -50%); */
     pointer-events: none;
 }
 
