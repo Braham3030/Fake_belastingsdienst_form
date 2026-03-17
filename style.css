@@ -427,7 +427,7 @@ form .field1E .field1Ee:focus-within > label {
 
 
 
-.field1B.unfocussed ~ .field1C {
+.field1A.unfocussed ~ .field1B {
     display: flex;
     transform: translateY(0px);
     opacity: 1;
@@ -603,6 +603,15 @@ form .field1E .field1Ee:focus-within > label {
 .field1A:user-valid {
     background: green;
     border: 10px solid green;
+}
+
+.field1A:invalid .saveBtn, .field1D:invalid .saveBtn {
+    transform: translateY(-2em);
+    overflow: hidden;
+    opacity: 0;
+    height: 0;
+    width: 0;
+    /* display: none; */
 }
 
 .field1A.fieldsetValid {
@@ -913,7 +922,13 @@ legend {
     pointer-events: none;
 } */
 
-button[type="submit"] {
+/* .send {
+    display: none !important;
+} */
+
+
+
+button[type="submit"], .saveBtn {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -926,48 +941,48 @@ button[type="submit"] {
     margin: 0 auto;
     overflow: hidden;
 }
-button[type="submit"] > span {
+button[type="submit"] > span, .saveBtn > span {
     z-index: 10000;
     position: absolute;
     padding: 0;
     font-size: var(--font-size-submit);
 }
 
-button[type="submit"]:before {
+button[type="submit"]:before, .saveBtn:before {
     content: "";
     position: absolute;
     left: 50%;
     bottom: 50%;
     transform: translate(50%, -50%);
-    width: 15em;
+    width: 100%;
     height: 15em;
     background: rgba(253, 212, 79, 0.8);
-    border-radius: 50%;
+    border-radius: inherit;
     filter: blur(10px);
 }
 
-button[type="submit"]:after {
+button[type="submit"]:after, .saveBtn:after {
     content: "";
     position: absolute;
     right: 50%;
     top: 50%;
     transform: translate(-50%, 50%);
-    width: 10em;
+    width: 100%;
     height: 5em;
     background: rgba(253, 212, 79, 0.8);
-    border-radius: 50%;
+    border-radius: inherit;
     filter: blur(10px);
 }
 
-button[type="submit"]:active, button[type="submit"]:hover {
+button[type="submit"]:active, button[type="submit"]:hover, .saveBtn:active, .saveBtn:hover {
     transform: scale(1.05);
 }
 
-button[type="submit"]:active > span, button[type="submit"]:hover > span {
+button[type="submit"]:active > span, button[type="submit"]:hover > span, .saveBtn:active > span, .saveBtn:hover > span {
     font-size: 22px;
 }
 
-button[type="submit"]:active:after, button[type="submit"]:hover:after {
+button[type="submit"]:active:after, button[type="submit"]:hover:after, .saveBtn:active:after, .saveBtn:hover:after {
     right: 50%;
     top: 50%;
     transform: translate(50%, -50%);
@@ -986,10 +1001,10 @@ button[type="submit"]:active:after, button[type="submit"]:hover:after {
 background-size: 300% 100%;
 background-position: 0% 0%;
 
-animation: NSshineBackground 2s linear infinite;
+animation: NSshineBackground 4s linear;
 }
 
-button[type="submit"]:active:before, button[type="submit"]:hover:before {
+button[type="submit"]:active:before, button[type="submit"]:hover:before, .saveBtn:active:before, .saveBtn:hover:before {
     left: 50%;
     bottom: 50%;
     transform: translate(-50%, 50%);
@@ -998,16 +1013,16 @@ button[type="submit"]:active:before, button[type="submit"]:hover:before {
     background-image: linear-gradient(
     115deg,
     transparent 35%,
-    rgba(0, 51, 127, 1) 45%,
-    rgba(0, 51, 127, 1) 50%,
-    rgba(0, 51, 127, 1) 55%,
+    rgba(255, 255, 255, 0.3) 45%,
+    rgba(200, 245, 255, 0.4) 50%,
+    rgba(200, 200, 245, 0.4) 55%,
     transparent 70%
 );
 
 background-size: 300% 100%;
 background-position: 0% 0%;
 
-animation: NSshineBackground 2s linear;
+animation: NSshineBackground 4s linear;
 }
 
 
@@ -1015,9 +1030,23 @@ animation: NSshineBackground 2s linear;
     0% {
         background-position: 100% 0%;
     }
-    100% {
+    50% {
         background-position: -100% 0%;
     }
+    100% {
+        background-position: -200% 0%;
+    }
+}
+
+/* MARK:saveBtn styling */
+
+.saveBtn {
+    padding: 2em 4em !important;
+    width: 25em;
+}
+
+:has(.field1D > .saveBtn) .send {
+    display: flex !important;
 }
 
 

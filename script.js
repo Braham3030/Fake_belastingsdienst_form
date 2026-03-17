@@ -2,11 +2,7 @@ console.log("Hello, World! This is a simple JavaScript file.");
 
 const form = document.querySelector("form");
 const input = form.querySelectorAll("input[type='text']");
-// const button = document.querySelector("button");
 
-// button.addEventListener("click", () => {
-
-// })
 
 
 // Elfproef
@@ -65,11 +61,19 @@ console.log(field.value);
 // Blur event dynamic date input
 
 const dateInput = document.getElementById("datumHuwelijkseVoorwaarden");
-const fieldsetContainer = dateInput.closest(".field1B");
+const fieldsetContainer1 = dateInput.closest(".field1B");
+const fieldsetContainer2 = dateInput.closest(".field1E");
 
-dateInput.addEventListener("blur", () => {
-    fieldsetContainer.classList.add("unfocussed");
+// dateInput.addEventListener("blur", () => {
+//     fieldsetContainer.classList.add("unfocussed");
     
+// })
+
+const button = document.querySelector(".saveBtn");
+
+button.addEventListener("click", () => {
+    fieldsetContainer1.classList.add("unfocussed");
+
 })
 
 
