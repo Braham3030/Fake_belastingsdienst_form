@@ -498,7 +498,8 @@ form .field1E .field1Ee:focus-within > label {
     transition: transform 0.4s ease-in-out, opacity 0.8s ease-in-out;
 }
 
-.field1D:has(fieldset:first-of-type input[value="Nee"]:checked) ~ .field1E, .field1D:has(fieldset:first-of-type input[value="Ja"]:checked) ~ .field1E {
+.field1D.fieldsetValid ~ .field1E,
+.field1D:has(.fieldsetValid) ~ .field1E {
     opacity: 1;
     pointer-events: all;
     display: flex;
@@ -718,6 +719,7 @@ button[type="submit"]:before, .saveBtn:before {
     background: rgba(253, 212, 79, 0.8);
     border-radius: inherit;
     filter: blur(10px);
+    z-index: -1;
 }
 
 button[type="submit"]:after, .saveBtn:after {
@@ -731,6 +733,7 @@ button[type="submit"]:after, .saveBtn:after {
     background: rgba(253, 212, 79, 0.8);
     border-radius: inherit;
     filter: blur(10px);
+    z-index: -1;
 }
 
 button[type="submit"]:active, button[type="submit"]:hover, .saveBtn:active, .saveBtn:hover {
