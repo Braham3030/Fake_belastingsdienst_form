@@ -41,10 +41,10 @@
         <form>
             <fieldset class="field1A">
                 <legend>Gegevens van de overledene</legend>
-                <div class="savedUserContent">
+                <!-- <div class="savedUserContent">
                     <h3><span>✓</span>"Gegevens van de overledene" zijn opgeslagen</h3>
                     <button type="button" class="customize">🖊️</button>
-                </div>
+                </div> -->
                 <div class="field1Aa">
                     <label for="voornaam">Voornaam<span>*</span></label>
                     <input type="text" name="voornamen" id="voornaam" required>
@@ -121,9 +121,11 @@
                 </div>
             </fieldset>
             <fieldset>
-                <legend>Datum huwelijkse of partnerschapsvoorwaarden</legend>
-                <input type="date" name="datumHuwelijkseVoorwaarden" id="datumHuwelijkseVoorwaarden">
-                <label for="datumHuwelijkseVoorwaarden">Datum huwelijkse of partnerschaps</label>
+                <div class="field1Bb">
+                    <legend>Datum huwelijkse of partnerschapsvoorwaarden</legend>
+                    <label for="datumHuwelijkseVoorwaarden">Huwelijksdatum</label>
+                    <input type="date" name="datumHuwelijkseVoorwaarden" id="datumHuwelijkseVoorwaarden">
+                </div>
             </fieldset>
             </fieldset>
             <fieldset class="field1C">
@@ -183,30 +185,30 @@
                 </fieldset>
                 <fieldset>
                     <div class="field1Dd">
-                        <label for="protocolnummerNotaris">Protocolnummer Notaris</label>
+                        <label for="protocolnummerNotaris">Protocolnummer Notaris<span>*</span></label>
                         <input type="text" name="protocolnummerNotaris" id="protocolnummerNotaris" placeholder="">
                         <span>Dit veld is verplicht!</span>
                     </div>
 
                     <div class="field1Dd">
-                        <label for="voorletters">Voorletter(s)</label>
+                        <label for="voorletters">Voorletter(s)<span>*</span></label>
                         <input type="text" name="voorletters" id="voorlettersNotaris" required>
                         <span>Dit veld is verplicht!</span>
                     </div>
 
                     <div class="field1Dd">
-                        <label for="tussenvoegsel">Tussenvoegsel(s)</label>
-                        <input type="text" name="tussenvoegsel" id="tussenvoegselNotaris" >
+                        <label for="tussenvoegsel(s)">Tussenvoegsel(s)</label>
+                        <input type="text" name="tussenvoegsel(s)" id="tussenvoegselNotaris" >
                     </div>
 
                     <div class="field1Dd">
-                        <label for="achternaam">Achternaam</label>
+                        <label for="achternaam">Achternaam<span>*</span></label>
                         <input type="text" name="achternaam" id="achternaamNotaris" required>
                         <span>Dit veld is verplicht!</span>
                     </div>
 
                     <div class="field1Dd">
-                        <label for="BSNnummerOverledene">BSN</label>
+                        <label for="BSNnummerOverledene">BSN<span>*</span></label>
                         <input type="text" name="BSNnummerOverledene" id="BSNnummerOverledeneNotaris" minlength="8" maxlength="9" placeholder="" required class="BSNnumberInput">
                         <span>Dit veld is verplicht!</span>
                         <span>BSN incorrect</span>
@@ -244,7 +246,7 @@
                         <span>BSN incorrect</span>
                     </div>
                     <div class="field1Ee">
-                        <label for="">Voorletters</label>
+                        <label for="">Voorletters<span>*</span></label>
                         <input type="text" name="voorlettersVerkrijger1" id="voorlettersVerkrijger1" required>
                         <span>Dit veld is verplicht!</span>
                     </div>
@@ -255,7 +257,7 @@
                     </div>
 
                     <div class="field1Ee">
-                        <label for="">Achternaam</label>
+                        <label for="">Achternaam<span>*</span></label>
                         <input type="text" name="achternaamVerkrijger1" id="achternaamVerkrijger1" required>
                         <span>Dit veld is verplicht!</span>
                     </div>
