@@ -55,6 +55,9 @@ field2.value = date.getFullYear().toString() + "-" + (date.getMonth() + 1).toStr
 
 console.log(field.value);
 
+// Source for dynamic date input:
+// https://gomakethings.com/setting-a-date-input-to-todays-date-with-vanilla-js/#:~:text=To%20automatically%20set%20a%20%5Btype,var%20date%20=%20new%20Date();
+
 
 // Blur event dynamic date input
 
@@ -65,6 +68,9 @@ dateInput.addEventListener("blur", () => {
     fieldsetContainer.classList.add("unfocussed");
     
 })
+
+// Source for helping blur events:
+// https://developer.mozilla.org/en-US/docs/Web/API/Element/blur_event
 
 
 // full fieldset validation check
