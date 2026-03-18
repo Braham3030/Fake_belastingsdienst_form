@@ -219,3 +219,30 @@ addBtn.addEventListener("click", () => {
     checkRemovebtn();
 })
 
+
+// Send animation onClick
+
+const sendBtn = document.querySelector(".send");
+
+if (sendBtn) {
+    sendBtn.addEventListener("click", (e) => {
+        // preventDefault is used to prevent the form from being submitted before the animation is finished.
+        e.preventDefault();
+
+        if (form.checkValidity()) {
+            
+            sendBtn.classList.add("sendAnimation");
+
+            const span = sendBtn.querySelector("span");
+            if (span) {
+                span.textContent = "Succesvol verzonden!";
+            }
+            // setTimeout prevents submitting after for 3 seconds
+            setTimeout(() => {
+                form.submit();
+            }, 3000);
+        } else {
+            form.reportValidity();
+        }
+    })
+}

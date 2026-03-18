@@ -806,6 +806,37 @@ button[type="submit"]:active:before, button[type="submit"]:hover:before, .saveBt
     }
 }
 
+/* Submit animation */
+
+.send {
+    transition: all 0.7s cubic-bezier(0.64, 0.04, 0.35, 1) !important;
+}
+
+.send.sendAnimation {
+    position: fixed !important;
+    top: 50vh !important;
+    left: 50vw !important;
+    transform: translate(-50%, -50%) !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+    z-index: 99999999 !important;
+    background: var(--NS-Yellow) !important;
+}
+
+.send.sendAnimation > span {
+    font-size: 48px;
+    font-weight: 900;
+    color: black;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+.send.sendAnimation:before,
+.send.sendAnimation:after {
+    opacity: 0 !important;
+}
+
 /* MARK:saveBtn styling */
 
 .saveBtn {
