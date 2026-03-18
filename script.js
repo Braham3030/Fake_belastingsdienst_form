@@ -24,7 +24,7 @@ BSNnumberInput.forEach(input => {
         console.log(sum);
 
         console.log(total);
-        
+        // If the total is an integer (no decimals), the BSN number is valid.
         if (total % 1 === 0) {
             input.classList.add("valid");
             console.log("Valid BSN number");
@@ -69,16 +69,11 @@ dateInput.addEventListener("blur", () => {
 
 // full fieldset validation check
 
-// const fieldset1A = document.querySelector(".field1A");
-// const inputs1A = fieldset1A.querySelectorAll("input");
-// const customize = fieldset1A.querySelector(".customize");
 const saveButtons = document.querySelectorAll(".saveBtn");
-// const fieldsetContainer1B = document.querySelector(".field1B");
 
 saveButtons.forEach(btn => {
     const currentContainer = btn.closest("fieldset");
     const inputs = currentContainer.querySelectorAll("input");
-
 
     const checkValidityStatus = () => {
     let allValid = true;
@@ -86,7 +81,6 @@ saveButtons.forEach(btn => {
     inputs.forEach(input => {
         if (!input.checkValidity()) {
         allValid = false;
-    
     }
 });
 
@@ -109,24 +103,9 @@ btn.addEventListener("click", (e) => {
 
     btn.classList.remove("saveBtnVisible");
 })
-
-// if (customize) {
-//     customize.addEventListener("click", () => {
-//         fieldset1A.classList.remove("fieldsetValid");
-//     })
-
     checkValidityStatus();
 
 });
-
-
-
-
-
-
-
-
-
 
 // MARK: Dynamisch inladen verkrijgers
 
