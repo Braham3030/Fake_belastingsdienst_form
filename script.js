@@ -1,12 +1,6 @@
-console.log("Hello, World! This is a simple JavaScript file.");
 
 const form = document.querySelector("form");
 const input = form.querySelectorAll("input[type='text']");
-// const button = document.querySelector("button");
-
-// button.addEventListener("click", () => {
-
-// })
 
 
 // Elfproef
@@ -75,12 +69,20 @@ dateInput.addEventListener("blur", () => {
 
 // full fieldset validation check
 
-const fieldset = document.querySelector(".field1A");
-const inputs = fieldset.querySelectorAll("input");
-const customize = fieldset.querySelector(".customize");
+// const fieldset1A = document.querySelector(".field1A");
+// const inputs1A = fieldset1A.querySelectorAll("input");
+// const customize = fieldset1A.querySelector(".customize");
+const saveButtons = document.querySelectorAll(".saveBtn");
+// const fieldsetContainer1B = document.querySelector(".field1B");
 
-checkValidityStatus = () => {
+saveButtons.forEach(btn => {
+    const currentContainer = btn.closest("fieldset");
+    const inputs = currentContainer.querySelectorAll("input");
+
+
+    const checkValidityStatus = () => {
     let allValid = true;
+
     inputs.forEach(input => {
         if (!input.checkValidity()) {
         allValid = false;
@@ -89,19 +91,41 @@ checkValidityStatus = () => {
 });
 
 if (allValid) {
-    fieldset.classList.add("fieldsetValid")
+    btn.classList.add("saveBtnVisible");
+} else {
+    btn.classList.remove("saveBtnVisible");
 }
 }
 
 inputs.forEach(input => {
+    input.addEventListener("input", checkValidityStatus);
     input.addEventListener("blur", checkValidityStatus);
 })
 
-if (customize) {
-    customize.addEventListener("click", () => {
-        fieldset.classList.remove("fieldsetValid");
-    })
-}
+btn.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    currentContainer.classList.add("fieldsetValid");
+
+    btn.classList.remove("saveBtnVisible");
+})
+
+// if (customize) {
+//     customize.addEventListener("click", () => {
+//         fieldset1A.classList.remove("fieldsetValid");
+//     })
+
+    checkValidityStatus();
+
+});
+
+
+
+
+
+
+
+
 
 
 // MARK: Dynamisch inladen verkrijgers
@@ -195,3 +219,30 @@ addBtn.addEventListener("click", () => {
     checkRemovebtn();
 })
 
+
+// Send animation onClick
+
+const sendBtn = document.querySelector(".send");
+
+if (sendBtn) {
+    sendBtn.addEventListener("click", (e) => {
+        // preventDefault is used to prevent the form from being submitted before the animation is finished.
+        e.preventDefault();
+
+        if (form.checkValidity()) {
+            
+            sendBtn.classList.add("sendAnimation");
+
+            const span = sendBtn.querySelector("span");
+            if (span) {
+                span.textContent = "Succesvol verzonden!";
+            }
+            // setTimeout prevents submitting after for 3 seconds
+            setTimeout(() => {
+                form.submit();
+            }, 3000);
+        } else {
+            form.reportValidity();
+        }
+    })
+}
