@@ -21,11 +21,34 @@
     --font-size-submit: 16px;
 }
 
+/* MARK:Overall */
+
+/* main > form > fieldset {
+    margin: 0 auto !important;
+    max-width: 30% !important;
+} */
+
 header, body {
     font-family: var(--font-family);
 }
 
-header > div {
+/* ------ MARK:Nesting header ------ */
+
+header {
+    > p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: red;
+    color: white;
+    font-size: var(--font-size-p);
+    width: 95vw;
+    margin: 0 auto;
+    padding: 4px 8px;
+    border-radius: 0 0 8px 8px;
+    animation: zoomIn 0.5s ease-out;
+}
+    > div {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -35,16 +58,21 @@ header > div {
     margin: 0 auto;
     padding: 4px 8px;
     background: var(--NS-Yellow);
-}
 
-header > div > h1 {
-    font-size: var(--font-size-h1);
-}
-
-header > div >svg {
+    > svg {
     width: 100px;
     animation: slideInFadeIn .5s ease-out;
     transition: transform 0.8s ease-in-out;
+
+    &:hover {
+    transform: rotate(180deg);
+}
+}
+
+    > h1 {
+    font-size: var(--font-size-h1);
+}
+}
 }
 
 @keyframes slideInFadeIn {
@@ -60,24 +88,6 @@ header > div >svg {
     }
 }
 
-header svg:hover {
-    transform: rotate(180deg);
-}
-
-header > p {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: red;
-    color: white;
-    font-size: var(--font-size-p);
-    width: 95vw;
-    margin: 0 auto;
-    padding: 4px 8px;
-    border-radius: 0 0 8px 8px;
-    animation: zoomIn 0.5s ease-out;
-}
-
 @keyframes zoomIn {
     0% {
         font-size: 12px;
@@ -87,7 +97,8 @@ header > p {
     }
 }
 
-main h2 {
+main { 
+    > h2 {
     display: flex;
     align-items: center;
     margin: 0 auto;
@@ -97,28 +108,37 @@ main h2 {
     font-size: var(--font-size-h2);
 }
 
-form {
+    > form {
     z-index: 10;
     border-radius: var(--form-border-radius);
     padding: 4px 8px;
     margin: 0 auto;
     width: 95vw;
+    max-width: 600px;
     height: auto;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
-    align-items: center;
+    gap: 1.5em;
+    justify-content: center;
     border: none;
     background: none;
-}
 
-legend {
+    > fieldset > legend {
     font-size: var(--font-size-legend);
 }
 
 .field1A {
     position: relative;
 }
+}
+}
+
+
+
+
+
+
 
 .field1A, .field1D > fieldset:last-of-type, .field1E > .verkrijgerContainer {
     z-index: 10;
@@ -150,11 +170,11 @@ legend {
     flex-direction: column;
     position: relative;
     margin: 0 auto;
-    
+    width: 90%;
 }
 
 .field1Aa > input, .field1Bb > input, .field1D > fieldset:last-of-type > .field1Dd > input, .field1E > .verkrijgerContainer > .field1Ee > input, input[type="date"] {
-    width: 25em;
+    width: 100%;
     padding: 18px;
     border-radius: var(--input-text-border-radius);
     background: transparent;
@@ -244,13 +264,13 @@ form .field1E .field1Ee:focus-within > label {
     margin-top: 2.5em;
 }
 
-.radioBox {
+/* .radioBox {
     display: flex;
     flex-direction: column;
     gap: 1em;
     width: 80%;
     margin: 0 auto;
-}
+} */
 
 /* MARK:Add and remove buttons */
 
@@ -560,12 +580,16 @@ form .field1E .field1Ee:focus-within > label {
     border: 10px solid green;
 }
 
-.field1A:invalid .saveBtn, .field1D:invalid .saveBtn, .field1A.fieldsetValid .saveBtn {
+/* .field1A:invalid .saveBtn, .field1D:invalid .saveBtn, .field1A.fieldsetValid .saveBtn {
     transform: translateY(-2em);
     overflow: hidden;
-    opacity: 0;
+    opacity: 0.5;
     height: 0;
     width: 0;
+} */
+
+.show-error input:invalid {
+    border: 1px solid red;
 }
 
 input[type="date"] {
@@ -574,16 +598,59 @@ input[type="date"] {
 
 /* ------ DONE ------ */
 
+/* MARK:Radiobuttons! */
 
-.nee, .ja {
+.radioBox {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    max-width: 400px;
+    margin: 3em auto;
+    z-index: 100;
+    pointer-events: auto !important;
+}
+
+.radio-button-label {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex: 1;
+    padding: 1em 2em;
+    border: 2px dotted var(--NS-Blue);
+    border-radius: 8px;
+    cursor: pointer;
+    position: relative !important;
+    transition: border 0.8s ease-in-out;
+
+    > input[type="radio"] {
+        appearance: none;
+    }
+
+    > span {
+        font-size: var(--font-size-label);
+        transition: font-size 0.3s ease, font-weight 0.3s ease;
+    }
+
+    &:has(input[type="radio"]:checked) {
+        background: var(--NS-Blue);
+        border: 2px solid var(--NS-Blue);
+
+        > span {
+            color: white;
+        }
+    }
+}
+
+/* .nee, .ja {
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-between;
     align-items: center;
     height: 4em;
-}
+} */
 
-.radioBox input {
+/* .radioBox input {
     position: relative;
     width: fit-content;
     padding: 0;
@@ -594,9 +661,9 @@ input[type="date"] {
     width: 4em;
     height: 4em;
     transition: border 0.5s ease-in-out, box-shadow 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.5s ease-in-out, border 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
+} */
 
-.radioBox label {
+/* .radioBox label {
     font-size: var(--font-size-label);
     width: fit-content;
 }
@@ -681,7 +748,10 @@ input[type="date"] {
     transform: translate(-50%, -50%) scale(0);
     z-index: -1;
     transition: transform 0.2s ease-in-out;
-}
+} */
+
+
+/* The END */
 
 legend {
     z-index: 100;
@@ -854,9 +924,9 @@ button[type="submit"]:active:before, button[type="submit"]:hover:before, .saveBt
 
 /* MARK:Error message handler */
 
-.field1Aa > span, .field1Bb > span, .field1D > fieldset:last-of-type > .field1Dd > span, .field1E > .verkrijgerContainer > .field1Ee > span {
+.show-error, .BSN-error {
     opacity: 0;
-    font-size: 12px;
+    font-size: var(--error-message-font-size);
     padding: 2px 8px;
     width: 100%;
     background: white;
@@ -865,14 +935,15 @@ button[type="submit"]:active:before, button[type="submit"]:hover:before, .saveBt
     pointer-events: none;
 }
 
-.field1Aa > input:user-invalid, .field1Bb > input:user-invalid, .field1D > fieldset:last-of-type > .field1Dd > input:user-invalid, .field1E > .verkrijgerContainer > .field1Ee > input:user-invalid {
+input[type="text"]:user-invalid, 
+input[type="date"]:user-invalid {
     border-radius: var(--input-text-focus-border-radius);
     border: 1px solid red;
     outline: 1px solid red;
     animation: invalidGlow 1.5s ease-in-out;
 }
 
-.field1Aa > input:user-invalid ~ span:first-of-type, .field1Bb > input:user-invalid ~ span:first-of-type, .field1D > fieldset:last-of-type > .field1Dd > input:user-invalid ~ span:first-of-type, .field1E > .verkrijgerContainer > .field1Ee > input:user-invalid ~ span:first-of-type {
+input[type="text"]:user-invalid ~ .show-error, input[type="date"]:user-invalid ~ .show-error {
     opacity: 1;
     font-size: var(--error-message-font-size);
     padding: 2px 8px;

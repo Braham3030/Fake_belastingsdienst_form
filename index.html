@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +8,24 @@
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Kavoon&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
     </style>
+    <noscript>
+        <style>
+            .field1B, .field1C, .field1D, .field1E,
+             .field1B fieldset, .field1C fieldset, .field1D fieldset, .field1E fieldset {
+                display: flex !important;
+                opacity: 1 !important;
+                height: auto !important;
+                pointer-events: all !important;
+                transform: translateY(0) !important;
+            }
+            .saveBtn {
+                display: none !important;
+            }
+            .send {
+                display: flex !important;
+            }
+        </style>
+    </noscript>
 </head>
 <body>
     <header>
@@ -48,7 +66,7 @@
                 <div class="field1Aa">
                     <label for="voornaam">Voornaam<span>*</span></label>
                     <input type="text" name="voornamen" id="voornaam" required>
-                    <span>Dit veld is verplicht!</span>
+                    <span class="show-error">Voornaam is verplicht</span>
                 </div>
             
                 <div class="field1Aa">
@@ -59,14 +77,14 @@
                 <div class="field1Aa">
                     <label for="achternaam">Achternaam<span>*</span></label>
                     <input type="text" name="achternamen" id="achternaam" required>
-                    <span>Dit veld is verplicht!</span>
+                    <span class="show-error">Achternaam is verplicht</span>
                 </div>
 
                 <div class="field1Aa">
                     <label for="BSNnumber">BSN overleden<span>*</span></label>
-                    <input type="text" name="BSNnumbers" id="BSNnumber" minlength="9" maxlength="9" required class="BSNnumberInput">
-                    <span>Dit veld is verplicht!</span>
-                    <span>BSN incorrect</span>
+                    <input type="text" name="BSNnumbers" id="BSNnumber" minlength="9" maxlength="9" pattern="[0-9]{9}" required class="BSNnumberInput">
+                    <span class="show-error">BSN nummer bestaat alleen uit cijfers</span>
+                    <span class="BSN-error">BSN incorrect</span>
                 </div>
 
                 <div class="field1Aa">
@@ -82,42 +100,45 @@
                 <legend>Was de overledene getrouwd of had de overledene een geregistreerde partner op het moment van overlijden?</legend>
                 <div class="radioBox">
 
-                    <div class="nee">
+                    
+                        <label class="radio-button-label" for="getrouwdNee">
                         <input type="radio" name="getrouwd" id="getrouwdNee" value="Nee">
-                        <label for="getrouwdNee">Nee</label>
-                    </div>
+                        <span>Nee</span>
+                    </label>
+                    
 
-                    <div class="ja">
+                    <label class="radio-button-label" for="getrouwdJa">
                         <input type="radio" name="getrouwd" id="getrouwdJa" value="Ja">
-                        <label for="getrouwdJa">Ja</label>
-                    </div>
+                        <span>Ja</span>
+                    </label>
 
                 </div>
             </fieldset>
             <fieldset>
                 <legend>Hadden de overledene en diens echtgenoot of geregistreerde partner huwelijkse of partner schapsvoorwaarden laten vast leggen in een notariële akte?</legend>
                 <div class="radioBox">
-                    <div class="nee">
+                    <label for="vastgelegdeVoorwaardenNee" class="radio-button-label">
                         <input type="radio" name="vastgelegdeVoorwaarden" id="vastgelegdeVoorwaardenNee" value="Nee">
-                        <label for="vastgelegdeVoorwaardenNee">Nee</label>
-                    </div>
-                    <div class="ja">
+                            <span>Nee</span>
+                    </label>
+                    
+                    <label for="vastgelegdeVoorwaardenJa" class="radio-button-label">
                         <input type="radio" name="vastgelegdeVoorwaarden" id="vastgelegdeVoorwaardenJa" value="Ja">
-                        <label for="vastgelegdeVoorwaardenJa">Ja</label>
-                    </div>
+                            <span>Ja</span>
+                        </label>
                 </div>
             </fieldset>
             <fieldset>
                 <legend>Hadden de overledene en diens partner een finaal verrekenbeding?</legend>
                 <div class="radioBox">
-                    <div class="nee">
+                    <label for="finaalNee" class="radio-button-label">
                         <input type="radio" name="finaal" id="finaalNee" value="Nee">
-                        <label for="finaalNee">Nee</label>
-                    </div>
-                    <div class="ja">
+                        <span>Nee</span>
+                    </label>
+                    <label for="finaalJa" class="radio-button-label">
                         <input type="radio" name="finaal" id="finaalJa" value="Ja">
-                        <label for="finaalJa">Ja</label>
-                    </div>
+                        <span>Ja</span>
+                    </label>
                 </div>
             </fieldset>
             <fieldset>
@@ -132,40 +153,44 @@
                 <fieldset>
                     <legend>Had de overledene kinderen?</legend>
                     <div class="radioBox">
-                        <div class="nee">
+                        <label for="kinderenNee" class="radio-button-label">
                             <input type="radio" name="kinderen" id="kinderenNee" value="Nee">
-                            <label for="kinderenNee">Nee</label>
-                        </div>
-                        <div class="ja">
+                            <span>Nee</span>
+                        </label>
+                        <label for="kinderenJa" class="radio-button-label">
                             <input type="radio" name="kinderen" id="kinderenJa" value="Ja">
-                            <label for="kinderenJa">Ja</label>
-                        </div>
+                            <span>Ja</span>
+                        </label>
                     </div>
                 </fieldset>
                 <fieldset>
                     <legend>Is 1 van deze kinderen eerder overleden dan de overledene voor wie u nu aangifte doet?</legend>
                     <div class="radioBox">
                         <div class="nee">
-                            <input type="radio" name="kinderenOverleden" id="kinderenOverledenNee" value="Nee">
-                            <label for="kinderenOverledenNee">Nee</label>
+                            <label for="kinderenOverledenNee" class="radio-button-label">
+                                <input type="radio" name="kinderenOverleden" id="kinderenOverledenNee" value="Nee">
+                                <span>Nee</span>
+                            </label>
                         </div>
                         <div class="ja">
+                            <label for="kinderenOverledenJa" class="radio-button-label">
                             <input type="radio" name="kinderenOverleden" id="kinderenOverledenJa" value="Ja">
-                            <label for="kinderenOverledenJa">Ja</label>
+                                <span>Ja</span>
+                            </label>
                         </div>
                     </div>
                 </fieldset>
                 <fieldset>
                     <legend>Had dit overleden kind zelf kinderen?</legend>
                     <div class="radioBox">
-                        <div class="nee">
+                            <label for="kleinkinderenNee" class="radio-button-label">
                             <input type="radio" name="kleinkinderen" id="kleinkinderenNee" value="Nee">
-                            <label for="kleinkinderenNee">Nee</label>
-                        </div>
-                        <div class="ja">
+                                <span>Nee</span>
+                            </label>
+                            <label for="kleinkinderenJa" class="radio-button-label">
                             <input type="radio" name="kleinkinderen" id="kleinkinderenJa" value="Ja">
-                            <label for="kleinkinderenJa">Ja</label>
-                        </div>
+                                <span>Ja</span>
+                            </label>
                     </div>
                 </fieldset>
             </fieldset>
@@ -173,14 +198,14 @@
                 <fieldset>
                     <legend>Had de overledene een testament?</legend>
                     <div class="radioBox">
-                        <div class="nee">
+                        <label for="testamentNee" class="radio-button-label">
                             <input type="radio" name="testament" id="testamentNee" value="Nee" required>
-                            <label for="testamentNee">Nee</label>
-                        </div>
-                        <div class="ja">
+                            <span>Nee</span>
+                        </label>
+                        <label for="testamentJa" class="radio-button-label">
                             <input type="radio" name="testament" id="testamentJa" value="Ja" required>
-                            <label for="testamentJa">Ja</label>
-                        </div>
+                            <span>Ja</span>
+                        </label>
                     </div>
                 </fieldset>
                 <fieldset>
@@ -209,9 +234,9 @@
 
                     <div class="field1Dd">
                         <label for="BSNnummerOverledene">BSN<span>*</span></label>
-                        <input type="text" name="BSNnummerOverledene" id="BSNnummerOverledeneNotaris" minlength="8" maxlength="9" placeholder="" required class="BSNnumberInput">
-                        <span>Dit veld is verplicht!</span>
-                        <span>BSN incorrect</span>
+                        <input type="text" name="BSNnummerOverledene" id="BSNnummerOverledeneNotaris" minlength="8" maxlength="9" pattern="[0-9]{9}" required class="BSNnumberInput">
+                        <span class="show-error">BSN bestaat alleen uit cijfers</span>
+                        <span class="BSN-error">BSN incorrect</span>
                     </div>
                     <button type="button" class="saveBtn">Volgende</button>
 
@@ -221,14 +246,14 @@
                 <fieldset>
                     <legend>Zijn er verkrijgers voor wie u geen aangifte doet?</legend>
                     <div class="radioBox">
-                        <div class="nee">
+                        <label for="aangifteNee" class="radio-button-label">
                             <input type="radio" name="aangifte" id="aangifteNee" value="Nee">
-                            <label for="aangifteNee">Nee</label>
-                        </div>
-                        <div class="ja">
+                            <span>Nee</span>
+                        </label>
+                        <label for="aangifteJa" class="radio-button-label">
                             <input type="radio" name="aangifte" id="aangifteJa" value="Ja">
-                            <label for="aangifteJa">Ja</label>
-                        </div>
+                            <span>Ja</span>
+                        </label>
                     </div>
                 </fieldset>
                 <fieldset class="verkrijgerContainer">
@@ -242,7 +267,7 @@
                     <div class="field1Ee">
                         <label for="">BSN/RSIN</label>
                         <input type="text" name="BSNnummerVerkrijger1" id="BSNnummerVerkrijger1" minlength="8" maxlength="9" placeholder="" class="BSNnumberInput" autocomplete="off">
-                        <span>Dit veld is verplicht!</span>
+                        <span>BSn nummer bestaat alleen uit cijfers</span>
                         <span>BSN incorrect</span>
                     </div>
                     <div class="field1Ee">
@@ -265,27 +290,27 @@
                     <fieldset class="field1ERadio">
                         <legend>Krijgt deze verkrijger waarvoor u geen aangifte doet het hele vermogen?</legend>
                         <div class="radioBox">
-                            <div class="nee">
+                            <label for="vermogenNee" class="radio-button-label">
                                 <input type="radio" name="vermogen" id="vermogenNee" value="Nee">
-                                <label for="vermogenNee">Nee</label>
-                            </div>
-                            <div class="ja">
+                                <span>Nee</span>
+                            </label>
+                            <label for="vermogenJa" class="radio-button-label">
                                 <input type="radio" name="vermogen" id="vermogenJa" value="Ja">
-                                <label for="vermogenJa">Ja</label>
-                            </div>
+                                    <span>Ja</span>
+                                </label>
                         </div>
                     </fieldset>
                      <fieldset class="field1ERadio">
                         <legend>Doet deze verkrijger een beroep op diens legitieme portie (wettelijke erfdeel)?</legend>
                         <div class="radioBox">
-                            <div class="nee">
+                            <label for="legitiemeNee" class="radio-button-label">
                                 <input type="radio" name="legitieme" id="legitiemeNee" value="Nee">
-                                <label for="legitiemeNee">Nee</label>
-                            </div>
-                            <div class="ja">
-                                <input type="radio" name="legitieme" id="legitiemeJa" value="Ja">
-                                <label for="legitiemeJa">Ja</label>
-                            </div>
+                                <span>Nee</span>
+                            </label>
+                        <label for="legitiemeJa" class="radio-button-label">
+                            <input type="radio" name="legitieme" id="legitiemeJa" value="Ja">
+                                <span>Ja</span>
+                            </label>
                         </div>
                     </fieldset>
 

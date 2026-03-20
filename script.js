@@ -39,21 +39,21 @@ BSNnumberInput.forEach(input => {
 
 // Dynamic date input today 
 
-let field = document.querySelector("#overlijdensdatum");
+// let field = document.querySelector("#overlijdensdatum");
 
-let field2 = document.querySelector("#datumHuwelijkseVoorwaarden");
+// let field2 = document.querySelector("#datumHuwelijkseVoorwaarden");
 
-let date = new Date();
+// let date = new Date();
 
-field.value = date.getFullYear().toString() + "-" + (date.getMonth() + 1).toString().padStart(2, 0) + '-' + date.getDate().toString().padStart(2, 0);
+// field.value = date.getFullYear().toString() + "-" + (date.getMonth() + 1).toString().padStart(2, 0) + '-' + date.getDate().toString().padStart(2, 0);
 
-field.max = date.getFullYear().toString() + "-" + (date.getMonth() + 1).toString().padStart(2, 0) + '-' + date.getDate().toString().padStart(2, 0);
+// field.max = date.getFullYear().toString() + "-" + (date.getMonth() + 1).toString().padStart(2, 0) + '-' + date.getDate().toString().padStart(2, 0);
 
-field2.max = date.getFullYear().toString() + "-" + (date.getMonth() + 1).toString().padStart(2, 0) + '-' + date.getDate().toString().padStart(2, 0);
+// field2.max = date.getFullYear().toString() + "-" + (date.getMonth() + 1).toString().padStart(2, 0) + '-' + date.getDate().toString().padStart(2, 0);
 
-field2.value = date.getFullYear().toString() + "-" + (date.getMonth() + 1).toString().padStart(2, 0) + '-' + date.getDate().toString().padStart(2, 0);
+// field2.value = date.getFullYear().toString() + "-" + (date.getMonth() + 1).toString().padStart(2, 0) + '-' + date.getDate().toString().padStart(2, 0);
 
-console.log(field.value);
+// console.log(field.value);
 
 // Source for dynamic date input:
 // https://gomakethings.com/setting-a-date-input-to-todays-date-with-vanilla-js/#:~:text=To%20automatically%20set%20a%20%5Btype,var%20date%20=%20new%20Date();
@@ -61,13 +61,13 @@ console.log(field.value);
 
 // Blur event dynamic date input
 
-const dateInput = document.getElementById("datumHuwelijkseVoorwaarden");
-const fieldsetContainer = dateInput.closest(".field1B");
+// const dateInput = document.getElementById("datumHuwelijkseVoorwaarden");
+// const fieldsetContainer = dateInput.closest(".field1B");
 
-dateInput.addEventListener("blur", () => {
-    fieldsetContainer.classList.add("unfocussed");
+// dateInput.addEventListener("blur", () => {
+//     fieldsetContainer.classList.add("unfocussed");
     
-})
+// })
 
 // Source for helping blur events:
 // https://developer.mozilla.org/en-US/docs/Web/API/Element/blur_event
@@ -78,10 +78,15 @@ dateInput.addEventListener("blur", () => {
 const saveButtons = document.querySelectorAll(".saveBtn");
 
 saveButtons.forEach(btn => {
-    const currentContainer = btn.closest("fieldset");
-    const inputs = currentContainer.querySelectorAll("input");
+    btn.addEventListener("click", (e) => {
+    e.preventDefault();
 
-    const checkValidityStatus = () => {
+    const currentContainer = btn.closest("fieldset");
+    
+
+    const inputs = currentContainer.querySelectorAll("input");
+    
+
     let allValid = true;
 
     inputs.forEach(input => {
@@ -91,13 +96,35 @@ saveButtons.forEach(btn => {
 });
 
 if (allValid) {
+    currentContainer.classList.remove("show-error");
+
+    currentContainer.classList.add("fieldsetValid");
+} else {
+    currentContainer.classList.add("show-error");
+
+    const invalidInputs = currentContainer.querySelector("input:invalid");
+    if (invalidInputs) {
+        // Focus on the invalid input field
+        invalidInputs.focus();
+    }
+}
+    })
+
+
+    
+    
+
+    const checkValidityStatus = () => {
+    
+
+if (allValid) {
     btn.classList.add("saveBtnVisible");
 } else {
     btn.classList.remove("saveBtnVisible");
 }
 }
 
-inputs.forEach(input => {
+input.forEach(input => {
     input.addEventListener("input", checkValidityStatus);
     input.addEventListener("blur", checkValidityStatus);
 })
@@ -116,7 +143,7 @@ btn.addEventListener("click", (e) => {
 // MARK: Dynamisch inladen verkrijgers
 
 // checkRemovebtn checks the number of fieldsets and changes the behavior of the remove button
-checkRemovebtn = () => {
+const checkRemovebtn = () => {
     const removeBtns = document.querySelectorAll(".verkrijgerContainer .remove-btn")
 
     if (removeBtns.length <= 1) {
@@ -171,27 +198,27 @@ addBtn.addEventListener("click", () => {
                     <fieldset class="field1ERadio">
                         <legend>Krijgt deze verkrijger waarvoor u geen aangifte doet het hele vermogen?</legend>
                         <div class="radioBox">
-                            <div class="nee">
+                            <label for="vermogenNee${verkrijgerCount}" class="radio-button-label">
                                 <input type="radio" name="vermogen${verkrijgerCount}" id="vermogenNee${verkrijgerCount}" value="Nee" required>
-                                <label for="vermogenNee${verkrijgerCount}">Nee</label>
-                            </div>
-                            <div class="ja">
+                                    <span>Nee</span>
+                                </label>
+                            <label for="vermogenJa${verkrijgerCount}" class="radio-button-label">
                                 <input type="radio" name="vermogen${verkrijgerCount}" id="vermogenJa${verkrijgerCount}" value="Ja" required>
-                                <label for="vermogenJa${verkrijgerCount}">Ja</label>
-                            </div>
+                                    <span>Ja</span>
+                                </label>
                         </div>
                     </fieldset>
                      <fieldset class="field1ERadio">
                         <legend>Doet deze verkrijger een beroep op diens legitieme portie (wettelijke erfdeel)?</legend>
                         <div class="radioBox">
-                            <div class="nee">
+                            <label for="legitiemeNee${verkrijgerCount}" class="radio-button-label">
                                 <input type="radio" name="legitieme${verkrijgerCount}" id="legitiemeNee${verkrijgerCount}" value="Nee" required>
-                                <label for="legitiemeNee${verkrijgerCount}">Nee</label>
-                            </div>
-                            <div class="ja">
+                                <span>Nee</span>
+                            </label>
+                            <label for="legitiemeJa${verkrijgerCount}" class="radio-button-label">
                                 <input type="radio" name="legitieme${verkrijgerCount}" id="legitiemeJa${verkrijgerCount}" value="Ja" required>
-                                <label for="legitiemeJa${verkrijgerCount}">Ja</label>
-                            </div>
+                                    <span>Ja</span>
+                            </label>
                         </div>
                     </fieldset>
 
