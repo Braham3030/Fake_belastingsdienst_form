@@ -178,6 +178,8 @@ main {
     padding: 18px;
     border-radius: var(--input-text-border-radius);
     background: transparent;
+
+    font-size: 22px;
 }
 
 form .field1Aa label, form .field1Bb label,form .field1D > fieldset:last-of-type > .field1Dd label, form .field1E > .verkrijgerContainer > .field1Ee label {
@@ -996,7 +998,7 @@ input[type="text"]:user-invalid ~ .show-error, input[type="date"]:user-invalid ~
     }
 }
 
-.field1Aa > .BSNnumberInput.invalid ~ span:last-of-type, .field1D > fieldset:last-of-type > .field1Dd > .BSNnumberInput.invalid ~ span:last-of-type, .field1E > .verkrijgerContainer > .field1Ee > .BSNnumberInput.invalid ~ span:last-of-type {
+.BSNnumberInput.invalid ~ .BSN-error {
     opacity: 1;
     font-size: var(--error-message-font-size);
     color: red;

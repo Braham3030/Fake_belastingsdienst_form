@@ -82,8 +82,8 @@
 
                 <div class="field1Aa">
                     <label for="BSNnumber">BSN overleden<span>*</span></label>
-                    <input type="text" name="BSNnumbers" id="BSNnumber" minlength="9" maxlength="9" pattern="[0-9]{9}" required class="BSNnumberInput">
-                    <span class="show-error">BSN nummer bestaat alleen uit cijfers</span>
+                    <input type="text" name="BSNnumbers" id="BSNnumber" minlength="9" maxlength="9" inputmode="numeric" pattern="[0-9]{9}" required class="BSNnumberInput">
+                    <span class="show-error">BSN nummer is te kort</span>
                     <span class="BSN-error">BSN incorrect</span>
                 </div>
 
@@ -212,13 +212,13 @@
                     <div class="field1Dd">
                         <label for="protocolnummerNotaris">Protocolnummer Notaris<span>*</span></label>
                         <input type="text" name="protocolnummerNotaris" id="protocolnummerNotaris">
-                        <span>Dit veld is verplicht!</span>
+                        <span>Protocolnummer is verplicht</span>
                     </div>
 
                     <div class="field1Dd">
                         <label for="voorletters">Voorletter(s)<span>*</span></label>
                         <input type="text" name="voorletters" id="voorlettersNotaris">
-                        <span>Dit veld is verplicht!</span>
+                        <span>Voorletter(s) is verplicht</span>
                     </div>
 
                     <div class="field1Dd">
@@ -229,13 +229,13 @@
                     <div class="field1Dd">
                         <label for="achternaam">Achternaam<span>*</span></label>
                         <input type="text" name="achternaam" id="achternaamNotaris">
-                        <span>Dit veld is verplicht!</span>
+                        <span>Achternaam is verplicht</span>
                     </div>
 
                     <div class="field1Dd">
                         <label for="BSNnummerOverledene">BSN<span>*</span></label>
                         <input type="text" name="BSNnummerOverledene" id="BSNnummerOverledeneNotaris" minlength="8" maxlength="9" pattern="[0-9]{9}" required class="BSNnumberInput">
-                        <span class="show-error">BSN bestaat alleen uit cijfers</span>
+                        <span class="show-error">BSN is te kort</span>
                         <span class="BSN-error">BSN incorrect</span>
                     </div>
                     <button type="button" class="saveBtn">Volgende</button>
@@ -267,7 +267,7 @@
                     <div class="field1Ee">
                         <label for="">BSN/RSIN</label>
                         <input type="text" name="BSNnummerVerkrijger1" id="BSNnummerVerkrijger1" minlength="8" maxlength="9" placeholder="" class="BSNnumberInput" autocomplete="off">
-                        <span>BSn nummer bestaat alleen uit cijfers</span>
+                        <span>BSn nummer is te kort</span>
                         <span>BSN incorrect</span>
                     </div>
                     <div class="field1Ee">

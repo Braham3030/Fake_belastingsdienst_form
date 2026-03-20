@@ -8,7 +8,9 @@ const input = form.querySelectorAll("input[type='text']");
 const BSNnumberInput = document.querySelectorAll(".BSNnumberInput");
 
 BSNnumberInput.forEach(input => {
-    input.addEventListener("input", () => {
+    input.addEventListener("input", (e) => {
+        // Everything that is not a number will be replace by ""
+        e.target.value = e.target.value.replace(/\D/g, "")
         const BSNnumber = input.value;
 
          input.classList.remove("valid", "invalid");
@@ -35,42 +37,6 @@ BSNnumberInput.forEach(input => {
     }
 });
 });
-
-
-// Dynamic date input today 
-
-// let field = document.querySelector("#overlijdensdatum");
-
-// let field2 = document.querySelector("#datumHuwelijkseVoorwaarden");
-
-// let date = new Date();
-
-// field.value = date.getFullYear().toString() + "-" + (date.getMonth() + 1).toString().padStart(2, 0) + '-' + date.getDate().toString().padStart(2, 0);
-
-// field.max = date.getFullYear().toString() + "-" + (date.getMonth() + 1).toString().padStart(2, 0) + '-' + date.getDate().toString().padStart(2, 0);
-
-// field2.max = date.getFullYear().toString() + "-" + (date.getMonth() + 1).toString().padStart(2, 0) + '-' + date.getDate().toString().padStart(2, 0);
-
-// field2.value = date.getFullYear().toString() + "-" + (date.getMonth() + 1).toString().padStart(2, 0) + '-' + date.getDate().toString().padStart(2, 0);
-
-// console.log(field.value);
-
-// Source for dynamic date input:
-// https://gomakethings.com/setting-a-date-input-to-todays-date-with-vanilla-js/#:~:text=To%20automatically%20set%20a%20%5Btype,var%20date%20=%20new%20Date();
-
-
-// Blur event dynamic date input
-
-// const dateInput = document.getElementById("datumHuwelijkseVoorwaarden");
-// const fieldsetContainer = dateInput.closest(".field1B");
-
-// dateInput.addEventListener("blur", () => {
-//     fieldsetContainer.classList.add("unfocussed");
-    
-// })
-
-// Source for helping blur events:
-// https://developer.mozilla.org/en-US/docs/Web/API/Element/blur_event
 
 
 // full fieldset validation check
