@@ -66,7 +66,7 @@
                 <div class="field1Aa">
                     <label for="voornaam">Voornaam<span>*</span></label>
                     <input type="text" name="voornamen" id="voornaam" required>
-                    <span class="show-error">Voornaam is verplicht</span>
+                    <span class="show-error" aria-live="polite">Voornaam is verplicht</span>
                 </div>
             
                 <div class="field1Aa">
@@ -77,26 +77,27 @@
                 <div class="field1Aa">
                     <label for="achternaam">Achternaam<span>*</span></label>
                     <input type="text" name="achternamen" id="achternaam" required>
-                    <span class="show-error">Achternaam is verplicht</span>
+                    <span class="show-error" aria-live="polite">Achternaam is verplicht</span>
                 </div>
 
                 <div class="field1Aa">
                     <label for="BSNnumber">BSN overleden<span>*</span></label>
                     <input type="text" name="BSNnumbers" id="BSNnumber" minlength="9" maxlength="9" inputmode="numeric" pattern="[0-9]{9}" required class="BSNnumberInput">
-                    <span class="show-error">BSN nummer is te kort</span>
-                    <span class="BSN-error">BSN incorrect</span>
+                    <span class="show-error" aria-live="polite">BSN nummer is te kort</span>
+                    <span class="BSN-error" aria-live="polite">BSN incorrect</span>
                 </div>
 
                 <div class="field1Aa">
-                    <label for="overlijdensdatum">Overlijdensdatum</label>
-                    <input type="date" name="overlijdensdatum" id="overlijdensdatum" min="2025-10-01" required>
+                    <label for="overlijdensdatum">Overlijdensdatum<span>*</span></label>
+                    <input type="date" name="overlijdensdatum" id="overlijdensdatum" min="2025-10-01" max="2026-03-21" required>
+                    <span class="show-error" aria-live="polite">Datum is verplicht</span>
                 </div>
                 <button type="button" class="saveBtn">
                     <span>Volgende</span>
                 </button>
             </fieldset>
             <fieldset class="field1B">
-            <fieldset>
+            <fieldset class="option">
                 <legend>Was de overledene getrouwd of had de overledene een geregistreerde partner op het moment van overlijden?</legend>
                 <div class="radioBox">
 
@@ -114,7 +115,7 @@
 
                 </div>
             </fieldset>
-            <fieldset>
+            <fieldset class="option">
                 <legend>Hadden de overledene en diens echtgenoot of geregistreerde partner huwelijkse of partner schapsvoorwaarden laten vast leggen in een notariële akte?</legend>
                 <div class="radioBox">
                     <label for="vastgelegdeVoorwaardenNee" class="radio-button-label">
@@ -128,7 +129,7 @@
                         </label>
                 </div>
             </fieldset>
-            <fieldset>
+            <fieldset class="option">
                 <legend>Hadden de overledene en diens partner een finaal verrekenbeding?</legend>
                 <div class="radioBox">
                     <label for="finaalNee" class="radio-button-label">
@@ -141,7 +142,7 @@
                     </label>
                 </div>
             </fieldset>
-            <fieldset>
+            <fieldset class="option">
                 <div class="field1Bb">
                     <legend>Datum huwelijkse of partnerschapsvoorwaarden</legend>
                     <label for="datumHuwelijkseVoorwaarden">Huwelijksdatum</label>
@@ -235,10 +236,12 @@
                     <div class="field1Dd">
                         <label for="BSNnummerOverledene">BSN<span>*</span></label>
                         <input type="text" name="BSNnummerOverledene" id="BSNnummerOverledeneNotaris" minlength="8" maxlength="9" pattern="[0-9]{9}" required class="BSNnumberInput">
-                        <span class="show-error">BSN is te kort</span>
-                        <span class="BSN-error">BSN incorrect</span>
+                        <span class="show-error" aria-live="polite">BSN is te kort</span>
+                        <span class="BSN-error" aria-live="polite">BSN incorrect</span>
                     </div>
-                    <button type="button" class="saveBtn">Volgende</button>
+                    <button type="button" class="saveBtn">
+                    <span>Volgende</span>
+                </button>
 
                 </fieldset>
             </fieldset>

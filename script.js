@@ -38,21 +38,42 @@ BSNnumberInput.forEach(input => {
 });
 });
 
+// Date validation
+
+const setMaxDate = () => {
+    const today = new Date();
+
+    const yyyy = today.getFullYear();
+    // Months are zero-based
+    // padStart is used to fill the remaining space with "0" if the month or day is less than 2 digits
+    let mm = String(today.getMonth() + 1).padStart(2, '0');
+    let dd = String(today.getDate()).padStart(2, '0');
+
+    const formatDate = `${yyyy}-${mm}-${dd}`;
+
+    const dateInputs = document.querySelectorAll("input[type='date']");
+
+    dateInputs.forEach(input => {
+        input.max = formatDate;
+    });
+};
+
+setMaxDate();
+
+
 
 // full fieldset validation check
 
 const saveButtons = document.querySelectorAll(".saveBtn");
 
 saveButtons.forEach(btn => {
+    const currentContainer = btn.closest("fieldset");
+    let allValid = true;
+
     btn.addEventListener("click", (e) => {
     e.preventDefault();
 
-    const currentContainer = btn.closest("fieldset");
-    
-
     const inputs = currentContainer.querySelectorAll("input");
-    
-
     let allValid = true;
 
     inputs.forEach(input => {
@@ -62,11 +83,12 @@ saveButtons.forEach(btn => {
 });
 
 if (allValid) {
-    currentContainer.classList.remove("show-error");
+    currentContainer.classList.remove("show-errors");
 
     currentContainer.classList.add("fieldsetValid");
 } else {
-    currentContainer.classList.add("show-error");
+    currentContainer.classList.add("show-errors");
+    currentContainer.classList.remove("fieldsetValid");
 
     const invalidInputs = currentContainer.querySelector("input:invalid");
     if (invalidInputs) {
@@ -75,36 +97,39 @@ if (allValid) {
     }
 }
     })
-
-
-    
-    
-
-    const checkValidityStatus = () => {
-    
-
-if (allValid) {
-    btn.classList.add("saveBtnVisible");
-} else {
-    btn.classList.remove("saveBtnVisible");
-}
-}
-
-input.forEach(input => {
-    input.addEventListener("input", checkValidityStatus);
-    input.addEventListener("blur", checkValidityStatus);
-})
-
-btn.addEventListener("click", (e) => {
-    e.preventDefault();
-
-    currentContainer.classList.add("fieldsetValid");
-
-    btn.classList.remove("saveBtnVisible");
-})
-    checkValidityStatus();
-
 });
+
+
+    
+    
+
+//     const checkValidityStatus = () => {
+    
+
+// if (allValid) {
+//     btn.classList.add("saveBtnVisible");
+// } else {
+//     btn.classList.remove("saveBtnVisible");
+// }
+// }
+
+// input.forEach(input => {
+//     input.addEventListener("input", checkValidityStatus);
+//     input.addEventListener("blur", checkValidityStatus);
+// })
+
+// btn.addEventListener("click", (e) => {
+//     e.preventDefault();
+
+//     currentContainer.classList.add("fieldsetValid");
+
+//     btn.classList.remove("saveBtnVisible");
+// })
+//     checkValidityStatus();
+
+// });
+
+
 
 // MARK: Dynamisch inladen verkrijgers
 

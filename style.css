@@ -135,11 +135,6 @@ main {
 }
 
 
-
-
-
-
-
 .field1A, .field1D > fieldset:last-of-type, .field1E > .verkrijgerContainer {
     z-index: 10;
     border-radius: 8px;
@@ -183,8 +178,8 @@ main {
 }
 
 form .field1Aa label, form .field1Bb label,form .field1D > fieldset:last-of-type > .field1Dd label, form .field1E > .verkrijgerContainer > .field1Ee label {
-    margin-left: 10px;
-    width: 10em;
+    /* margin-left: 10px; */
+    /* width: 10em; */
     font-size: 22px;
     font-weight: 500;
     color: rgba(0, 0, 0, 1);
@@ -236,6 +231,10 @@ form .field1E .field1Ee:focus-within > label {
     padding: 0;
     width: 100%;
     border: none;
+
+    pointer-events: none;
+    z-index: -1;
+    transform: translateY(-100px);
 }
 
 .field1A:hover, .field1B > fieldset:hover, .field1C > fieldset:hover, .field1D > fieldset:hover, .field1E > fieldset:hover {
@@ -397,17 +396,9 @@ form .field1E .field1Ee:focus-within > label {
 
 /* Fieldset1B */
 
-.field1B {
-    opacity: 0;
-    pointer-events: none;
-    height: 0;
-    padding: 0;
-    margin: 0;
-    z-index: -1;
-    transform: translateY(-100px);
-}
-
-.field1B fieldset:nth-of-type(2), .field1B fieldset:nth-of-type(3), .field1B fieldset:nth-of-type(4) {
+.field1B fieldset:nth-of-type(2), 
+.field1B fieldset:nth-of-type(3), 
+.field1B fieldset:nth-of-type(4) {
     opacity: 0;
     pointer-events: none;
     height: 0;
@@ -428,18 +419,6 @@ form .field1E .field1Ee:focus-within > label {
     padding: 10px;
     height: auto;
     z-index: 1;
-    transition: transform 0.4s ease-in-out, opacity 0.8s ease-in-out;
-}
-
-.field1A.unfocussed ~ .field1B {
-    display: flex;
-    transform: translateY(0px);
-    opacity: 1;
-    margin-top: 2.5em;
-    height: auto;
-    z-index: 1;
-    overflow: visible;
-    gap: 1em;
     transition: transform 0.4s ease-in-out, opacity 0.8s ease-in-out;
 }
 
@@ -469,7 +448,9 @@ form .field1E .field1Ee:focus-within > label {
 
 /* Fieldset1C */
 
-.field1C fieldset:nth-of-type(2), .field1C fieldset:nth-of-type(3), .field1D {
+.field1C fieldset:nth-of-type(2), 
+.field1C fieldset:nth-of-type(3), 
+.field1D {
     opacity: 0;
     pointer-events: none;
     transition: all 0.3s ease;
@@ -483,7 +464,10 @@ form .field1E .field1Ee:focus-within > label {
 }
 
 
-.field1C:has(fieldset:first-of-type input[value="Ja"]:checked) fieldset:nth-of-type(2), .field1C:has(fieldset:nth-of-type(2) input[value="Ja"]:checked) fieldset:nth-of-type(3), .field1C:has(fieldset:nth-of-type(2) input[value="Nee"]:checked) fieldset:nth-of-type(3) .field1C:has(fieldset:nth-of-type(3) input[value="Ja"]:checked) ~ .field1D, .field1C:has(fieldset:nth-of-type(3) input[value="Nee"]:checked) ~ .field1D {
+.field1C:has(fieldset:first-of-type input[value="Ja"]:checked) fieldset:nth-of-type(2), 
+.field1C:has(fieldset:nth-of-type(2) input[value="Ja"]:checked) fieldset:nth-of-type(3), 
+.field1C:has(fieldset:nth-of-type(2) input[value="Nee"]:checked) fieldset:nth-of-type(3) .field1C:has(fieldset:nth-of-type(3) input[value="Ja"]:checked) ~ .field1D, 
+.field1C:has(fieldset:nth-of-type(3) input[value="Nee"]:checked) ~ .field1D {
     opacity: 1;
     pointer-events: all;
     display: flex;
@@ -938,14 +922,19 @@ button[type="submit"]:active:before, button[type="submit"]:hover:before, .saveBt
 }
 
 input[type="text"]:user-invalid, 
-input[type="date"]:user-invalid {
+input[type="date"]:user-invalid,
+.show-errors input:invalid,
+.BSNnumberInput.invalid,
+.BSNnumberInput.invalid:focus {
     border-radius: var(--input-text-focus-border-radius);
     border: 1px solid red;
     outline: 1px solid red;
     animation: invalidGlow 1.5s ease-in-out;
 }
 
-input[type="text"]:user-invalid ~ .show-error, input[type="date"]:user-invalid ~ .show-error {
+input[type="text"]:user-invalid ~ .show-error, 
+input[type="date"]:user-invalid ~ .show-error,
+.show-errors input:invalid ~ .show-error {
     opacity: 1;
     font-size: var(--error-message-font-size);
     padding: 2px 8px;
@@ -961,7 +950,7 @@ input[type="text"]:user-invalid ~ .show-error, input[type="date"]:user-invalid ~
 
 /* MARK:BSN number validation error message */
 
-.BSNnumberInput.valid {
+.BSNnumberInput.valid, .BSNnumberInput.valid:focus {
     position: relative;
     border: 1px solid green;
     outline: 2px solid green;
@@ -978,12 +967,6 @@ input[type="text"]:user-invalid ~ .show-error, input[type="date"]:user-invalid ~
     100% {
         box-shadow: 0 0 5px green;
     }
-}
-
-.BSNnumberInput.invalid {
-    border: 1px solid red;
-    outline: 2px solid red;
-    animation: invalidGlow 1.5s ease-in-out;
 }
 
 @keyframes invalidGlow {
