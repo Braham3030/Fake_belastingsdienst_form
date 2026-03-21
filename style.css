@@ -8,13 +8,15 @@
     --NS-Yellow: rgb(253, 212, 79);
     --NS-Blue: rgb(0, 51, 127);
     --font-family: "Roboto", sans-serif;
-    --font-size-h1: 34px;
-    --font-size-h2: 28px;
-    --font-size-p: 20px;
-    --font-size-legend: 26px;
-    --font-size-label: 24px;
-    --font-size-label-active: 28px;
-    --error-message-font-size: 18px;
+    --font-size-h1: 2.6em;
+    --font-size-h2: 2em;
+    --font-size-span-info: 1.3em;
+    --star-font-size: 1.2em;
+    --font-size-p: 1.25em;
+    --font-size-legend: 1.625em;
+    --font-size-label: 1.5em;
+    --font-size-label-active: 1.75em;
+    --error-message-font-size: 1.125em;
     --input-text-border-radius: 4px;
     --input-text-focus-border-radius: 6px;
     --form-border-radius: 8px;
@@ -104,9 +106,21 @@ main {
     margin: 0 auto;
     margin-top: 1em;
     width: 95vw;
+    max-width: 600px;
     padding: 4px 8px;
     font-size: var(--font-size-h2);
 }
+    > span {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 1em;
+    width: 95vw;
+    max-width: 600px;
+    padding: 4px 8px;
+    font-size: var(--font-size-span-info);
+
+    }
 
     > form {
     z-index: 10;
@@ -154,8 +168,11 @@ main {
     margin: 2em 0 0 0 !important;
 }
 
-.field1Aa > label > span, .field1Dd > label > span {
+.field1Aa > label > span, .field1Dd > label > span, main > span > strong {
+    font-weight: 900;
+    font-size: var(--star-font-size);
     color: red;
+    margin-left: 0.3em;
 }
 
 .field1Aa, .field1Bb, .field1D > fieldset:last-of-type > .field1Dd, .field1E > .verkrijgerContainer > .field1Ee {
@@ -173,6 +190,7 @@ main {
     padding: 18px;
     border-radius: var(--input-text-border-radius);
     background: transparent;
+    margin-bottom: 1em;
 
     font-size: 22px;
 }
@@ -180,7 +198,8 @@ main {
 form .field1Aa label, form .field1Bb label,form .field1D > fieldset:last-of-type > .field1Dd label, form .field1E > .verkrijgerContainer > .field1Ee label {
     /* margin-left: 10px; */
     /* width: 10em; */
-    font-size: 22px;
+    margin-bottom: 0.5em;
+    font-size: var(--font-size-label);
     font-weight: 500;
     color: rgba(0, 0, 0, 1);
     transition: font-size 0.4s ease, width 0.3s ease, margin-left 0.6s ease;
@@ -603,7 +622,7 @@ input[type="date"] {
     justify-content: flex-start;
     flex: 1;
     padding: 1em 2em;
-    border: 2px dotted var(--NS-Blue);
+    border: 2px solid var(--NS-Blue);
     border-radius: 8px;
     cursor: pointer;
     position: relative !important;
@@ -913,10 +932,7 @@ button[type="submit"]:active:before, button[type="submit"]:hover:before, .saveBt
 .show-error, .BSN-error {
     opacity: 0;
     font-size: var(--error-message-font-size);
-    padding: 2px 8px;
     width: 100%;
-    background: white;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
     height: 0;
     pointer-events: none;
 }
@@ -937,13 +953,9 @@ input[type="date"]:user-invalid ~ .show-error,
 .show-errors input:invalid ~ .show-error {
     opacity: 1;
     font-size: var(--error-message-font-size);
-    padding: 2px 8px;
     margin-top: .5em;
     height: auto;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
     color: red;
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(50px);
     border-radius: var(--input-text-focus-border-radius);
 }
 
