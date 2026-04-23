@@ -170,6 +170,7 @@ main {
 }
 
 .field1Aa > label > span, .field1Dd > label > span, main > p > span {
+    padding: 0.2em;
     color: red;
 }
 
@@ -196,7 +197,7 @@ form .field1Aa label, form .field1Bb label,form .field1D > fieldset:last-of-type
     /* margin-left: 10px; */
     margin-top: 7px;
     margin-bottom: 3px;
-    width: 10em;
+    /* width: 10em; */
     font-size: 22px;
     font-weight: 500;
     color: rgba(0, 0, 0, 1);
