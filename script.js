@@ -42,54 +42,68 @@ BSNnumberInput.forEach(input => {
 // full fieldset validation check
 
 const saveButtons = document.querySelectorAll(".saveBtn");
-const currentContainer = btn.closest("fieldset");
-let allValid = true;
+// const currentContainer = saveButtons.closest("fieldset");
+// let allValid = true;
 
 saveButtons.forEach(btn => {
-    btn.addEventListener("click", (e) => {
-    e.preventDefault();
+    // btn.addEventListener("click", (e) => {
+    // e.preventDefault();
 
-    // const currentContainer = btn.closest("fieldset");
+    const currentContainer = btn.closest("fieldset");
     
 
     const inputs = currentContainer.querySelectorAll("input");
-    
 
-    
+    checkValidityStatus = () => {
+        let allValid = true;
 
-    inputs.forEach(input => {
+        inputs.forEach(input => {
         if (!input.checkValidity()) {
         allValid = false;
     }
 });
 
-if (allValid) {
-    currentContainer.classList.remove("show-error");
-
-    currentContainer.classList.add("fieldsetValid");
-} else {
-    currentContainer.classList.add("show-error");
-
-    const invalidInputs = currentContainer.querySelector("input:invalid");
-    if (invalidInputs) {
-        // Focus on the invalid input field
-        invalidInputs.focus();
+    if (allValid) {
+        btn.classList.add("saveBtnVisible");
+    } else {
+        btn.classList.remove("saveBtnVisible");
     }
-}
-    })
+    return allValid;
+
+    }
+    
+
+    
+
+    
+
+// if (allValid) {
+//     currentContainer.classList.remove("show-error");
+
+//     currentContainer.classList.add("fieldsetValid");
+// } else {
+//     currentContainer.classList.add("show-error");
+
+//     const invalidInputs = currentContainer.querySelector("input:invalid");
+//     if (invalidInputs) {
+//         // Focus on the invalid input field
+//         invalidInputs.focus();
+//     }
+// }
+//     })
 
 
 
-    const checkValidityStatus = () => {
+//     const checkValidityStatus = () => {
 
-if (allValid) {
-    btn.classList.add("saveBtnVisible");
-} else {
-    btn.classList.remove("saveBtnVisible");
-}
-}
+// if (allValid) {
+//     btn.classList.add("saveBtnVisible");
+// } else {
+//     btn.classList.remove("saveBtnVisible");
+// }
+// }
 
-input.forEach(input => {
+inputs.forEach(input => {
     input.addEventListener("input", checkValidityStatus);
     input.addEventListener("blur", checkValidityStatus);
 })
@@ -97,9 +111,25 @@ input.forEach(input => {
 btn.addEventListener("click", (e) => {
     e.preventDefault();
 
-    currentContainer.classList.add("fieldsetValid");
+    const formValidity = checkValidityStatus();
 
-    btn.classList.remove("saveBtnVisible");
+    if (formValidity) {
+        currentContainer.classList.remove("form-error");
+        currentContainer.classList.add("fieldsetValid");
+
+        btn.classList.remove("saveBtnVisible");
+    } else {
+        currentContainer.classList.add("form-error");
+
+        currentContainer.classList.remove("fieldsetValid");
+
+        const invalidInputs = currentContainer.querySelector("input:invalid");
+        if (invalidInputs) {
+            // Focus on the invalid input field
+            invalidInputs.focus();
+        }
+    }
+    // btn.classList.remove("saveBtnVisible");
 })
     checkValidityStatus();
 

@@ -603,7 +603,7 @@ form .field1E .field1Ee:focus-within > label {
     width: 0;
 } */
 
-.show-error input:invalid {
+.form-error input:invalid {
     border: 1px solid red;
 }
 
