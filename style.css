@@ -101,12 +101,22 @@ main {
     > h2 {
     display: flex;
     align-items: center;
+    justify-content: center;
     margin: 0 auto;
     margin-top: 1em;
     width: 95vw;
     padding: 4px 8px;
     font-size: var(--font-size-h2);
 }
+
+    > p {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        width: 95vw;
+        font-size: var(--font-size-p);
+    }
 
     > form {
     z-index: 10;
@@ -159,7 +169,7 @@ main {
     margin: 2em 0 0 0 !important;
 }
 
-.field1Aa > label > span, .field1Dd > label > span {
+.field1Aa > label > span, .field1Dd > label > span, main > p > span {
     color: red;
 }
 
@@ -183,7 +193,9 @@ main {
 }
 
 form .field1Aa label, form .field1Bb label,form .field1D > fieldset:last-of-type > .field1Dd label, form .field1E > .verkrijgerContainer > .field1Ee label {
-    margin-left: 10px;
+    /* margin-left: 10px; */
+    margin-top: 7px;
+    margin-bottom: 3px;
     width: 10em;
     font-size: 22px;
     font-weight: 500;
@@ -619,7 +631,7 @@ input[type="date"] {
     justify-content: flex-start;
     flex: 1;
     padding: 1em 2em;
-    border: 2px dotted var(--NS-Blue);
+    border: 2px solid var(--NS-Blue);
     border-radius: 8px;
     cursor: pointer;
     position: relative !important;
@@ -777,7 +789,8 @@ button[type="submit"], .saveBtn {
     border-radius: 16px;
     border: none;
     background: transparent;
-    box-shadow: 0 0 20px var(--NS-Yellow);
+    /* box-shadow: 0 0 20px var(--NS-Yellow); */
+    border: 2px solid var(--NS-Yellow);
     margin: 0 auto;
     overflow: hidden;
 }
@@ -789,7 +802,7 @@ button[type="submit"] > span, .saveBtn > span {
     font-size: var(--font-size-submit);
 }
 
-button[type="submit"]:before, .saveBtn:before {
+/* button[type="submit"]:before, .saveBtn:before {
     content: "";
     position: absolute;
     left: 50%;
@@ -815,7 +828,7 @@ button[type="submit"]:after, .saveBtn:after {
     border-radius: inherit;
     filter: blur(10px);
     z-index: -1;
-}
+} */
 
 button[type="submit"]:active, button[type="submit"]:hover, .saveBtn:active, .saveBtn:hover {
     transform: scale(1.05);
@@ -825,7 +838,7 @@ button[type="submit"]:active > span, button[type="submit"]:hover > span, .saveBt
     font-size: 22px;
 }
 
-button[type="submit"]:active:after, button[type="submit"]:hover:after, .saveBtn:active:after, .saveBtn:hover:after {
+/* button[type="submit"]:active:after, button[type="submit"]:hover:after, .saveBtn:active:after, .saveBtn:hover:after {
     right: 50%;
     top: 50%;
     transform: translate(50%, -50%);
@@ -843,9 +856,9 @@ button[type="submit"]:active:after, button[type="submit"]:hover:after, .saveBtn:
     background-size: 300% 100%;
     background-position: 0% 0%;
     animation: NSshineBackground 4s linear;
-}
+} */
 
-button[type="submit"]:active:before, button[type="submit"]:hover:before, .saveBtn:active:before, .saveBtn:hover:before {
+/* button[type="submit"]:active:before, button[type="submit"]:hover:before, .saveBtn:active:before, .saveBtn:hover:before {
     left: 50%;
     bottom: 50%;
     transform: translate(-50%, 50%);
@@ -876,7 +889,7 @@ button[type="submit"]:active:before, button[type="submit"]:hover:before, .saveBt
     100% {
         background-position: -200% 0%;
     }
-}
+} */
 
 /* Submit animation */
 
