@@ -42,18 +42,20 @@ BSNnumberInput.forEach(input => {
 // full fieldset validation check
 
 const saveButtons = document.querySelectorAll(".saveBtn");
+const currentContainer = btn.closest("fieldset");
+let allValid = true;
 
 saveButtons.forEach(btn => {
     btn.addEventListener("click", (e) => {
     e.preventDefault();
 
-    const currentContainer = btn.closest("fieldset");
+    // const currentContainer = btn.closest("fieldset");
     
 
     const inputs = currentContainer.querySelectorAll("input");
     
 
-    let allValid = true;
+    
 
     inputs.forEach(input => {
         if (!input.checkValidity()) {
@@ -79,7 +81,6 @@ if (allValid) {
 
 
     const checkValidityStatus = () => {
-    
 
 if (allValid) {
     btn.classList.add("saveBtnVisible");
