@@ -58,8 +58,22 @@ saveButtons.forEach(btn => {
         let allValid = true;
 
         inputs.forEach(input => {
+            // The show-error span is dynamically adjusted based on the validity check
+            const errorSpan = input.parentElement.querySelector(".show-error");
+
         if (!input.checkValidity()) {
+        // allValid is set to false
         allValid = false;
+
+        if (errorSpan) {
+            // If the input is invalid, missing any value. It will then show the following textContent
+            if (input.validity.valueMissing) {
+                errorSpan.textContent = "Dit veld is verplicht!";
+                // If the input is invalid, mismatched according to the pattern. It will then show the following textContent
+            } else if (input.validity.patternMismatch) {
+                errorSpan.textContent = "Ongeldig formaat!";
+            }
+        }
     }
 });
 
@@ -175,7 +189,7 @@ addBtn.addEventListener("click", () => {
                     </div>
                     <div class="field1Ee">
                         <label for="">Voorletters</label>
-                        <input type="text" name="voorlettersVerkrijger${verkrijgerCount}" id="voorlettersVerkrijger${verkrijgerCount}" required>
+                        <input type="text" name="voorlettersVerkrijger${verkrijgerCount}" id="voorlettersVerkrijger${verkrijgerCount}" pattern="[a-zA-Z]{1,10}" required>
                         <span>Dit veld is verplicht!</span>
                     </div>
 
@@ -186,7 +200,7 @@ addBtn.addEventListener("click", () => {
 
                     <div class="field1Ee">
                         <label for="">Achternaam</label>
-                        <input type="text" name="achternaamVerkrijger${verkrijgerCount}" id="achternaamVerkrijger${verkrijgerCount}" required>
+                        <input type="text" name="achternaamVerkrijger${verkrijgerCount}" id="achternaamVerkrijger${verkrijgerCount}" pattern="[a-zA-Z]{1,30}" required>
                         <span>Dit veld is verplicht!</span>
                     </div>
                     

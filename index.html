@@ -66,7 +66,7 @@
                 <legend>Gegevens van de overledene</legend>
                 <div class="field1Aa">
                     <label for="voornaam">Voornaam<span>*</span></label>
-                    <input type="text" name="voornamen" id="voornaam" required>
+                    <input type="text" name="voornamen" id="voornaam" pattern="[a-zA-Z]{1,30}" required>
                     <span class="show-error">Voornaam is verplicht</span>
                 </div>
             
@@ -77,7 +77,7 @@
             
                 <div class="field1Aa">
                     <label for="achternaam">Achternaam<span>*</span></label>
-                    <input type="text" name="achternamen" id="achternaam" required>
+                    <input type="text" name="achternamen" id="achternaam" pattern="[a-zA-Z]{1,30}" required>
                     <span class="show-error">Achternaam is verplicht</span>
                 </div>
 
@@ -218,7 +218,7 @@
 
                     <div class="field1Dd">
                         <label for="voorletters">Voorletter(s)<span>*</span></label>
-                        <input type="text" name="voorletters" id="voorlettersNotaris">
+                        <input type="text" name="voorletters" pattern="[a-zA-Z]{1,5}" id="voorlettersNotaris">
                         <span>Voorletter(s) is verplicht</span>
                     </div>
 
@@ -229,7 +229,7 @@
 
                     <div class="field1Dd">
                         <label for="achternaam">Achternaam<span>*</span></label>
-                        <input type="text" name="achternaam" id="achternaamNotaris">
+                        <input type="text" name="achternaam" pattern="[a-zA-Z]{1,30}" id="achternaamNotaris">
                         <span>Achternaam is verplicht</span>
                     </div>
 
@@ -273,7 +273,7 @@
                     </div>
                     <div class="field1Ee">
                         <label for="">Voorletters<span>*</span></label>
-                        <input type="text" name="voorlettersVerkrijger1" id="voorlettersVerkrijger1">
+                        <input type="text" name="voorlettersVerkrijger1" id="voorlettersVerkrijger1" pattern="[a-zA-Z]{1,10}" required>
                         <span>Dit veld is verplicht!</span>
                     </div>
 
@@ -284,7 +284,7 @@
 
                     <div class="field1Ee">
                         <label for="">Achternaam<span>*</span></label>
-                        <input type="text" name="achternaamVerkrijger1" id="achternaamVerkrijger1">
+                        <input type="text" name="achternaamVerkrijger1" id="achternaamVerkrijger1" pattern="[a-zA-Z]{1,30}" required>
                         <span>Dit veld is verplicht!</span>
                     </div>
                     

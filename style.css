@@ -604,7 +604,7 @@ form .field1E .field1Ee:focus-within > label {
 } */
 
 .form-error input:invalid {
-    border: 1px solid red;
+    border: 3px solid red;
 }
 
 input[type="date"] {
@@ -955,7 +955,7 @@ button[type="submit"]:active, .saveBtn:active {
 input[type="text"]:user-invalid, 
 input[type="date"]:user-invalid {
     border-radius: var(--input-text-focus-border-radius);
-    border: 1px solid red;
+    border: 3px solid red;
     outline: 1px solid red;
     animation: invalidGlow 1.5s ease-in-out;
 }
