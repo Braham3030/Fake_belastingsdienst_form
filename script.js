@@ -54,7 +54,7 @@ saveButtons.forEach(btn => {
 
     const inputs = currentContainer.querySelectorAll("input");
 
-    checkValidityStatus = () => {
+    const checkValidityStatus = () => {
         let allValid = true;
 
         inputs.forEach(input => {

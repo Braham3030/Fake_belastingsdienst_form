@@ -794,6 +794,7 @@ button[type="submit"], .saveBtn {
     border: 2px solid var(--NS-Yellow);
     margin: 0 auto;
     overflow: hidden;
+    cursor: pointer;
 }
 
 button[type="submit"] > span, .saveBtn > span {
@@ -831,13 +832,13 @@ button[type="submit"]:after, .saveBtn:after {
     z-index: -1;
 } */
 
-button[type="submit"]:active, button[type="submit"]:hover, .saveBtn:active, .saveBtn:hover {
-    transform: scale(1.05);
+button[type="submit"]:active, .saveBtn:active {
+    transform: scale(0.85);
 }
 
-button[type="submit"]:active > span, button[type="submit"]:hover > span, .saveBtn:active > span, .saveBtn:hover > span {
+/* button[type="submit"]:active > span, button[type="submit"]:hover > span, .saveBtn:active > span, .saveBtn:hover > span {
     font-size: 22px;
-}
+} */
 
 /* button[type="submit"]:active:after, button[type="submit"]:hover:after, .saveBtn:active:after, .saveBtn:hover:after {
     right: 50%;
