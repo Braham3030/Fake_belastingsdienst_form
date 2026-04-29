@@ -85,37 +85,6 @@ saveButtons.forEach(btn => {
     return allValid;
 
     }
-    
-
-    
-
-    
-
-// if (allValid) {
-//     currentContainer.classList.remove("show-error");
-
-//     currentContainer.classList.add("fieldsetValid");
-// } else {
-//     currentContainer.classList.add("show-error");
-
-//     const invalidInputs = currentContainer.querySelector("input:invalid");
-//     if (invalidInputs) {
-//         // Focus on the invalid input field
-//         invalidInputs.focus();
-//     }
-// }
-//     })
-
-
-
-//     const checkValidityStatus = () => {
-
-// if (allValid) {
-//     btn.classList.add("saveBtnVisible");
-// } else {
-//     btn.classList.remove("saveBtnVisible");
-// }
-// }
 
 inputs.forEach(input => {
     input.addEventListener("input", checkValidityStatus);
@@ -130,8 +99,17 @@ btn.addEventListener("click", (e) => {
     if (formValidity) {
         currentContainer.classList.remove("form-error");
         currentContainer.classList.add("fieldsetValid");
-
         btn.classList.remove("saveBtnVisible");
+
+        // Scroll to the next sibling after clicking the save button
+        const nextFieldset = currentContainer.nextElementSibling;
+        if (nextFieldset) {
+            setTimeout(() => {
+                nextFieldset.scrollIntoView({ 
+                    behavior: "smooth" 
+                });
+            }, 300)
+        }
     } else {
         currentContainer.classList.add("form-error");
 
@@ -143,11 +121,43 @@ btn.addEventListener("click", (e) => {
             invalidInputs.focus();
         }
     }
-    // btn.classList.remove("saveBtnVisible");
 })
     checkValidityStatus();
 
 });
+
+// Radio button scroll into view
+
+const allRadioButtonns = document.querySelectorAll('input[type="radio"]');
+
+allRadioButtonns.forEach(radio => {
+    radio.addEventListener("change", (e) => {
+        // scrolls to the closest fieldset
+        const currentFieldset = e.target.closest("fieldset");
+
+        setTimeout(() => {
+            currentFieldset.scrollIntoView({
+                behavior: "smooth"
+            }, 300)
+        })
+    })
+});
+
+// DatePicker scroll into view
+
+const allDatePicker = document.querySelectorAll('.field1Bb > input[type="date"]');
+
+allDatePicker.forEach(date => {
+    date.addEventListener("change", (e) => {
+        const currentFieldset = e.target.closest("fieldset");
+
+        setTimeout(() => {
+            currentFieldset.scrollIntoView({
+                behavior: "smooth"
+            }, 300)
+        })
+    })
+})
 
 // MARK: Dynamisch inladen verkrijgers
 
@@ -175,34 +185,36 @@ addBtn.addEventListener("click", () => {
 
     const newForm = `
     <fieldset class="verkrijgerContainer">
-                    <div class="legendRemoveStyling">
-                        <legend>Verkrijger ${verkrijgerCount}</legend>
-                        <button type="button" class="remove-btn" onclick="this.parentElement.parentElement.remove(); checkRemovebtn();">
-                            Verwijder ✗
-                        </button>
-                    </div>
+                    <fieldset class="fieldEeContainer">
+                        <legend class="legendRemoveStyling">
+                            <span>Verkrijger ${verkrijgerCount}</span>
+                            <button type="button" class="remove-btn" onclick="this.parentElement.parentElement.remove(); checkRemovebtn();">
+                                Verwijder ✗
+                            </button>
+                        </legend>
 
-                    <div class="field1Ee">
-                        <label for="">Bsn/RSIN</label>
-                        <input type="text" name="BSNnummerVerkrijger${verkrijgerCount}" id="BSNnummerVerkrijger${verkrijgerCount}" minlength="8" maxlength="9" placeholder="" required class="BSNnumberInput">
-                        <span>Dit veld is verplicht!</span>
-                    </div>
-                    <div class="field1Ee">
-                        <label for="">Voorletters</label>
-                        <input type="text" name="voorlettersVerkrijger${verkrijgerCount}" id="voorlettersVerkrijger${verkrijgerCount}" pattern="[a-zA-Z]{1,10}" required>
-                        <span>Dit veld is verplicht!</span>
-                    </div>
+                        <div class="field1Ee">
+                            <label for="">BSN/RSIN<span>*</span></label>
+                            <input type="text" name="BSNnummerVerkrijger${verkrijgerCount}" id="BSNnummerVerkrijger${verkrijgerCount}" minlength="8" maxlength="9" placeholder="" required class="BSNnumberInput">
+                            <span class="show-error">Dit veld is verplicht!</span>
+                        </div>
+                        <div class="field1Ee">
+                            <label for="">Voorletters<span>*</span></label>
+                            <input type="text" name="voorlettersVerkrijger${verkrijgerCount}" id="voorlettersVerkrijger${verkrijgerCount}" pattern="[a-zA-Z]{1,10}" required>
+                            <span class="show-error">Dit veld is verplicht!</span>
+                        </div>
 
-                    <div class="field1Ee">
-                        <label for="">Tussenvoegsel(s)</label>
-                        <input type="text" name="tussenvoegselVerkrijger${verkrijgerCount}" id="tussenvoegselVerkrijger${verkrijgerCount}">
-                    </div>
+                        <div class="field1Ee">
+                            <label for="">Tussenvoegsel(s)</label>
+                            <input type="text" name="tussenvoegselVerkrijger${verkrijgerCount}" id="tussenvoegselVerkrijger${verkrijgerCount}">
+                        </div>
 
-                    <div class="field1Ee">
-                        <label for="">Achternaam</label>
-                        <input type="text" name="achternaamVerkrijger${verkrijgerCount}" id="achternaamVerkrijger${verkrijgerCount}" pattern="[a-zA-Z]{1,30}" required>
-                        <span>Dit veld is verplicht!</span>
-                    </div>
+                        <div class="field1Ee">
+                            <label for="">Achternaam<span>*</span></label>
+                            <input type="text" name="achternaamVerkrijger${verkrijgerCount}" id="achternaamVerkrijger${verkrijgerCount}" pattern="[a-zA-Z]{1,30}" required>
+                            <span class="show-error">Dit veld is verplicht!</span>
+                        </div>
+                    </fieldset>
                     
                     <fieldset class="field1ERadio">
                         <legend>Krijgt deze verkrijger waarvoor u geen aangifte doet het hele vermogen?</legend>

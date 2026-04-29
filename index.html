@@ -146,7 +146,7 @@
                 <div class="field1Bb">
                     <legend>Datum huwelijkse of partnerschapsvoorwaarden</legend>
                     <label for="datumHuwelijkseVoorwaarden">Huwelijksdatum</label>
-                    <input type="date" name="datumHuwelijkseVoorwaarden" id="datumHuwelijkseVoorwaarden">
+                    <input type="date" name="datumHuwelijkseVoorwaarden" id="datumHuwelijkseVoorwaarden" required>
                 </div>
             </fieldset>
             </fieldset>
@@ -258,35 +258,38 @@
                     </div>
                 </fieldset>
                 <fieldset class="verkrijgerContainer">
-                    <div class="legendRemoveStyling">
-                        <legend>Verkrijger 1</legend>
+                    
+
+                    <fieldset class="fieldEeContainer">
+                        <legend class="legendRemoveStyling">
+                            <span>Verkrijger 1</span>
                         <button type="button" class="remove-btn" onclick="this.parentElement.parentElement.remove()"; checkRemovebtn();>
                             Verwijder ✗ 
                         </button>
-                    </div>
+                        </legend>
+                        <div class="field1Ee">
+                            <label for="">BSN/RSIN<span>*</span></label>
+                            <input type="text" name="BSNnummerVerkrijger1" id="BSNnummerVerkrijger1" minlength="8" maxlength="9" placeholder="" class="BSNnumberInput" autocomplete="off">
+                            <span class="show-error">BSN nummer is te kort</span>
+                            <span class="BSN-error">BSN incorrect</span>
+                        </div>
+                        <div class="field1Ee">
+                            <label for="">Voorletters<span>*</span></label>
+                            <input type="text" name="voorlettersVerkrijger1" id="voorlettersVerkrijger1" pattern="[a-zA-Z]{1,10}" required>
+                            <span class="show-error">Dit veld is verplicht!</span>
+                        </div>
 
-                    <div class="field1Ee">
-                        <label for="">BSN/RSIN</label>
-                        <input type="text" name="BSNnummerVerkrijger1" id="BSNnummerVerkrijger1" minlength="8" maxlength="9" placeholder="" class="BSNnumberInput" autocomplete="off">
-                        <span>BSn nummer is te kort</span>
-                        <span>BSN incorrect</span>
-                    </div>
-                    <div class="field1Ee">
-                        <label for="">Voorletters<span>*</span></label>
-                        <input type="text" name="voorlettersVerkrijger1" id="voorlettersVerkrijger1" pattern="[a-zA-Z]{1,10}" required>
-                        <span>Dit veld is verplicht!</span>
-                    </div>
+                        <div class="field1Ee">
+                            <label for="">Tussenvoegsel(s)</label>
+                            <input type="text" name="tussenvoegselVerkrijger1" id="tussenvoegselVerkrijger1">
+                        </div>
 
-                    <div class="field1Ee">
-                        <label for="">Tussenvoegsel(s)</label>
-                        <input type="text" name="tussenvoegselVerkrijger1" id="tussenvoegselVerkrijger1">
-                    </div>
-
-                    <div class="field1Ee">
-                        <label for="">Achternaam<span>*</span></label>
-                        <input type="text" name="achternaamVerkrijger1" id="achternaamVerkrijger1" pattern="[a-zA-Z]{1,30}" required>
-                        <span>Dit veld is verplicht!</span>
-                    </div>
+                        <div class="field1Ee">
+                            <label for="">Achternaam<span>*</span></label>
+                            <input type="text" name="achternaamVerkrijger1" id="achternaamVerkrijger1" pattern="[a-zA-Z]{1,30}" required>
+                            <span class="show-error">Dit veld is verplicht!</span>
+                        </div>
+                    </fieldset>
                     
                     <fieldset class="field1ERadio">
                         <legend>Krijgt deze verkrijger waarvoor u geen aangifte doet het hele vermogen?</legend>
