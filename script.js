@@ -40,13 +40,8 @@ BSNnumberInput.forEach((input) => {
 // full fieldset validation check
 
 const saveButtons = document.querySelectorAll(".saveBtn");
-// const currentContainer = saveButtons.closest("fieldset");
-// let allValid = true;
 
 saveButtons.forEach((btn) => {
-	// btn.addEventListener("click", (e) => {
-	// e.preventDefault();
-
 	const currentContainer = btn.closest("fieldset");
 
 	const inputs = currentContainer.querySelectorAll("input");
@@ -184,11 +179,11 @@ addBtn.addEventListener("click", () => {
 	verkrijgerCount++;
 
 	const newForm = `
-    <fieldset class="verkrijgerContainer">
+    <fieldset class="verkrijgerContainer animateTo">
                     <fieldset class="fieldEeContainer">
                         <legend class="legendRemoveStyling">
                             <span>Verkrijger ${verkrijgerCount}</span>
-                            <button type="button" class="remove-btn" onclick="this.parentElement.parentElement.remove(); checkRemovebtn();">
+                            <button type="button" class="remove-btn" onclick="this.closest('.verkrijgerContainer').remove(); checkRemovebtn(); reCalc();">
                                 Verwijder ✗
                             </button>
                         </legend>
@@ -200,7 +195,7 @@ addBtn.addEventListener("click", () => {
                         </div>
                         <div class="field1Ee">
                             <label for="voorlettersVerkrijger${verkrijgerCount}">Voorletters<span>*</span></label>
-                            <input type="text" name="voorlettersVerkrijger${verkrijgerCount}" id="voorlettersVerkrijger${verkrijgerCount}" pattern="[a-zA-Z]{1,10}" required>
+                            <input type="text" name="voorlettersVerkrijger${verkrijgerCount}" id="voorlettersVerkrijger${verkrijgerCount}" pattern="[a-zA-Z]{2,10}" required>
                             <span class="show-error">Dit veld is verplicht!</span>
                         </div>
 
@@ -211,7 +206,7 @@ addBtn.addEventListener("click", () => {
 
                         <div class="field1Ee">
                             <label for="achternaamVerkrijger${verkrijgerCount}">Achternaam<span>*</span></label>
-                            <input type="text" name="achternaamVerkrijger${verkrijgerCount}" id="achternaamVerkrijger${verkrijgerCount}" pattern="[a-zA-Z]{1,30}" required>
+                            <input type="text" name="achternaamVerkrijger${verkrijgerCount}" id="achternaamVerkrijger${verkrijgerCount}" pattern="[a-zA-Z]{2,30}" required>
                             <span class="show-error">Dit veld is verplicht!</span>
                         </div>
                     </fieldset>
@@ -251,19 +246,36 @@ addBtn.addEventListener("click", () => {
 
 	checkRemovebtn();
 
-    // Scroll to the newly added form
-    const allForms = document.querySelectorAll(".verkrijgerContainer");
+	// Re-calculate the number of the span
 
-    const newAdded = allForms[allForms.length - 1];
+	const reCalc = () => {
+		const allSpans = document.querySelectorAll(".verkrijgerContainer");
 
-    if (newAdded) {
-        setTimeout(() => {
-            newAdded.scrollIntoView({
-                behavior: "smooth",
-                block: "start",
-            })
-        }, 100);
-    }
+		allSpans.forEach((container, index) => {
+			const titleSpan = container.querySelector(".legendRemoveStyling > span");
+
+			if (titleSpan) {
+				// The textContent adjustes the current number based on the amount of fieldsets on the screen
+				titleSpan.textContent = `Verkrijger ${index + 1}`;
+			}
+		});
+	};
+
+	// Scroll to the newly added form
+	const allForms = document.querySelectorAll(".verkrijgerContainer");
+
+	const newAdded = allForms[allForms.length - 1];
+
+	if (newAdded) {
+		setTimeout(() => {
+			newAdded.scrollIntoView({
+				behavior: "smooth",
+				block: "end",
+			});
+		}, 100);
+	}
+
+	reCalc();
 });
 
 // Send animation onClick
@@ -275,19 +287,78 @@ if (sendBtn) {
 		// preventDefault is used to prevent the form from being submitted before the animation is finished.
 		e.preventDefault();
 
+		const allInputs = form.querySelectorAll("input");
+
+		// Check if the input is hidden by checking the computed styles of the input
+		allInputs.forEach((input) => {
+			let isHidden = false;
+			let elementCheck = input;
+
+			// while is being used to check the input and all of its parent elements until it reaches the form element
+			while (elementCheck && elementCheck !== form) {
+				const styles = window.getComputedStyle(elementCheck);
+
+				// Check for opacity and pointer-events
+				if (styles.opacity === "0" || styles.pointerEvents === "none") {
+					isHidden = true;
+					// If the input is hidden, it will break the forEach loop and set the input to disabled
+					break;
+				}
+				// Check the parent element
+				elementCheck = elementCheck.parentElement;
+			}
+			// If the input is hidden, it will be disabled
+			input.disabled = isHidden;
+		});
+
 		if (form.checkValidity()) {
 			sendBtn.classList.add("sendAnimation");
 
 			const span = sendBtn.querySelector("span");
-			if (span) {
-				span.textContent = "Succesvol verzonden!";
-			}
+			setTimeout(() => {
+				if (span) {
+					span.textContent = "✅ Succesvol verzonden!";
+				}
+			}, 400);
+
+			sendBtn.scrollIntoView({
+				behavior: "smooth",
+				block: "center",
+			});
 			// setTimeout prevents submitting after for 3 seconds
 			setTimeout(() => {
 				form.submit();
 			}, 3000);
 		} else {
-			form.reportValidity();
+			form.classList.add("form-error");
+
+			allInputs.forEach((input) => {
+				if (!input.disabled && !input.checkValidity()) {
+					const errorSpan = input.parentElement.querySelector(".show-error");
+
+					// Error message will be based upon validity state of the input
+					if (errorSpan) {
+						if (input.validity.valueMissing) {
+							errorSpan.textContent = "Dit veld is verplicht!";
+						} else if (input.validity.patternMismatch) {
+							errorSpan.textContent = "Ongeldig formaat!";
+						}
+					}
+				}
+			});
+
+			const firstInvalidInput = form.querySelector("input:invalid:not(:disabled)");
+
+			if (firstInvalidInput) {
+				firstInvalidInput.scrollIntoView({
+					behavior: "smooth",
+					block: "center",
+				});
+
+				setTimeout(() => {
+					firstInvalidInput.focus();
+				}, 400);
+			}
 		}
 	});
 }

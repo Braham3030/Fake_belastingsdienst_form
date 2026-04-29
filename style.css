@@ -20,6 +20,7 @@
 	--input-text-focus-border-radius: 6px;
 	--form-border-radius: 8px;
 	--font-size-submit: 24px;
+	--submit-width: 40em;
 }
 
 /* MARK: Overall */
@@ -27,6 +28,18 @@
 header,
 body {
 	font-family: var(--font-family);
+}
+
+@media (max-width: 800px) {
+	:root {
+		--font-size-h1: 30px;
+		--font-size-h2: 26px;
+		--font-size-p: 18px;
+		--font-size-legend: 24px;
+		--font-size-label: 22px;
+		--font-size-label-active: 26px;
+		--submit-width: 26em;
+	}
 }
 
 /* ------ MARK:Nesting header ------ */
@@ -128,6 +141,7 @@ main {
 		flex-wrap: wrap;
 		gap: 1.5em;
 		justify-content: center;
+		align-items: center;
 		border: none;
 		background: none;
 
@@ -228,21 +242,8 @@ form .field1E > .verkrijgerContainer > .fieldEeContainer > .field1Ee:focus-withi
 .field1D > fieldset:last-of-type > .field1Dd > input:focus-visible,
 .field1E > .verkrijgerContainer > .fieldEeContainer > .field1Ee > input:focus-visible {
 	border-radius: var(--input-text-focus-border-radius);
-	border: 1px solid var(--NS-Yellow);
-	outline: 1px solid var(--NS-Yellow);
-	animation: glowing 1.5s infinite;
-}
-
-@keyframes glowing {
-	0% {
-		box-shadow: 0 0 5px var(--NS-Blue);
-	}
-	50% {
-		box-shadow: 0 0 10px var(--NS-Blue);
-	}
-	100% {
-		box-shadow: 0 0 5px var(--NS-Blue);
-	}
+	border: 2px solid var(--NS-Blue);
+	outline: 1px solid var(--NS-Blue);
 }
 
 .field1B,
@@ -261,6 +262,7 @@ form .field1E > .verkrijgerContainer > .fieldEeContainer > .field1Ee:focus-withi
 	padding: 0;
 	width: 100%;
 	border: none;
+	visibility: hidden;
 }
 
 .field1B > fieldset,
@@ -326,7 +328,7 @@ form .field1E > .verkrijgerContainer > .fieldEeContainer > .field1Ee:focus-withi
 .remove-btn {
 	opacity: 0;
 	pointer-events: none;
-    cursor: none;
+	cursor: none;
 	width: 0%;
 	padding: 0;
 	margin: 0;
@@ -350,7 +352,7 @@ form .field1E > .verkrijgerContainer > .fieldEeContainer > .field1Ee:focus-withi
 	align-items: center;
 	justify-content: center;
 	pointer-events: all;
-    cursor: pointer;
+	cursor: pointer;
 }
 
 .add-btn {
@@ -371,55 +373,15 @@ form .field1E > .verkrijgerContainer > .fieldEeContainer > .field1Ee:focus-withi
 	cursor: pointer;
 }
 
-/* .add-btn:hover > span:first-of-type,
-.add-btn:active > span:first-of-type {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	opacity: 1;
-	font-size: 48px;
-	border-radius: inherit;
-	background: var(--NS-Blue);
-	color: white;
-	width: 100%;
-	height: 100%;
-} */
-
-/* .add-btn > span {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	position: absolute;
-	left: 0;
-	top: 0;
-	font-size: 22px;
-	border-radius: inherit;
-	background: var(--NS-Blue);
-	opacity: 0;
-	width: 0%;
-	height: 100%;
-	transition:
-		width 0.4s ease-in-out,
-		opacity 0.3s ease;
-} */
-
 .add-btn > span {
 	font-size: 22px;
 	transform: translateX(0);
-	transition:
-		transform 0.3s ease-in-out;
+	transition: transform 0.3s ease-in-out;
 }
 
 .add-btn > span:active {
-    transform: scale(0.95);
+	transform: scale(0.95);
 }
-
-/* .add-btn:hover > span:last-of-type,
-.add-btn:active > span:last-of-type {
-	transform: translateX(350%);
-	z-index: -1;
-	opacity: 0;
-} */
 
 /* ------ MARK: Progressive disclosure ------ */
 
@@ -429,11 +391,12 @@ form .field1E > .verkrijgerContainer > .fieldEeContainer > .field1Ee:focus-withi
 	display: flex;
 	transform: translateY(0px);
 	opacity: 1;
-	margin-top: 2.5em;
+	margin-top: 0em;
 	height: auto;
 	z-index: 1;
 	pointer-events: all;
 	overflow: visible;
+	visibility: visible;
 	gap: 2em;
 	transition:
 		transform 0.4s ease-in-out,
@@ -467,6 +430,8 @@ form .field1E > .verkrijgerContainer > .fieldEeContainer > .field1Ee:focus-withi
 	opacity: 0;
 	z-index: 1;
 	transform: translateY(-50px);
+	overflow: hidden;
+	visibility: hidden;
 	transition:
 		transform 0.4s ease-in-out,
 		opacity 0.8s ease-in-out;
@@ -483,6 +448,8 @@ form .field1E > .verkrijgerContainer > .fieldEeContainer > .field1Ee:focus-withi
 	padding: 10px;
 	height: auto;
 	z-index: 1;
+	visibility: visible;
+	overflow: visible;
 	transition:
 		transform 0.4s ease-in-out,
 		opacity 0.8s ease-in-out;
@@ -497,6 +464,7 @@ form .field1E > .verkrijgerContainer > .fieldEeContainer > .field1Ee:focus-withi
 	padding: 10px;
 	height: auto;
 	z-index: 1;
+	visibility: visible;
 	transition:
 		transform 0.4s ease-in-out,
 		opacity 0.8s ease-in-out;
@@ -528,6 +496,7 @@ form .field1E > .verkrijgerContainer > .fieldEeContainer > .field1Ee:focus-withi
 	z-index: 1;
 	overflow: visible;
 	gap: 1em;
+	visibility: visible;
 	transition:
 		transform 0.4s ease-in-out,
 		opacity 0.8s ease-in-out;
@@ -544,6 +513,8 @@ form .field1E > .verkrijgerContainer > .fieldEeContainer > .field1Ee:focus-withi
 	opacity: 0;
 	z-index: 1;
 	transform: translateY(-100px);
+	overflow: hidden;
+	visibility: hidden;
 	transition:
 		transform 0.4s ease-in-out,
 		opacity 0.8s ease-in-out;
@@ -561,6 +532,8 @@ form .field1E > .verkrijgerContainer > .fieldEeContainer > .field1Ee:focus-withi
 	padding: 10px;
 	height: auto;
 	z-index: 1;
+	visibility: visible;
+	overflow: visible;
 	transition:
 		transform 0.4s ease-in-out,
 		opacity 0.8s ease-in-out;
@@ -580,6 +553,7 @@ form .field1E > .verkrijgerContainer > .fieldEeContainer > .field1Ee:focus-withi
 	height: auto;
 	z-index: 1;
 	gap: 1em;
+	visibility: visible;
 	transition:
 		transform 0.4s ease-in-out,
 		opacity 0.8s ease-in-out;
@@ -595,6 +569,8 @@ form .field1E > .verkrijgerContainer > .fieldEeContainer > .field1Ee:focus-withi
 	opacity: 0;
 	z-index: 1;
 	transform: translateY(-100px);
+	overflow: hidden;
+	visibility: hidden;
 	transition:
 		transform 0.4s ease-in-out,
 		opacity 0.8s ease-in-out;
@@ -610,6 +586,8 @@ form .field1E > .verkrijgerContainer > .fieldEeContainer > .field1Ee:focus-withi
 	height: auto;
 	z-index: 1;
 	gap: 1em;
+	visibility: visible;
+	overflow: visible;
 	transition:
 		transform 0.4s ease-in-out,
 		opacity 0.8s ease-in-out;
@@ -624,13 +602,14 @@ form .field1E > .verkrijgerContainer > .fieldEeContainer > .field1Ee:focus-withi
 	align-items: center;
 	justify-content: center;
 	pointer-events: none;
-	transition: all 0.3s ease;
 	height: 0;
 	padding: 0;
 	margin: 0;
 	opacity: 0;
 	z-index: 1;
 	transform: translateY(-100px);
+	visibility: hidden;
+	overflow: hidden;
 	transition:
 		transform 0.4s ease-in-out,
 		opacity 0.8s ease-in-out;
@@ -646,6 +625,7 @@ form .field1E > .verkrijgerContainer > .fieldEeContainer > .field1Ee:focus-withi
 	height: auto;
 	z-index: 1;
 	overflow: visible;
+	visibility: visible;
 	gap: 1em;
 	transition:
 		transform 0.4s ease-in-out,
@@ -663,6 +643,7 @@ form .field1E > .verkrijgerContainer > .fieldEeContainer > .field1Ee:focus-withi
 	height: auto;
 	z-index: 1;
 	overflow: visible;
+	visibility: visible;
 	gap: 1em;
 	transition:
 		transform 0.4s ease-in-out,
@@ -696,6 +677,7 @@ form .field1E > .verkrijgerContainer > .fieldEeContainer > .field1Ee:focus-withi
 	height: auto;
 	z-index: 1;
 	gap: 1em;
+	visibility: visible;
 	transition:
 		transform 0.4s ease-in-out,
 		opacity 0.8s ease-in-out;
@@ -708,10 +690,6 @@ form .field1E > .verkrijgerContainer > .fieldEeContainer > .field1Ee:focus-withi
 .field1A:user-valid {
 	background: green;
 	border: 10px solid green;
-}
-
-.form-error input:invalid {
-	border: 3px solid red;
 }
 
 input[type="date"] {
@@ -768,8 +746,8 @@ input[type="date"] {
 }
 
 .radio-button-label:has(input[type="radio"]:focus-visible) {
-    outline: 3px solid var(--NS-Yellow);
-    outline-offset: 2px;
+	outline: 3px solid var(--NS-Yellow);
+	outline-offset: 2px;
 }
 
 /* The END */
@@ -805,9 +783,9 @@ legend {
 .send > span,
 .saveBtn > span {
 	z-index: 10000;
-	position: absolute;
 	padding: 0;
 	font-size: var(--font-size-submit);
+	text-align: center;
 }
 
 .send:active,
@@ -820,25 +798,21 @@ legend {
 .send {
 	display: none !important;
 	transition: all 0.7s cubic-bezier(0.64, 0.04, 0.35, 1) !important;
+	overflow: hidden;
 }
 
 .send.sendAnimation {
-	position: fixed !important;
-	top: 50vh !important;
-	left: 50vw !important;
-	transform: translate(-50%, -50%) !important;
-	transform-origin: center bottom !important;
-	width: 100vw !important;
-	height: 100vh !important;
-	border-radius: 0 !important;
-	margin: 0 !important;
-	z-index: 99999999 !important;
-	background: var(--NS-Yellow) !important;
+	background-color: var(--NS-Yellow);
+	width: var(--submit-width) !important;
+	/* transform: scale(1.05); */
+	pointer-events: none;
+	transform-origin: center !important;
+	margin: 0 auto !important;
 }
 
 .send.sendAnimation > span {
-	font-size: 48px;
-	font-weight: 900;
+	font-size: 28px;
+	font-weight: 700;
 	color: black;
 }
 
@@ -847,16 +821,17 @@ legend {
 	opacity: 0 !important;
 }
 
+.field1E:has(fieldset:first-of-type :is(input[value="Nee"]:checked, input[value="Ja"]:checked)) ~ .send {
+	display: flex !important;
+	width: 20em;
+}
+
 /* MARK: saveBtn styling */
 
 .saveBtn {
 	padding: 2em 4em !important;
+	margin-top: 1.5em;
 	width: 25em;
-}
-
-.field1D:has(fieldset:first-of-type input:checked) ~ .field1E ~ .send {
-	display: flex !important;
-	width: 20em !important;
 }
 
 /* MARK:Error message handler */
@@ -872,7 +847,9 @@ legend {
 }
 
 input[type="text"]:user-invalid,
-input[type="date"]:user-invalid {
+input[type="date"]:user-invalid,
+.form-error input[type="text"]:invalid,
+.form-error input[type="date"]:invalid {
 	border-radius: var(--input-text-focus-border-radius);
 	border: 3px solid red;
 	outline: 1px solid red;
@@ -880,8 +857,13 @@ input[type="date"]:user-invalid {
 	animation: invalidGlow 1.5s ease-in-out;
 }
 
+.form-error .radio-button-label:has([type="radio"]:invalid) {
+	border: 2px solid red;
+}
+
 input[type="text"]:user-invalid ~ .show-error,
-input[type="date"]:user-invalid ~ .show-error {
+input[type="date"]:user-invalid ~ .show-error,
+.form-error input:invalid ~ .show-error {
 	opacity: 1;
 	font-size: var(--error-message-font-size);
 	padding: 2px 8px;
@@ -910,6 +892,20 @@ input[type="date"]:user-invalid ~ .show-error {
 	padding: 2px 8px;
 	margin-top: 0.5em;
 	height: auto;
-	backdrop-filter: blur(50px);
 	border-radius: var(--input-text-focus-border-radius);
+}
+
+.animateTo {
+	animation: slideDownIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes slideDownIn {
+	0% {
+		opacity: 0;
+		transform: translateY(-80px) scale(0.5);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0) scale(1);
+	}
 }
