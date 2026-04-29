@@ -1,6 +1,9 @@
 const form = document.querySelector("form");
 const input = form.querySelectorAll("input[type='text']");
 
+// With novalidate, the styling and functions will be handled through javascript. Ohterwise it will be handled by the default browser
+form.setAttribute("novalidate", "novalidate");
+
 // Elfproef
 
 const BSNnumberInput = document.querySelectorAll(".BSNnumberInput");
