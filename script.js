@@ -268,10 +268,13 @@ if (sendBtn) {
     })
 }
 
-// Datevalidation
+// Date validation
+// Obtained from Justin
 
 const today = new Date().toISOString().split("T")[0];
 
 document.querySelectorAll('input[type="date"]').forEach((input) => {
   input.max = today;
 });
+
+

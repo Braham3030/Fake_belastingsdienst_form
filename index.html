@@ -212,14 +212,14 @@
                 <fieldset>
                     <div class="field1Dd">
                         <label for="protocolnummerNotaris">Protocolnummer Notaris<span>*</span></label>
-                        <input type="text" name="protocolnummerNotaris" id="protocolnummerNotaris">
-                        <span>Protocolnummer is verplicht</span>
+                        <input type="text" name="protocolnummerNotaris" id="protocolnummerNotaris" required>
+                        <span class="show-error">Protocolnummer is verplicht</span>
                     </div>
 
                     <div class="field1Dd">
                         <label for="voorletters">Voorletter(s)<span>*</span></label>
-                        <input type="text" name="voorletters" pattern="[a-zA-Z]{1,5}" id="voorlettersNotaris">
-                        <span>Voorletter(s) is verplicht</span>
+                        <input type="text" name="voorletters" pattern="[a-zA-Z]{1,5}" id="voorlettersNotaris" required>
+                        <span class="show-error">Voorletter(s) is verplicht</span>
                     </div>
 
                     <div class="field1Dd">
@@ -229,8 +229,8 @@
 
                     <div class="field1Dd">
                         <label for="achternaam">Achternaam<span>*</span></label>
-                        <input type="text" name="achternaam" pattern="[a-zA-Z]{1,30}" id="achternaamNotaris">
-                        <span>Achternaam is verplicht</span>
+                        <input type="text" name="achternaam" pattern="[a-zA-Z]{1,30}" id="achternaamNotaris" required>
+                        <span class="show-error">Achternaam is verplicht</span>
                     </div>
 
                     <div class="field1Dd">

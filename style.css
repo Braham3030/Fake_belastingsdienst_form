@@ -527,6 +527,33 @@ form .field1E .field1Ee:focus-within > label {
     transition: transform 0.4s ease-in-out, opacity 0.8s ease-in-out;
 }
 
+.field1D > fieldset:last-of-type {
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    height: 0;
+    padding: 0;
+    margin: 0;
+    opacity: 0;
+    z-index: 1;
+    transform: translateY(-100px);
+    transition: transform 0.4s ease-in-out, opacity 0.8s ease-in-out;
+}
+
+.field1D:has(fieldset:first-of-type input[value="Ja"]:checked) fieldset:last-of-type {
+    opacity: 1;
+    pointer-events: all;
+    display: flex;
+    transform: translateY(0px);
+    opacity: 1;
+    padding: 10px;
+    height: auto;
+    z-index: 1;
+    gap: 1em;
+
+    transition: transform 0.4s ease-in-out, opacity 0.8s ease-in-out;
+}
+
 /* Fieldset1D done */
 
 /* Fieldset1E */
@@ -540,6 +567,20 @@ form .field1E .field1Ee:focus-within > label {
     opacity: 0;
     z-index: 1;
     transform: translateY(-100px);
+    transition: transform 0.4s ease-in-out, opacity 0.8s ease-in-out;
+}
+
+.field1D:has(fieldset:first-of-type input[value="Nee"]:checked) ~ .field1E {
+    opacity: 1;
+    pointer-events: all;
+    display: flex;
+    transform: translateY(0px);
+    opacity: 1;
+    padding: 10px;
+    height: auto;
+    z-index: 1;
+    overflow: visible;
+    gap: 1em;
     transition: transform 0.4s ease-in-out, opacity 0.8s ease-in-out;
 }
 
