@@ -326,6 +326,7 @@ form .field1E > .verkrijgerContainer > .fieldEeContainer > .field1Ee:focus-withi
 .remove-btn {
 	opacity: 0;
 	pointer-events: none;
+    cursor: none;
 	width: 0%;
 	padding: 0;
 	margin: 0;
@@ -349,6 +350,7 @@ form .field1E > .verkrijgerContainer > .fieldEeContainer > .field1Ee:focus-withi
 	align-items: center;
 	justify-content: center;
 	pointer-events: all;
+    cursor: pointer;
 }
 
 .add-btn {
@@ -369,7 +371,7 @@ form .field1E > .verkrijgerContainer > .fieldEeContainer > .field1Ee:focus-withi
 	cursor: pointer;
 }
 
-.add-btn:hover > span:first-of-type,
+/* .add-btn:hover > span:first-of-type,
 .add-btn:active > span:first-of-type {
 	display: flex;
 	align-items: center;
@@ -381,9 +383,9 @@ form .field1E > .verkrijgerContainer > .fieldEeContainer > .field1Ee:focus-withi
 	color: white;
 	width: 100%;
 	height: 100%;
-}
+} */
 
-.add-btn > span:first-of-type {
+/* .add-btn > span {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -399,22 +401,25 @@ form .field1E > .verkrijgerContainer > .fieldEeContainer > .field1Ee:focus-withi
 	transition:
 		width 0.4s ease-in-out,
 		opacity 0.3s ease;
-}
+} */
 
-.add-btn > span:last-of-type {
+.add-btn > span {
 	font-size: 22px;
 	transform: translateX(0);
 	transition:
-		transform 0.3s ease-in-out,
-		opacity 0.5s ease;
+		transform 0.3s ease-in-out;
 }
 
-.add-btn:hover > span:last-of-type,
+.add-btn > span:active {
+    transform: scale(0.95);
+}
+
+/* .add-btn:hover > span:last-of-type,
 .add-btn:active > span:last-of-type {
 	transform: translateX(350%);
 	z-index: -1;
 	opacity: 0;
-}
+} */
 
 /* ------ MARK: Progressive disclosure ------ */
 
@@ -760,6 +765,11 @@ input[type="date"] {
 			color: white;
 		}
 	}
+}
+
+.radio-button-label:has(input[type="radio"]:focus-visible) {
+    outline: 3px solid var(--NS-Yellow);
+    outline-offset: 2px;
 }
 
 /* The END */

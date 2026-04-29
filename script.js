@@ -194,23 +194,23 @@ addBtn.addEventListener("click", () => {
                         </legend>
 
                         <div class="field1Ee">
-                            <label for="">BSN/RSIN<span>*</span></label>
+                            <label for="BSNnummerVerkrijger${verkrijgerCount}">BSN/RSIN<span>*</span></label>
                             <input type="text" name="BSNnummerVerkrijger${verkrijgerCount}" id="BSNnummerVerkrijger${verkrijgerCount}" minlength="8" maxlength="9" placeholder="" required class="BSNnumberInput">
                             <span class="show-error">Dit veld is verplicht!</span>
                         </div>
                         <div class="field1Ee">
-                            <label for="">Voorletters<span>*</span></label>
+                            <label for="voorlettersVerkrijger${verkrijgerCount}">Voorletters<span>*</span></label>
                             <input type="text" name="voorlettersVerkrijger${verkrijgerCount}" id="voorlettersVerkrijger${verkrijgerCount}" pattern="[a-zA-Z]{1,10}" required>
                             <span class="show-error">Dit veld is verplicht!</span>
                         </div>
 
                         <div class="field1Ee">
-                            <label for="">Tussenvoegsel(s)</label>
+                            <label for="tussenvoegselVerkrijger${verkrijgerCount}">Tussenvoegsel(s)</label>
                             <input type="text" name="tussenvoegselVerkrijger${verkrijgerCount}" id="tussenvoegselVerkrijger${verkrijgerCount}">
                         </div>
 
                         <div class="field1Ee">
-                            <label for="">Achternaam<span>*</span></label>
+                            <label for="achternaamVerkrijger${verkrijgerCount}">Achternaam<span>*</span></label>
                             <input type="text" name="achternaamVerkrijger${verkrijgerCount}" id="achternaamVerkrijger${verkrijgerCount}" pattern="[a-zA-Z]{1,30}" required>
                             <span class="show-error">Dit veld is verplicht!</span>
                         </div>
@@ -250,6 +250,20 @@ addBtn.addEventListener("click", () => {
 	addBtn.insertAdjacentHTML("beforebegin", newForm);
 
 	checkRemovebtn();
+
+    // Scroll to the newly added form
+    const allForms = document.querySelectorAll(".verkrijgerContainer");
+
+    const newAdded = allForms[allForms.length - 1];
+
+    if (newAdded) {
+        setTimeout(() => {
+            newAdded.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+            })
+        }, 100);
+    }
 });
 
 // Send animation onClick

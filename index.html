@@ -274,32 +274,31 @@
                     <fieldset class="fieldEeContainer">
                         <legend class="legendRemoveStyling">
                             <span>Verkrijger 1</span>
-                            <button type="button" class="remove-btn" onclick="this.parentElement.parentElement.remove()"
-                                ; checkRemovebtn();>
+                            <button type="button" class="remove-btn" onclick="this.parentElement.parentElement.remove(); checkRemovebtn();">
                                 Verwijder ✗
                             </button>
                         </legend>
                         <div class="field1Ee">
-                            <label for="">BSN/RSIN<span>*</span></label>
+                            <label for="BSNnummerVerkrijger1">BSN/RSIN<span>*</span></label>
                             <input type="text" name="BSNnummerVerkrijger1" id="BSNnummerVerkrijger1" minlength="8"
                                 maxlength="9" placeholder="" class="BSNnumberInput" autocomplete="off" />
                             <span class="show-error">BSN nummer is te kort</span>
                             <span class="BSN-error">BSN incorrect</span>
                         </div>
                         <div class="field1Ee">
-                            <label for="">Voorletters<span>*</span></label>
+                            <label for="voorlettersVerkrijger1">Voorletters<span>*</span></label>
                             <input type="text" name="voorlettersVerkrijger1" id="voorlettersVerkrijger1"
                                 pattern="[a-zA-Z]{1,10}" required />
                             <span class="show-error">Dit veld is verplicht!</span>
                         </div>
 
                         <div class="field1Ee">
-                            <label for="">Tussenvoegsel(s)</label>
+                            <label for="tussenvoegselVerkrijger1">Tussenvoegsel(s)</label>
                             <input type="text" name="tussenvoegselVerkrijger1" id="tussenvoegselVerkrijger1" />
                         </div>
 
                         <div class="field1Ee">
-                            <label for="">Achternaam<span>*</span></label>
+                            <label for="achternaamVerkrijger1">Achternaam<span>*</span></label>
                             <input type="text" name="achternaamVerkrijger1" id="achternaamVerkrijger1"
                                 pattern="[a-zA-Z]{1,30}" required />
                             <span class="show-error">Dit veld is verplicht!</span>
@@ -340,8 +339,7 @@
                     </fieldset>
                 </fieldset>
                 <button type="button" class="add-btn">
-                    <span>+</span>
-                    <span>Voeg een verkrijger toe</span>
+                    <span>+ Voeg een verkrijger toe</span>
                 </button>
             </fieldset>
             <button type="submit" class="send"><span>Versturen</span></button>
