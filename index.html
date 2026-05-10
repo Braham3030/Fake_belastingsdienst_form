@@ -21,6 +21,7 @@
             .field1E fieldset {
                 display: flex !important;
                 opacity: 1 !important;
+                visibility: visible !important;
                 height: auto !important;
                 pointer-events: all !important;
                 transform: translateY(0) !important;
@@ -57,7 +58,7 @@
         <h2>Aangifte Erfbelasting</h2>
         <p>Alle verplichte velden zijn aangegeven met een <span>*</span></p>
 
-        <form novalidate>
+        <form>
             <fieldset class="field1A">
                 <legend>Gegevens van de overledene</legend>
                 <div class="field1Aa">
@@ -99,12 +100,12 @@
                         overlijden?</legend>
                     <div class="radioBox">
                         <label class="radio-button-label" for="getrouwdNee">
-                            <input type="radio" name="getrouwd" id="getrouwdNee" value="Nee" />
+                            <input type="radio" name="getrouwd" id="getrouwdNee" value="Nee" required />
                             <span>Nee</span>
                         </label>
 
                         <label class="radio-button-label" for="getrouwdJa">
-                            <input type="radio" name="getrouwd" id="getrouwdJa" value="Ja" />
+                            <input type="radio" name="getrouwd" id="getrouwdJa" value="Ja" required />
                             <span>Ja</span>
                         </label>
                     </div>
@@ -115,13 +116,13 @@
                     <div class="radioBox">
                         <label for="vastgelegdeVoorwaardenNee" class="radio-button-label">
                             <input type="radio" name="vastgelegdeVoorwaarden" id="vastgelegdeVoorwaardenNee"
-                                value="Nee" />
+                                value="Nee" required />
                             <span>Nee</span>
                         </label>
 
                         <label for="vastgelegdeVoorwaardenJa" class="radio-button-label">
                             <input type="radio" name="vastgelegdeVoorwaarden" id="vastgelegdeVoorwaardenJa"
-                                value="Ja" />
+                                value="Ja" required />
                             <span>Ja</span>
                         </label>
                     </div>
@@ -130,11 +131,11 @@
                     <legend>Hadden de overledene en diens partner een finaal verrekenbeding?</legend>
                     <div class="radioBox">
                         <label for="finaalNee" class="radio-button-label">
-                            <input type="radio" name="finaal" id="finaalNee" value="Nee" />
+                            <input type="radio" name="finaal" id="finaalNee" value="Nee" required />
                             <span>Nee</span>
                         </label>
                         <label for="finaalJa" class="radio-button-label">
-                            <input type="radio" name="finaal" id="finaalJa" value="Ja" />
+                            <input type="radio" name="finaal" id="finaalJa" value="Ja" required />
                             <span>Ja</span>
                         </label>
                     </div>
@@ -152,11 +153,11 @@
                     <legend>Had de overledene kinderen?</legend>
                     <div class="radioBox">
                         <label for="kinderenNee" class="radio-button-label">
-                            <input type="radio" name="kinderen" id="kinderenNee" value="Nee" />
+                            <input type="radio" name="kinderen" id="kinderenNee" value="Nee" required />
                             <span>Nee</span>
                         </label>
                         <label for="kinderenJa" class="radio-button-label">
-                            <input type="radio" name="kinderen" id="kinderenJa" value="Ja" />
+                            <input type="radio" name="kinderen" id="kinderenJa" value="Ja" required />
                             <span>Ja</span>
                         </label>
                     </div>
@@ -167,13 +168,13 @@
                     <div class="radioBox">
                         <div class="nee">
                             <label for="kinderenOverledenNee" class="radio-button-label">
-                                <input type="radio" name="kinderenOverleden" id="kinderenOverledenNee" value="Nee" />
+                                <input type="radio" name="kinderenOverleden" id="kinderenOverledenNee" value="Nee" required />
                                 <span>Nee</span>
                             </label>
                         </div>
                         <div class="ja">
                             <label for="kinderenOverledenJa" class="radio-button-label">
-                                <input type="radio" name="kinderenOverleden" id="kinderenOverledenJa" value="Ja" />
+                                <input type="radio" name="kinderenOverleden" id="kinderenOverledenJa" value="Ja" required />
                                 <span>Ja</span>
                             </label>
                         </div>
@@ -183,11 +184,11 @@
                     <legend>Had dit overleden kind zelf kinderen?</legend>
                     <div class="radioBox">
                         <label for="kleinkinderenNee" class="radio-button-label">
-                            <input type="radio" name="kleinkinderen" id="kleinkinderenNee" value="Nee" />
+                            <input type="radio" name="kleinkinderen" id="kleinkinderenNee" value="Nee" required />
                             <span>Nee</span>
                         </label>
                         <label for="kleinkinderenJa" class="radio-button-label">
-                            <input type="radio" name="kleinkinderen" id="kleinkinderenJa" value="Ja" />
+                            <input type="radio" name="kleinkinderen" id="kleinkinderenJa" value="Ja" required />
                             <span>Ja</span>
                         </label>
                     </div>

@@ -1,6 +1,11 @@
 const form = document.querySelector("form");
 const input = form.querySelectorAll("input[type='text']");
 
+// Put novalidate on the form to prevent default styling
+
+form.setAttribute("novalidate", true);
+
+
 // Elfproef
 
 const BSNnumberInput = document.querySelectorAll(".BSNnumberInput");

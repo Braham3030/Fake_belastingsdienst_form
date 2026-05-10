@@ -19,7 +19,7 @@
 	--input-text-border-radius: 4px;
 	--input-text-focus-border-radius: 6px;
 	--form-border-radius: 8px;
-	--font-size-submit: 24px;
+	--font-size-submit: 28px;
 	--submit-width: 40em;
 }
 
@@ -717,7 +717,7 @@ input[type="date"] {
 	align-items: center;
 	justify-content: flex-start;
 	flex: 1;
-	padding: 1em 2em;
+	padding: 1.5em 3em;
 	border: 2px solid var(--NS-Blue);
 	border-radius: 8px;
 	cursor: pointer;
@@ -799,6 +799,8 @@ legend {
 	display: none !important;
 	transition: all 0.7s cubic-bezier(0.64, 0.04, 0.35, 1) !important;
 	overflow: hidden;
+	margin-bottom: 2em !important;
+	background-color: var(--NS-Yellow);
 }
 
 .send.sendAnimation {
@@ -907,5 +909,15 @@ input[type="date"]:user-invalid ~ .show-error,
 	100% {
 		opacity: 1;
 		transform: translateY(0) scale(1);
+	}
+}
+
+/* Reduce motions */
+
+@media (prefers-reduced-motion: reduce) {
+	* {
+		transition: none !important;
+		animation: none !important;
+		
 	}
 }
