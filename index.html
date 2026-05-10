@@ -23,8 +23,11 @@
                 opacity: 1 !important;
                 visibility: visible !important;
                 height: auto !important;
-                pointer-events: all !important;
+                pointer-events: auto !important;
                 transform: translateY(0) !important;
+                visibility: visible !important;
+                overflow: visible !important;
+                margin-top: 2em !important;
             }
 
             .saveBtn {
@@ -33,6 +36,14 @@
 
             .send {
                 display: flex !important;
+            }
+
+            .add-btn {
+                display: none !important;
+            }
+
+            .radio-button-label:has([type="radio"]:user-invalid) {
+                border: 2px solid red !important;
             }
         </style>
     </noscript>
@@ -266,7 +277,7 @@
                             <span>Verkrijger 1</span>
                             <button type="button" class="remove-btn" onclick="
 										this.closest('.verkrijgerContainer').remove();
-										checkRemovebtn();
+										checkRemovebtn(); reCalc();
 									">
                                 Verwijder ✗
                             </button>

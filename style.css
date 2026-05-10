@@ -129,7 +129,7 @@ main {
 	}
 
 	> form {
-		z-index: 10;
+		z-index: 1;
 		border-radius: var(--form-border-radius);
 		padding: 4px 8px;
 		margin: 0 auto;
