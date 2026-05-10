@@ -521,9 +521,7 @@ form .field1E > .verkrijgerContainer > .fieldEeContainer > .field1Ee:focus-withi
 }
 
 .field1C:has(fieldset:first-of-type input[value="Ja"]:checked) fieldset:nth-of-type(2),
-.field1C:has(fieldset:nth-of-type(2) input[value="Ja"]:checked) fieldset:nth-of-type(3),
-.field1C:has(fieldset:nth-of-type(2) input[value="Nee"]:checked) fieldset:nth-of-type(3) .field1C:has(fieldset:nth-of-type(3) input[value="Ja"]:checked) ~ .field1D,
-.field1C:has(fieldset:nth-of-type(3) input[value="Nee"]:checked) ~ .field1D {
+.field1C:has(fieldset:nth-of-type(2) input[value="Ja"]:checked) fieldset:nth-of-type(3) {
 	opacity: 1;
 	pointer-events: all;
 	display: flex;
@@ -543,7 +541,9 @@ form .field1E > .verkrijgerContainer > .fieldEeContainer > .field1Ee:focus-withi
 
 /* Fieldset1D */
 
-.field1C:has(fieldset:first-of-type input[value="Nee"]:checked) ~ .field1D {
+.field1C:has(fieldset:first-of-type input[value="Nee"]:checked) ~ .field1D,
+.field1C:has(fieldset:nth-of-type(2) input[value="Nee"]:checked) ~ .field1D,
+.field1C:has(fieldset:nth-of-type(3) input[value="Nee"]:checked) ~ .field1D {
 	opacity: 1;
 	pointer-events: all;
 	display: flex;
@@ -918,6 +918,6 @@ input[type="date"]:user-invalid ~ .show-error,
 	* {
 		transition: none !important;
 		animation: none !important;
-		
+
 	}
 }
