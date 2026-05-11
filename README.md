@@ -28,4 +28,4 @@ Process verslag:
 
 * Na verkregen feedback, heb ik de "radio" knoppen anders gestyled. Ik heb ervoor gekozen om een grote duidelijke knop hiervan te maken. Hierdoor verbeterd de UX, omdat de gebruiker meer klikruimte heeft om een optie aan te klikken.
 * Ook is de "width" aangepast van het formulier op basis van de vergregen feedback. Ik heb de "width" kleiner gemaakt, zodat de knoppen niet te lang worden en ook de overzicht duidelijk blijft. 
-* Ik heb een tekst toegevoegd boenaan de pagina. Hierin wordt beschreven wat het sterretje (*) betekent. Hiermee geef ik de gebruiker van te voren informatie over de onbekende elementen in het formulier. 
+* Ik heb een tekst toegevoegd boven aan de pagina. Hierin wordt beschreven wat het sterretje (*) betekent. Hiermee geef ik de gebruiker van te voren informatie over de onbekende elementen in het formulier. 
